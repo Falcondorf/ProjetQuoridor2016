@@ -1,0 +1,9 @@
+Classes a implémenter:
+	Classes: 	Player
+				Board
+				CasePion
+				CaseMur
+				
+	
+	Enum: 	Side (N,S,O,E,NO, NE,SO,SE, BLANK)
+			
