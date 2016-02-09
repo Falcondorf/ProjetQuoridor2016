@@ -15,7 +15,8 @@ HEADERS += \
     frame.h \
     game.h \
     main.h \
-    direction.h
+    direction.h \
+    Case.h
 
 DISTFILES +=
 
