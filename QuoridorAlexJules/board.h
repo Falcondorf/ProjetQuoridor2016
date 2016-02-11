@@ -9,6 +9,7 @@ private:
     std::vector<std::vector<Frame *>> plateau;
 public:
     inline Board(unsigned len);
+    inline getLen();
 };
 
 Board::Board(unsigned len) : len_(len)
@@ -19,5 +20,9 @@ Board::Board(unsigned len) : len_(len)
     //assigner les cases
 
 }
+ Board::getLen(){
+    return len_;
+}
+
 #endif // BOARD
 

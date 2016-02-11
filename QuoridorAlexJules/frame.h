@@ -13,10 +13,10 @@ class PlayerFrame : public Frame{
 private:
     bool hasPiece_;
     Side side_;
-    Player player_;
+    Player  player_;
 
 public:
-    PlayerFrame(unsigned row, unsigned column);
+    PlayerFrame(unsigned row, unsigned column, unsigned size);
 };
 
 
