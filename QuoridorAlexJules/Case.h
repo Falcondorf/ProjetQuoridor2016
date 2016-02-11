@@ -47,6 +47,7 @@ Plateau::Plateau(unsigned len) : len_(len)
     plateau=vector<vector<Case *>>(hidden_len, vector<Case *>(hidden_len, nullptr);
     //TODO :
     //assigner les cases
+
 }
 
 //TODO :

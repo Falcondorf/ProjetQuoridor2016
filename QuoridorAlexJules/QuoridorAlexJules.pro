@@ -3,20 +3,21 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp \
-    player.cpp \
-    board.cpp \
-    frame.cpp \
-    game.cpp
+SOURCES += \
+    Board.cpp \
+    Frame.cpp \
+    Game.cpp \
+    Main.cpp \
+    Player.cpp
 
 HEADERS += \
-    player.h \
-    board.h \
-    frame.h \
-    game.h \
-    main.h \
-    direction.h \
-    Case.h
+    Case.h \
+    Frame.h \
+    Game.h \
+    Main.h \
+    Player.h \
+    Board.h \
+    Side.h
 
 DISTFILES +=
 

@@ -1,17 +1,16 @@
 #ifndef PLAYER
 #define PLAYER
-
-class player{
+#include <string>
+class Player{
 private:
-    string nom;
-    unsigned number;
-    boolean isPlaying;
-    boolean win = false;
-    unsigned WallStock;
-
-
-
-
+    std::string name_;
+    unsigned number_;
+    bool isPlaying_;
+    bool win_ = false;
+    unsigned wallstock_;
+public:
+    Player(std::string thename, unsigned num, unsigned nbOfPlayer, unsigned boardSize) ;
+    
 };
 
 
