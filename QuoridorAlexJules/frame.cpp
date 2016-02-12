@@ -1,5 +1,6 @@
 #include "Frame.h"
 #include "Board.h"
+#include "Side.h"
 using namespace std;
 
 PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
@@ -7,29 +8,38 @@ PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
     if(row==0){
         if(column==0){
             //nord ouest
-        }else if(column == Board::len_){
+            side_ =Side::NorthWest;
+        }else if(column == size){
             //nord est
+            side_ =Side::NorthEast;
         }else{
             //nord
+            side_ =Side::North;
         }
-    }else if(row ==Board::getlen()){
+    }else if(row == size){
         if(column==0){
             //sud ouest
-        }else if(column == Board::len_){
+            side_ =Side::SouthWest;
+        }else if(column == size){
             //sud est
+            side_ =Side::SouthEast;
         }else{
             //sud
+            side_ =Side::South;
         }
     }else if(column==0){
         //ouest
-    }else if(column == Board::len_){
+        side_ =Side::West;
+    }else if(column == size){
         //est
+        side_ =Side::East;
     }else{
         //blank
+        side_ =Side::Blank;
     }
 
 
-    if(row ==Board::len_ && column == Board::len_ ){
+    if(row ==size && column == size ){
         //sud est
     }
 

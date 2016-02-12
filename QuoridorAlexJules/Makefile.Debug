@@ -13,7 +13,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DUNICODE
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
-CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
+CXXFLAGS      = -pipe -fno-keep-inline-dllexport -std=c++0x -g -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I"." -I"C:\Qt\5.4\mingw491_32\mkspecs\win32-g++" 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,console -mthreads
@@ -130,7 +130,8 @@ debug/Board.o: Board.cpp
 
 debug/Frame.o: Frame.cpp Frame.h \
 		Side.h \
-		Player.h
+		Player.h \
+		Board.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Frame.o Frame.cpp
 
 debug/Game.o: Game.cpp 

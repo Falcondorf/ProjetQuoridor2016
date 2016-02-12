@@ -2,7 +2,7 @@
 #define SIDE
 
 enum class Side{
-    North,NorthWest,NorthEast,South,SouthWest,SouthEast,Blank
+    North,NorthWest,NorthEast,South,SouthWest,SouthEast,West,East,Blank
 };
 
 #endif // SIDE

@@ -25,7 +25,7 @@ private:
     bool isWalled_;
 
 public:
-    WallFrame();
+    inline WallFrame();
 };
 
 WallFrame::WallFrame() : Frame()
