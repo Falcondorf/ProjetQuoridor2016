@@ -4,6 +4,10 @@
 using namespace std;
 
 PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
+    if(row > size || column > size){
+        throw "incorrect position";
+    }
+    hasPiece_ = false;
 
     if(row==0){
         if(column==0){
@@ -39,8 +43,5 @@ PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
     }
 
 
-    if(row ==size && column == size ){
-        //sud est
-    }
 
 }
