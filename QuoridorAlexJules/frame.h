@@ -14,11 +14,9 @@ private:
     bool hasPiece_;
     Side side_;
 
-
 public:
-
-
     PlayerFrame(unsigned row, unsigned column, unsigned size);
+
 };
 
 

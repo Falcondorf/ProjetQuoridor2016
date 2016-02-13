@@ -14,10 +14,4 @@ Player::Player(std::string thename,unsigned num,unsigned nbOfPlayer, unsigned bo
     default:
         throw "invalid";
     }
-
-    if (nbOfPlayer == 1) {
-        isPlaying_=true;
-    } else {
-        isPlaying_=false;
-    }
 }

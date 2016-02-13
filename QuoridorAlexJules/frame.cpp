@@ -41,7 +41,4 @@ PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
         //blank
         side_ =Side::Blank;
     }
-
-
-
 }
