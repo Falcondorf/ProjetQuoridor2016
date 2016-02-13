@@ -128,7 +128,10 @@ debug/Frame.o: Frame.cpp Frame.h \
 debug/Game.o: Game.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Game.o Game.cpp
 
-debug/Main.o: Main.cpp 
+debug/Main.o: Main.cpp Board.h \
+		Frame.h \
+		Side.h \
+		Player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Main.o Main.cpp
 
 debug/Player.o: Player.cpp Player.h

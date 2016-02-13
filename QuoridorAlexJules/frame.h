@@ -16,10 +16,12 @@ private:
 
 public:
     PlayerFrame(unsigned row, unsigned column, unsigned size);
-
+    inline Side getSide();
 };
 
-
+Side PlayerFrame::getSide(){
+    return side_;
+}
 
 class WallFrame : public Frame{
 private:
@@ -27,10 +29,12 @@ private:
 
 public:
     inline WallFrame();
+    inline bool isWalled();
 };
 
-WallFrame::WallFrame() : Frame()
-{
+WallFrame::WallFrame() : Frame(){}
+bool WallFrame::isWalled(){
+    return isWalled_;
 }
 
 #endif // FRAME

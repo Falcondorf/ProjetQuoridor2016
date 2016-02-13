@@ -128,7 +128,10 @@ release/Frame.o: Frame.cpp Frame.h \
 release/Game.o: Game.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Game.o Game.cpp
 
-release/Main.o: Main.cpp 
+release/Main.o: Main.cpp Board.h \
+		Frame.h \
+		Side.h \
+		Player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Main.o Main.cpp
 
 release/Player.o: Player.cpp Player.h
