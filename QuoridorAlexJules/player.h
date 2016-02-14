@@ -1,6 +1,7 @@
 #ifndef PLAYER
 #define PLAYER
 #include <string>
+
 class Player{
 private:
     std::string name_;
@@ -10,17 +11,17 @@ private:
 
 public:
     inline Player();
-
     Player(std::string thename, unsigned num, unsigned nbOfPlayer, unsigned boardSize) ;
     inline std::string getName();
     inline unsigned getNum();
     inline bool hasWon();
     inline unsigned getWallstock();
-    
+    void pickWall();
+
 };
 
 Player::Player(){}
-std::string Player::getName(){
+    std::string Player::getName(){
     return name_;
 }
 unsigned Player::getNum(){
@@ -32,6 +33,7 @@ bool Player::hasWon(){
 unsigned Player::getWallstock(){
     return wallstock_;
 }
+
 
 #endif // PLAYER
 

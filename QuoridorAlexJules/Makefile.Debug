@@ -134,7 +134,8 @@ debug/Main.o: Main.cpp Board.h \
 		Player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Main.o Main.cpp
 
-debug/Player.o: Player.cpp Player.h
+debug/Player.o: Player.cpp Player.h \
+		QuoridorExceptions.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Player.o Player.cpp
 
 ####### Install

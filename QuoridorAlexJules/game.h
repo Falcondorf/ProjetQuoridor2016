@@ -2,7 +2,6 @@
 #define GAME
 #include "Board.h"
 #include <vector>
-#include <string>
 
 class Game {
 private:

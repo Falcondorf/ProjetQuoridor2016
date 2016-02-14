@@ -134,7 +134,8 @@ release/Main.o: Main.cpp Board.h \
 		Player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Main.o Main.cpp
 
-release/Player.o: Player.cpp Player.h
+release/Player.o: Player.cpp Player.h \
+		QuoridorExceptions.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Player.o Player.cpp
 
 ####### Install

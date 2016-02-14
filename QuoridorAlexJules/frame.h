@@ -17,6 +17,8 @@ private:
 public:
     PlayerFrame(unsigned row, unsigned column, unsigned size);
     inline Side getSide();
+    std::string toString();
+
 };
 
 Side PlayerFrame::getSide(){
@@ -30,6 +32,7 @@ private:
 public:
     inline WallFrame();
     inline bool isWalled();
+    std::string toString();
 };
 
 WallFrame::WallFrame() : Frame(){}

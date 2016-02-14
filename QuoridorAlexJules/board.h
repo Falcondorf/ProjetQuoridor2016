@@ -13,6 +13,7 @@ private:
 public:
     inline Board(unsigned len);
     inline int getLen();
+    string toString();
 };
 
 

@@ -42,3 +42,19 @@ PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
         side_ =Side::Blank;
     }
 }
+
+string PlayerFrame::toString(){
+    if (hasPiece_){
+        return "X";
+    } else {
+        return "_";
+    }
+}
+
+string WallFrame::toString(){
+    if (isWalled()){
+        return "H";
+    } else {
+        return " ";
+    }
+}

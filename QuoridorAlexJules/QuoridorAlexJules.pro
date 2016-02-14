@@ -15,7 +15,8 @@ HEADERS += \
     Game.h \
     Player.h \
     Board.h \
-    Side.h
+    Side.h \
+    QuoridorExceptions.h
 
 DISTFILES +=
 
