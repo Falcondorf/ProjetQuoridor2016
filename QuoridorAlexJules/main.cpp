@@ -27,8 +27,8 @@ int main()
     }
 
 
-    PlayerFrame frm(1, 1, 9);
-    cout << frm.toString() << " + Side: "/*<< frm.getSide() */<< endl;
+    PlayerFrame frm(0, 0, 9);
+    cout << frm.toString() << " + Side: "<< toString(frm.getSide()) << endl;
     return 0;
 }
 

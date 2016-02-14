@@ -8,7 +8,8 @@ SOURCES += \
     Frame.cpp \
     Game.cpp \
     Main.cpp \
-    Player.cpp
+    Player.cpp \
+    Side.cpp
 
 HEADERS += \
     Frame.h \
