@@ -19,9 +19,9 @@ string Board::toString(){
 
 //}
 
-    for (int i=0;i<=getLen();i++){
+    for (int i=0;i<=getLen()-1;i++){
          str += "\n";
-        for (int j=0;j<=getLen();j++){
+        for (int j=0;j<=getLen()-1;j++){
             if(plateau_[i][j] == nullptr){
                 str += "N ";
             }else {
