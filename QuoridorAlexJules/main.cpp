@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+
     Player j1("Alex", 1, 4, 9);
 
     cout << j1.getName() << ", numero: " << j1.getNum() << " a gagne? ";
@@ -29,6 +30,13 @@ int main()
 
     PlayerFrame frm(0, 0, 9);
     cout << frm.toString() << " + Side: "<< toString(frm.getSide()) << endl;
+
+    Frame * frm2;
+    frm2 = &frm;
+    cout << frm2->toString() << endl;
+
+    Board plat(9);
+    cout << plat.toString() << endl;
     return 0;
 }
 

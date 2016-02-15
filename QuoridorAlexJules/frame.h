@@ -6,6 +6,8 @@
 class Frame{
 protected:
     Frame()=default;
+public:
+    virtual std::string toString()=0;
 
 };
 

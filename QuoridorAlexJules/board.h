@@ -11,7 +11,7 @@ private:
     unsigned len_;
     vector<vector<Frame *> > plateau_;
 public:
-    inline Board(unsigned len);
+    Board(unsigned len);
     inline int getLen();
     string toString();
 };
