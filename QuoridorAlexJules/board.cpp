@@ -9,14 +9,14 @@ Board::Board(unsigned len) : len_(len)
         std::cout << endl;
         for (unsigned j=0;j<hidden_len;j++){
             if(i%2==0 && j%2==0){
-               PlayerFrame pf = PlayerFrame(i,j,hidden_len);
-               plateau_[i][j]= &pf;
-               std::cout << plateau_[i][j]->toString();
+               PlayerFrame * pf = new PlayerFrame(i,j,hidden_len);
+               plateau_[i][j]= pf;
 
+// pf meurt
             }else{
-                WallFrame wf = WallFrame();
-                plateau_[i][j]= &wf;
-                std::cout << plateau_[i][j]->toString();
+                WallFrame * wf = new WallFrame();
+                plateau_[i][j]= wf;
+
             }
         }
     }
