@@ -37,7 +37,9 @@ public:
     std::string toString();
 };
 
-WallFrame::WallFrame() : Frame(){}
+WallFrame::WallFrame() : Frame(){
+    isWalled_=false;
+}
 bool WallFrame::isWalled(){
     return isWalled_;
 }

@@ -1,4 +1,5 @@
 #include "Frame.h"
+#include <iostream>
 #include "Board.h"
 #include "Side.h"
 using namespace std;
