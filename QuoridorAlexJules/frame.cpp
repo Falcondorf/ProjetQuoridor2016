@@ -54,7 +54,7 @@ string PlayerFrame::toString(){
 
 string WallFrame::toString(){
     if (isWalled()){
-        return "H";
+        return "#";
     } else {
         return " ";
     }

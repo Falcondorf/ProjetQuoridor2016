@@ -9,18 +9,14 @@ Board::Board(unsigned len) : len_(len)
         std::cout << endl;
         for (unsigned j=0;j<hidden_len;j++){
             if(i%2==0 && j%2==0){
-                //joueur
                PlayerFrame pf = PlayerFrame(i,j,hidden_len);
-              // std::cout << pf.toString();
-                plateau_[i][j]= &pf;
-                std::cout << plateau_[i][j]->toString();
+               plateau_[i][j]= &pf;
+               std::cout << plateau_[i][j]->toString();
 
             }else{
                 WallFrame wf = WallFrame();
-               //  std::cout << wf.toString();
-                 plateau_[i][j]= &wf;
-                 std::cout << plateau_[i][j]->toString();
-                //mur
+                plateau_[i][j]= &wf;
+                std::cout << plateau_[i][j]->toString();
             }
         }
     }
@@ -29,22 +25,20 @@ Board::Board(unsigned len) : len_(len)
 
 string Board::toString(){
     string str="";
-    std::cout << "debug :"<<str;
     for (int i=0;i<getLen()*2-1;i++){
          str += "\n";
-        std::cout << "debug :"<<str;
         for (int j=0;j<getLen()*2-1;j++){
-             std::cout << "debug :"<<str;
             if(plateau_[i][j] == nullptr){
-                 std::cout << "debug :"<<str;
                 str += "N ";
             }else {
-                 std::cout << "debug :"<<str;
                 str += plateau_[i][j]->toString();
-                 std::cout << "debug :"<<str;
                 str+=" ";
             }
         }
     }
     return str;
+}
+
+void Board::placeWall(unsigned row, unsigned column, unsigned direction){
+    plateau_[row][column];//->placeWall();
 }

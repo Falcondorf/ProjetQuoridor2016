@@ -13,6 +13,7 @@ private:
 public:
     Board(unsigned len);
     inline int getLen();
+    void placeWall(unsigned row, unsigned column, unsigned direction);
     string toString();
 };
 

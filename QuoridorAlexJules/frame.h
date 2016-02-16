@@ -34,6 +34,7 @@ private:
 public:
     inline WallFrame();
     inline bool isWalled();
+    inline void placeWall();
     std::string toString();
 };
 
@@ -42,6 +43,9 @@ WallFrame::WallFrame() : Frame(){
 }
 bool WallFrame::isWalled(){
     return isWalled_;
+}
+void WallFrame::placeWall(){
+    isWalled_=true;
 }
 
 #endif // FRAME

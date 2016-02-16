@@ -35,7 +35,8 @@ int main()
     frm2 = &frm;
     cout << frm2->toString() << endl;
 
-    Board plat(9);
+    Board plat(6);
+
     cout << plat.toString() << endl;
     return 0;
 }
