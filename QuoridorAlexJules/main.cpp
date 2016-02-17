@@ -34,9 +34,12 @@ int main()
     Frame * frm2;
     frm2 = &frm;
     cout << frm2->toString() << endl;
-
+   // Side * direction = new Side();
     Board plat(6);
 
+    cout << plat.toString() << endl;
+    plat.place(1,1,1);
+    plat.place(2,2,1);
     cout << plat.toString() << endl;
     return 0;
 }

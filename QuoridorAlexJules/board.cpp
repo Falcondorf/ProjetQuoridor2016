@@ -26,7 +26,7 @@ Board::Board(unsigned len) : len_(len)
 
 string Board::toString(){
     string str="";
-    for (int i=0;i<getLen()*2-1;i++){        
+    for (int i=0;i<getLen()*2-1;i++){
          str += "\n";
          for(int a=0;a<getLen()*7.7;a++){
              str+="-";
@@ -51,6 +51,6 @@ string Board::toString(){
     return str;
 }
 
-void Board::placeWall(unsigned row, unsigned column, unsigned direction){
-    plateau_[row][column];//->placeWall();
+void Board::place(unsigned row, unsigned column, unsigned direction){  ;
+    plateau_[row][column]->place();
 }

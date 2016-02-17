@@ -58,4 +58,5 @@ string WallFrame::toString(){
     } else {
         return " ";
     }
+
 }
