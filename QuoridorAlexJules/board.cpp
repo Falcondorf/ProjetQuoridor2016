@@ -12,6 +12,7 @@ Board::Board(unsigned len) : len_(len)
                PlayerFrame * pf = new PlayerFrame(i,j,hidden_len);
                plateau_[i][j]= pf;
 
+
 // pf meurt
             }else{
                 WallFrame * wf = new WallFrame();
@@ -25,17 +26,28 @@ Board::Board(unsigned len) : len_(len)
 
 string Board::toString(){
     string str="";
-    for (int i=0;i<getLen()*2-1;i++){
+    for (int i=0;i<getLen()*2-1;i++){        
          str += "\n";
+         for(int a=0;a<getLen()*7.7;a++){
+             str+="-";
+         }
+
+        str += "\n";
         for (int j=0;j<getLen()*2-1;j++){
             if(plateau_[i][j] == nullptr){
                 str += "N ";
             }else {
+
+
+                str+=" | ";
                 str += plateau_[i][j]->toString();
-                str+=" ";
+
             }
+
         }
+        str+=" |";
     }
+
     return str;
 }
 
