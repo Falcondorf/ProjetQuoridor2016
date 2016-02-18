@@ -35,8 +35,12 @@ int main()
     frm2 = &frm;
     cout << frm2->toString() << endl;
    // Side * direction = new Side();
-    Board plat(6);
-
+    try{
+        Board platErr(6);
+    }catch (std::exception const& e){
+        cerr << "ERROR: " << e.what() << endl;
+    }
+    Board plat(7);
     cout << plat.toString() << endl;
     plat.place(1,1,1);
     plat.place(2,2,1);
