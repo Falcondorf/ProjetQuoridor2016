@@ -9,6 +9,7 @@ protected:
 public:
     virtual std::string toString()=0;
     virtual void place()=0;
+    virtual bool isFree()=0;
 
 };
 
@@ -20,8 +21,10 @@ private:
 public:
     PlayerFrame(unsigned row, unsigned column, unsigned size);
     inline Side getSide();
-    std::string toString();
     inline void place();
+    bool isFree();
+    std::string toString();
+
 };
 
 void PlayerFrame::place(){
@@ -40,6 +43,7 @@ public:
     inline WallFrame();
     inline bool isWalled();
     inline void place();
+    bool isFree();
     std::string toString();
 };
 

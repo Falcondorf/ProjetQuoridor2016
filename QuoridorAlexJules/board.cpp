@@ -1,6 +1,8 @@
 #include "Frame.h"
 #include <iostream>
 #include "Board.h"
+#include "QuoridorExceptions.h"
+
 Board::Board(unsigned len) : len_(len)
 {
     unsigned hidden_len=len*2-1;
@@ -37,20 +39,27 @@ string Board::toString(){
             if(plateau_[i][j] == nullptr){
                 str += "N ";
             }else {
-
-
                 str+=" | ";
                 str += plateau_[i][j]->toString();
-
             }
-
         }
         str+=" |";
     }
 
     return str;
 }
-
+//Peut-être devoir moduler cette algo pour différencier les placements de pions et de murs
 void Board::place(unsigned row, unsigned column, unsigned direction){  ;
-    plateau_[row][column]->place();
+    //Envisager cette condition afin de vérifier qu'on puisse placer un mur sans problème
+    //Dans le cas d'un pion, traitement différent lié aux obstacles etc...
+    switch(direction){
+    case 0:
+        //Placement de pièce à l'horizontale à prévoir
+        plateau_[row][column]->place();break;
+    case 1:
+        //Placement de pièce à la verticale à prévoir
+        plateau_[row][column]->place();break;
+    default:
+        throw QuoridorExceptions(1,"Incorrect case of direction: Only 0 or 1",1);
+     }
 }

@@ -52,11 +52,26 @@ string PlayerFrame::toString(){
     }
 }
 
+bool PlayerFrame::isFree(){
+    if (hasPiece_==true){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 string WallFrame::toString(){
     if (isWalled()){
         return "#";
     } else {
         return " ";
     }
+}
 
+bool WallFrame::isFree(){
+    if (isWalled()==true){
+        return false;
+    }else{
+        return true;
+    }
 }

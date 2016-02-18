@@ -1,12 +1,14 @@
 #ifndef PLAYER
 #define PLAYER
 #include <string>
+#include "Side.h"
 
 class Player{
 private:
     std::string name_;
     unsigned number_;
     bool win_ = false;
+    Side sideObjective;
     unsigned wallstock_;
 
 public:
@@ -17,6 +19,7 @@ public:
     inline bool hasWon();
     inline unsigned getWallstock();
     void pickWall();
+
 
 };
 
