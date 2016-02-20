@@ -55,8 +55,8 @@ string Board::toString(){
 void Board::place(unsigned row, unsigned column, unsigned direction){  ;
     //Envisager cette condition afin de vérifier qu'on puisse placer un mur sans problème
     //Dans le cas d'un pion, traitement différent lié aux obstacles etc...
-    //row ET column DOIVENT ETRE TOUT LES DEUX IMPAIRES !!!! +++
-     unsigned hidden_len=len_*2-1;
+
+     unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
      if (row%2!=0 && column>=1 && column < hidden_len-1 && direction==0){
          plateau_[row][column]->place();
          plateau_[row][column-1]->place();
@@ -71,5 +71,10 @@ void Board::place(unsigned row, unsigned column, unsigned direction){  ;
 }
 
 void Board::place(unsigned row, unsigned column){
+    unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
+    if (row%2==0 && column%2==0 && row<=hidden_len && column <= hidden_len){
         plateau_[row][column]->place();
+    }else{
+        throw QuoridorExceptions(1,"pawn wrongly placed",1);
+    }
 }

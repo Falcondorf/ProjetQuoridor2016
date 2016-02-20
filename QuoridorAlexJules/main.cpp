@@ -43,7 +43,8 @@ int main()
     Board plat(7);
     cout << plat.toString() << endl;
     plat.place(1,11,1); // par surcharge on place un mur vertical
-   // plat.place(2,2);//on place un mur car on indique avec le 3eme param la direction
+    plat.place(0,0);//on place un mur car on indique avec le 3eme param la direction
+
     cout << plat.toString() << endl;
     return 0;
 }
