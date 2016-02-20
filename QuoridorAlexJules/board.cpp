@@ -30,23 +30,29 @@ Board::Board(unsigned len) : len_(len)
 }
 
 string Board::toString(){
-    string str="";
-
+    string str="  ";
    for (int f=0;f<getLen()*2-1;f++){
-       str += "   ";
-       str += std::to_string(f);
+       if (f< 10){
+            str += "   ";
+             str += std::to_string(f);
+       }else{
+           str += "  ";
+          str += std::to_string(f);
+       }
    }
-
     for (int i=0;i<getLen()*2-1;i++){
-
          str +=" \n";
-
-         for(int a=0;a<getLen()*7.7;a++){
+         for(int a=0;a<getLen()*7.9;a++){
              str+="-";
          }
         str += "\n";
-        str += std::to_string(i);
-        for (int j=0;j<getLen()*2-1;j++){          
+        if (i<10){
+           str +=" ";
+           str += std::to_string(i);
+        }else{
+             str += std::to_string(i);
+        }
+        for (int j=0;j<getLen()*2-1;j++){
             if(plateau_[i][j] == nullptr){
                 str += "N ";
             }else {
@@ -54,10 +60,8 @@ string Board::toString(){
                 str += plateau_[i][j]->toString();
             }
         }
-
         str+=" |";
     }
-
     return str;
 }
 //Peut-être devoir moduler cette algo pour différencier les placements de pions et de murs

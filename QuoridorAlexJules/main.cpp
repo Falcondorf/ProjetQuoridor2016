@@ -45,7 +45,7 @@ int main()
     }catch (std::exception const& e){
         cerr << "ERROR: " << e.what() << endl;
     }
-    Board plat(9);
+    Board plat(5);
     cout << plat.toString() << endl;
 //    plat.place(1,11,1); // par surcharge on place un mur vertical
 //    plat.place(1,9,0);
