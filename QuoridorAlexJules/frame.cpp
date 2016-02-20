@@ -53,11 +53,7 @@ string PlayerFrame::toString(){
 }
 
 bool PlayerFrame::isFree(){
-    if (hasPiece_==true){
-        return false;
-    }else{
-        return true;
-    }
+    return !hasPiece_;
 }
 
 string WallFrame::toString(){
@@ -69,9 +65,5 @@ string WallFrame::toString(){
 }
 
 bool WallFrame::isFree(){
-    if (isWalled()==true){
-        return false;
-    }else{
-        return true;
-    }
+    return isWalled();
 }
