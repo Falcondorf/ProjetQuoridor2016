@@ -5,8 +5,8 @@
 
 Board::Board(unsigned len) : len_(len)
 {
-    if(len%2==0 && len>5 && len <19){
-        throw QuoridorExceptions(1,"Incorrect input of size(Only 5 to 19 and not pair",1);
+    if(len%2==0 || len<5 || len >19){
+        throw QuoridorExceptions(1,"Incorrect input of size(Only 5 to 19 and not pair)",1);
     }
     unsigned hidden_len=len*2-1;
     plateau_=std::vector<std::vector<Frame *> > (hidden_len, std::vector<Frame *>(hidden_len, nullptr));

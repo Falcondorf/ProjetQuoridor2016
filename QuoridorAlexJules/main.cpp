@@ -9,7 +9,7 @@ int main()
     Player j1("Alex", 1, 4, 9);
 
     try{
-        Player jerr("Error", 4, 5, 9);
+        //Player jerr("Error", 4, 5, 9);
     }catch(std::exception const& e){
         cerr << "ERROR: "<< e.what() << endl;
     }
@@ -45,7 +45,7 @@ int main()
     }catch (std::exception const& e){
         cerr << "ERROR: " << e.what() << endl;
     }
-    Board plat(7);
+    Board plat(9);
     cout << plat.toString() << endl;
 //    plat.place(1,11,1); // par surcharge on place un mur vertical
 //    plat.place(1,9,0);
