@@ -14,7 +14,6 @@ public:
     Board(unsigned len);
     inline int getLen();
     void place(unsigned row, unsigned column, unsigned direction);
-            //unsigned direction ou -> booléen Sinon -> nouvelle classe enum?
     void place(unsigned row, unsigned column);
     void empty(unsigned row, unsigned column);
     string toString();

@@ -1,12 +1,11 @@
 #include <iostream>
-#include "Board.h"
-#include "Frame.h"
+#include "Game.h"
 
 using namespace std;
 
 int main()
 {
-    Player j1("Alex", 1, 4, 9);
+    Player j1("Alex", 1, 4, 5);
 
     try{
         Player jerr("Error", 7, 3, 9);
@@ -21,7 +20,7 @@ int main()
     cout << "Nombre de mur restant: " << j1.getWallstock() << endl;
     j1.pickWall();
     cout << "Nombre de mur restant: " << j1.getWallstock() << endl;
-    for (int i=1; i<=4; i++){
+    for (int i=1; i<=2; i++){
         j1.pickWall();
     }
     cout << "Nombre de mur restant: " << j1.getWallstock() << endl;
@@ -31,7 +30,7 @@ int main()
     }catch(std::exception const& e){
         cerr << "ERROR: "<< e.what() << endl;
     }
-
+    cout << "Posi: " << j1.getPos().first << ", " << j1.getPos().second << endl;
 
     PlayerFrame frm(0, 0, 9);
     cout << frm.toString() << " + Side: "<< toString(frm.getSide()) << endl;
@@ -52,6 +51,11 @@ int main()
 //    plat.place(0,0); //on place un pion
 
    // cout << plat.toString() << endl;
+    Player j2("Jules", 2, 4, 5);
+    Player j3("Marty", 3, 4, 5);
+    Player j4("Vanessa", 4, 4, 5);
+    //Game testG(j1, j2, j3, j4, 5);
+    //cout << testG.board_->toString() << endl;
     return 0;
 }
 

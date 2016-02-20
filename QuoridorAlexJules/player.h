@@ -21,6 +21,7 @@ public:
     inline unsigned getWallstock();
     void pickWall();
     inline std::pair<unsigned, unsigned> getPos();
+    inline void setPos(unsigned row, unsigned column);
 
 };
 
@@ -40,6 +41,11 @@ unsigned Player::getWallstock(){
 
 std::pair<unsigned, unsigned> Player::getPos(){
     return pos_;
+}
+
+void Player::setPos(unsigned row, unsigned column){
+    pos_.first = row;
+    pos_.second = column;
 }
 
 #endif // PLAYER
