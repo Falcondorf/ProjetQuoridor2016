@@ -31,14 +31,22 @@ Board::Board(unsigned len) : len_(len)
 
 string Board::toString(){
     string str="";
+
+   for (int f=0;f<getLen()*2-1;f++){
+       str += "   ";
+       str += std::to_string(f);
+   }
+
     for (int i=0;i<getLen()*2-1;i++){
-         str += "\n";
+
+         str +=" \n";
+
          for(int a=0;a<getLen()*7.7;a++){
              str+="-";
          }
-
         str += "\n";
-        for (int j=0;j<getLen()*2-1;j++){
+        str += std::to_string(i);
+        for (int j=0;j<getLen()*2-1;j++){          
             if(plateau_[i][j] == nullptr){
                 str += "N ";
             }else {
@@ -46,6 +54,7 @@ string Board::toString(){
                 str += plateau_[i][j]->toString();
             }
         }
+
         str+=" |";
     }
 
