@@ -6,8 +6,13 @@ using namespace std;
 
 int main()
 {
-
     Player j1("Alex", 1, 4, 9);
+
+    try{
+        Player jerr("Error", 4, 5, 9);
+    }catch(std::exception const& e){
+        cerr << "ERROR: "<< e.what() << endl;
+    }
 
     cout << j1.getName() << ", numero: " << j1.getNum() << " a gagne? ";
     cout << boolalpha;

@@ -15,6 +15,26 @@ Player::Player(std::string thename,unsigned num,unsigned nbOfPlayer, unsigned bo
     default:
         throw "invalid";
     }
+
+    switch (nbOfPlayer){
+       case 4:
+           if(num == 3){
+               sideObjective_ = Side::West;
+           } else if(num == 4){
+               sideObjective_ = Side::East;
+           }
+       case 2:
+           if(num == 1){
+               sideObjective_ = Side::North;
+           } else if (num == 2){
+               sideObjective_ = Side::South;
+           } else {
+               throw QuoridorExceptions(1,"Incorrect order number for player",1);
+           }
+           break;
+       default:
+           throw QuoridorExceptions(2,"Incorrect number of player provided",2);
+       }
  }
 void Player::pickWall(){
     if (wallstock_==0){

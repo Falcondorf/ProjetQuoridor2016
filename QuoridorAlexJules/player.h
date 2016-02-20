@@ -8,7 +8,7 @@ private:
     std::string name_;
     unsigned number_;
     bool win_ = false;
-    Side sideObjective;
+    Side sideObjective_;
     unsigned wallstock_;
 
 public:
