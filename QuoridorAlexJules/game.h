@@ -6,23 +6,23 @@
 class Game {
 private:
     Board * board_;
-    vector<unsigned> listPlayer;
+    vector<Player> listPlayer;
 
 public:
-    inline Game(Board &board, std::string name1, std::string name2);
-    inline Game(Board &board, std::string name1, std::string name2, std::string name3, std::string name4);
+    inline Game(Board &board, Player p1, Player p2);
+    inline Game(Board &board, Player p1, Player p2, Player p3, Player p4);
 };
 
-Game::Game(Board &board, string name1, string name2){
+Game::Game(Board &board, Player p1, Player p2){
     board_ = board;
-    listPlayer.push_back(name1);
-    listPlayer.push_back(name2);
+    listPlayer.push_back(p1);
+    listPlayer.push_back(p2);
 }
 
-Game::Game(Board &board, string name1, string name2, string name3, string name4){
-    Game::Game(&board, name1, name2);
-    listPlayer.push_back(name3);
-    listPlayer.push_back(name4);
+Game::Game(Board &board, Player p1, Player p2, Player p3, Player p4){
+    Game::Game(&board, p1, p2);
+    listPlayer.push_back(p3);
+    listPlayer.push_back(p4);
 }
 
 #endif // GAME
