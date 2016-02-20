@@ -55,14 +55,27 @@ string Board::toString(){
 void Board::place(unsigned row, unsigned column, unsigned direction){  ;
     //Envisager cette condition afin de vérifier qu'on puisse placer un mur sans problème
     //Dans le cas d'un pion, traitement différent lié aux obstacles etc...
+    //row ne peut pas etre égal à
     switch(direction){
     case 0:
         //Placement de pièce à l'horizontale à prévoir
-        plateau_[row][column]->place();break;
+        plateau_[row][column]->place();
+        plateau_[row][column-1]->place();
+        plateau_[row][column+1]->place();
+        break;
     case 1:
         //Placement de pièce à la verticale à prévoir
-        plateau_[row][column]->place();break;
+        plateau_[row][column]->place();
+        plateau_[row+1][column]->place();
+        plateau_[row-1][column]->place();
+
+        break;
     default:
         throw QuoridorExceptions(1,"Incorrect case of direction: Only 0 or 1",1);
      }
+
+
+}
+void Board::place(unsigned row, unsigned column){
+        plateau_[row][column]->place();
 }

@@ -15,6 +15,7 @@ public:
     inline int getLen();
     void place(unsigned row, unsigned column, unsigned direction);
             //unsigned direction ou -> booléen Sinon -> nouvelle classe enum?
+    void place(unsigned row, unsigned column);
     string toString();
 };
 
