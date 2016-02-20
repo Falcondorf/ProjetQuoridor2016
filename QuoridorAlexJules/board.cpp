@@ -100,3 +100,12 @@ void Board::place(unsigned row, unsigned column){
         throw QuoridorExceptions(1,"pawn wrongly placed",1);
     }
 }
+
+void Board::empty(unsigned row, unsigned column){
+    unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
+    if (row%2==0 && column%2==0 && row<=hidden_len && column <= hidden_len){
+        plateau_[row][column]->empty();
+    }else{
+        throw QuoridorExceptions(1,"pawn wrongly placed",1);
+    }
+}
