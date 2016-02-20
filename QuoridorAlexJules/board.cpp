@@ -58,13 +58,22 @@ void Board::place(unsigned row, unsigned column, unsigned direction){  ;
 
      unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
      if (row%2!=0 && column>=1 && column < hidden_len-1 && direction==0){
-         plateau_[row][column]->place();
-         plateau_[row][column-1]->place();
-         plateau_[row][column+1]->place();
+         if(!plateau_[row][column]->isWalled()&&!plateau_[row][column-1]->isWalled()&& !plateau_[row][column+1]->isWalled()){
+             plateau_[row][column]->place();
+             plateau_[row][column-1]->place();
+             plateau_[row][column+1]->place();
+         }else{
+             throw QuoridorExceptions(1,"collision of walls",1);
+         }
+
      }else if(column%2!=0 && row>=1 && row< hidden_len-1 && direction==1){
-         plateau_[row][column]->place();
-         plateau_[row+1][column]->place();
-         plateau_[row-1][column]->place();
+         if(!plateau_[row][column]->isWalled()&&! plateau_[row+1][column]->isWalled()&& !plateau_[row-1][column]->isWalled()){
+             plateau_[row][column]->place();
+             plateau_[row+1][column]->place();
+             plateau_[row-1][column]->place();
+         }else{
+              throw QuoridorExceptions(1,"collision of walls",1);
+         }
       }else{
           throw QuoridorExceptions(1,"wall wrongly placed",1);
       }
