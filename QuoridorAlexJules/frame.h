@@ -54,9 +54,8 @@ bool WallFrame::isWalled(){
     return isWalled_;
 }
 void WallFrame::place(){
-
-        isWalled_=true;
-    }
+    isWalled_=true;
+}
 
 
 #endif // FRAME

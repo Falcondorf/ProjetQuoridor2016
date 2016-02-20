@@ -10,22 +10,27 @@ private:
     bool gameover_;
 
 public:
-    inline Game(Board &board, Player p1, Player p2);
-    inline Game(Board &board, Player p1, Player p2, Player p3, Player p4);
+    inline Game(Player p1, Player p2, unsigned size);
+    inline Game(Player p1, Player p2, Player p3, Player p4, unsigned size);
     inline void setOver();
-    inline void isOver();
+    inline bool isOver();
     void move (Side dir, Player currPlay);
 };
 
-Game::Game(Board &board, Player p1, Player p2){
-    board_ = board;
+Game::Game(Player p1, Player p2, unsigned size){
+    Board * b = new Board(size);
+    board_ = b;
     gameover_ = false;
     listPlayer.push_back(p1);
     listPlayer.push_back(p2);
 }
 
-Game::Game(Board &board, Player p1, Player p2, Player p3, Player p4){
-    Game::Game(&board, p1, p2);
+Game::Game(Player p1, Player p2, Player p3, Player p4, unsigned size){
+    Board * b = new Board(size);
+    board_ = b;
+    gameover_ = false;
+    listPlayer.push_back(p1);
+    listPlayer.push_back(p2);
     listPlayer.push_back(p3);
     listPlayer.push_back(p4);
 }
@@ -34,7 +39,7 @@ void Game::setOver(){
     gameover_ = true;
 }
 
-void Game::isOver(){
+bool Game::isOver(){
     return gameover_;
 }
 

@@ -10,6 +10,7 @@ private:
     bool win_ = false;
     Side sideObjective_;
     unsigned wallstock_;
+    std::pair<unsigned, unsigned> pos_;
 
 public:
     inline Player();
@@ -19,7 +20,7 @@ public:
     inline bool hasWon();
     inline unsigned getWallstock();
     void pickWall();
-
+    inline std::pair<unsigned, unsigned> getPos();
 
 };
 
@@ -37,6 +38,9 @@ unsigned Player::getWallstock(){
     return wallstock_;
 }
 
+std::pair<unsigned, unsigned> Player::getPos(){
+    return pos_;
+}
 
 #endif // PLAYER
 
