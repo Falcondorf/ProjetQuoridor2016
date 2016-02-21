@@ -1,22 +1,31 @@
 #include "Game.h"
 #include "QuoridorExceptions.h"
+#include <iostream>
 
-Game::Game(Player p1, Player p2, unsigned size){
+Game::Game(string n1, string n2, unsigned size){
     Board * b = new Board(size);
     board_ = b;
     gameover_ = false;
-    listPlayer.push_back(p1);
-    listPlayer.push_back(p2);
+    listPlayer.push_back(new Player(n1, 1, 2, size));
+    listPlayer.push_back(new Player(n2, 2, 2, size));
+    board_->place(*listPlayer[1]);
+    board_->place(*listPlayer[2]);
 }
 
-Game::Game(Player p1, Player p2, Player p3, Player p4, unsigned size){
-    Board * b = new Board(size);
+Game::Game(string n1, string n2, string n3, string n4, unsigned size){
+    /*Board * b = new Board(size);
     board_ = b;
     gameover_ = false;
-    listPlayer.push_back(p1);
-    listPlayer.push_back(p2);
-    listPlayer.push_back(p3);
-    listPlayer.push_back(p4);
+    listPlayer.push_back(n1);
+    std::cout << listPlayer[1].getName() << std::endl;
+    listPlayer.push_back(n2);
+    listPlayer.push_back(n3);
+    std::cout << listPlayer[3].getName() << std::endl;
+    listPlayer.push_back(n4);
+    /*board_->place(listPlayer[1]);
+    board_->place(listPlayer[2]);
+    board_->place(listPlayer[3]);
+    board_->place(listPlayer[4]);*/
 }
 
 void Game::move (Side dir, Player currPlay){

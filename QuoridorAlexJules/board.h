@@ -15,6 +15,7 @@ public:
     inline int getLen();
     void place(unsigned row, unsigned column, unsigned direction);
     void place(unsigned row, unsigned column);
+    void place(Player &p);
     void empty(unsigned row, unsigned column);
     string toString();
 };
