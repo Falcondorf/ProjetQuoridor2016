@@ -51,10 +51,13 @@ int main()
 //    plat.place(0,0); //on place un pion
 
     //cout << plat.toString() << endl;
-    //Player j2("Jules", 2, 4, 5);
-    //Player j3("Marty", 3, 4, 5);
-    //Player j4("Vanessa", 4, 4, 5);
-    Game testG("Alex", "Jules", 5);
+    Game testG("Alex", "Jules","Marty", "Vanessa", 5);
+    //testG.getBoard().place(0, 4);
+    //cout << testG.getPlayer(2).getName() << "::" << testG.getPlayer(2).getPos().first << "::" << testG.getPlayer(2).getPos().second << endl;
+    cout << testG.getBoard().toString() << endl;
+    testG.move(Side::South, testG.getPlayer(2));
+    cout << testG.getBoard().toString() << endl;
+    testG.getBoard().place(3,7,0);
     cout << testG.getBoard().toString() << endl;
     return 0;
 }

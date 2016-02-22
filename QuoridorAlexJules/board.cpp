@@ -109,7 +109,3 @@ void Board::empty(unsigned row, unsigned column){
         throw QuoridorExceptions(1,"pawn wrongly placed",1);
     }
 }
-
-void Board::place(Player & p){
-    plateau_[p.getPos().first][p.getPos().second]->place();
-}

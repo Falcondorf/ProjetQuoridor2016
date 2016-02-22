@@ -24,12 +24,12 @@ Player::Player(std::string thename,unsigned num,unsigned nbOfPlayer, unsigned bo
                setPos(altSize/2, 0);//formule position ouest
                sideObjective_ = Side::West;
            } else if(num == 4){
-               setPos(altSize/2, altSize);//formule position est
+               setPos(altSize/2, altSize-1);//formule position est
                sideObjective_ = Side::East;
            }
        case 2:
            if(num == 1){
-               setPos(altSize, altSize/2);//formule position nord
+               setPos(altSize-1, altSize/2);//formule position nord
                sideObjective_ = Side::North;
            } else if (num == 2){
                setPos(0, altSize/2);//formule position sud

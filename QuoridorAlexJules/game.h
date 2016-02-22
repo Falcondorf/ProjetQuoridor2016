@@ -6,7 +6,7 @@
 class Game {
 private:
     Board * board_;
-    vector<Player *> listPlayer;
+    vector<Player> listPlayer_;
     bool gameover_;
 
 public:
@@ -16,7 +16,8 @@ public:
     inline void setOver();
     inline bool isOver();
     inline Board & getBoard();
-    void move (Side dir, Player currPlay);
+    inline Player getPlayer(unsigned nb);
+    void move (Side dir, Player play);
 };
 
 void Game::setOver(){
@@ -29,6 +30,10 @@ bool Game::isOver(){
 
 Board &Game::getBoard(){
     return *board_;
+}
+
+Player Game::getPlayer(unsigned nb){
+    return listPlayer_[nb-1];
 }
 
 #endif // GAME
