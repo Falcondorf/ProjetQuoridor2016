@@ -26,7 +26,9 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size): gameover_
 
 void Game::move (Side dir, Player play){
     //Gestion des collision à dévelloper ici
-    colision(dir);
+    if(Game::colision(dir, play)){
+        throw QuoridorExceptions(1,"Mur sur le chemin, choisissez une autre voie...", 1);
+    }
 
     //suppr bool de la case courante
     board_->empty(play.getPos().first, play.getPos().second);
@@ -55,6 +57,38 @@ void Game::move (Side dir, Player play){
     }
 }
 
-bool Game::colision(Side dir){
-
+bool Game::colision(Side dir, Player play){
+    switch (dir){
+    case Side::North:
+        if (board_->isFree(play.getPos().first-1, play.getPos().second)){
+            return true;
+        } else if (!board_->isFree(play.getPos().first-2, play.getPos().second)){
+            //Saut de pion
+        }
+        break;
+    case Side::South:
+        if (board_->isFree(play.getPos().first+1, play.getPos().second)){
+            return true;
+        } else if (!board_->isFree(play.getPos().first+2, play.getPos().second)){
+            //Saut de pion
+        }
+        break;
+    case Side::West:
+        if (board_->isFree(play.getPos().first, play.getPos().second-1)){
+            return true;
+        } else if (!board_->isFree(play.getPos().first, play.getPos().second-2)){
+            //Saut de pion
+        }
+        break;
+    case Side::East:
+        if (board_->isFree(play.getPos().first, play.getPos().second+1)){
+            return true;
+        } else if (!board_->isFree(play.getPos().first, play.getPos().second+2)){
+            //Saut de pion
+        }
+        break;
+    default:
+        throw QuoridorExceptions(1,"Incorrect direction provided",1);
+    }
+    return false;
 }

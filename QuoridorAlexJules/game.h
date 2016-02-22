@@ -18,7 +18,7 @@ public:
     inline Board & getBoard();
     inline Player getPlayer(unsigned nb);
     void move (Side dir, Player play);
-    bool colision(Side dir);
+    bool colision(Side dir, Player play);
 };
 
 void Game::setOver(){

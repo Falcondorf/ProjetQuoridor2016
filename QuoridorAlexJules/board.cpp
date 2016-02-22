@@ -64,6 +64,11 @@ string Board::toString(){
     }
     return str;
 }
+
+bool Board::isFree(unsigned row, unsigned column){
+    return plateau_[row][column]->isFree();
+}
+
 //Peut-être devoir moduler cette algo pour différencier les placements de pions et de murs
 void Board::place(unsigned row, unsigned column, unsigned direction){  ;
     //Envisager cette condition afin de vérifier qu'on puisse placer un mur sans problème

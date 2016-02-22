@@ -13,9 +13,11 @@ private:
 public:
     Board(unsigned len);
     inline int getLen();
+    bool isFree(unsigned row, unsigned column);
     void place(unsigned row, unsigned column, unsigned direction);
     void place(unsigned row, unsigned column);
     void empty(unsigned row, unsigned column);
+
     string toString();
 };
 

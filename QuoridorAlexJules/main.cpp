@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+    /*-------------Tests sur joueurs-------------------------*/
     Player j1("Alex", 1, 4, 5);
 
     try{
@@ -32,13 +33,15 @@ int main()
     }
     cout << "Posi: " << j1.getPos().first << ", " << j1.getPos().second << endl;
 
+
+    /*-------------Tests sur cases--------------------------*/
     PlayerFrame frm(0, 0, 9);
     cout << frm.toString() << " + Side: "<< toString(frm.getSide()) << endl;
 
     Frame * frm2;
     frm2 = &frm;
     cout << frm2->toString() << endl;
-   // Side * direction = new Side();
+    /*--------------Tests sur plateau----------------------------*/
     try{
         Board platErr(6);
     }catch (std::exception const& e){
@@ -46,18 +49,25 @@ int main()
     }
     Board plat(9);
     cout << plat.toString() << endl;
-//    plat.place(1,11,1); // par surcharge on place un mur vertical
-//    plat.place(1,9,0);
-//    plat.place(0,0); //on place un pion
+    plat.place(1,11,1); // par surcharge on place un mur vertical
+    plat.place(1,9,0);
+    plat.place(0,0); //on place un pion
+    cout << plat.toString() << endl;
 
-    //cout << plat.toString() << endl;
+    /*---------------Tests sur le jeux----------------------*/
     Game testG("Alex", "Jules","Marty", "Vanessa", 5);
-    //testG.getBoard().place(0, 4);
-    //cout << testG.getPlayer(2).getName() << "::" << testG.getPlayer(2).getPos().first << "::" << testG.getPlayer(2).getPos().second << endl;
+    testG.getBoard().place(0, 4);
+    cout << testG.getPlayer(2).getName() << "::" << testG.getPlayer(2).getPos().first << "::" << testG.getPlayer(2).getPos().second << endl;
     cout << testG.getBoard().toString() << endl;
     testG.move(Side::South, testG.getPlayer(2));
     cout << testG.getBoard().toString() << endl;
     testG.getBoard().place(3,7,0);
+    cout << testG.getBoard().toString() << endl;
+    try{
+        testG.move(Side::North, testG.getPlayer(4));
+    } catch (std::exception const& e){
+        cout << "ERROR: " << e.what() << endl;
+    }
     cout << testG.getBoard().toString() << endl;
     return 0;
 }

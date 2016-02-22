@@ -46,7 +46,6 @@ private:
 
 public:
     inline WallFrame();
-    inline bool isWalled();
     inline void place();
     inline void empty();
     bool isFree();
@@ -56,9 +55,7 @@ public:
 WallFrame::WallFrame() : Frame(){
     isWalled_=false;
 }
-bool WallFrame::isWalled(){
-    return isWalled_;
-}
+
 void WallFrame::place(){
     isWalled_=true;
 }
