@@ -26,7 +26,7 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size): gameover_
 
 void Game::move (Side dir, Player play){
     //Gestion des collision à dévelloper ici
-
+    colision(dir);
 
     //suppr bool de la case courante
     board_->empty(play.getPos().first, play.getPos().second);
@@ -53,4 +53,8 @@ void Game::move (Side dir, Player play){
     default:
         throw QuoridorExceptions(1,"Direction chosen is not appliable",1);
     }
+}
+
+bool Game::colision(Side dir){
+
 }
