@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git add QuoridorAlexJules
+git add *
 read -p "message de commit: " msg
 git commit -m "$msg"
 git push

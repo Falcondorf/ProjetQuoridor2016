@@ -10,7 +10,7 @@ public:
     virtual std::string toString()=0;
     virtual void place()=0;
     virtual bool isFree()=0;
-
+    virtual void empty()=0;
 };
 
 class PlayerFrame : public Frame{
@@ -22,6 +22,7 @@ public:
     PlayerFrame(unsigned row, unsigned column, unsigned size);
     inline Side getSide();
     inline void place();
+    inline void empty();
     bool isFree();
     std::string toString();
 
@@ -35,6 +36,10 @@ Side PlayerFrame::getSide(){
     return side_;
 }
 
+void PlayerFrame::empty(){
+    hasPiece_=false;
+}
+
 class WallFrame : public Frame{
 private:
     bool isWalled_;
@@ -43,6 +48,7 @@ public:
     inline WallFrame();
     inline bool isWalled();
     inline void place();
+    inline void empty();
     bool isFree();
     std::string toString();
 };
@@ -54,10 +60,9 @@ bool WallFrame::isWalled(){
     return isWalled_;
 }
 void WallFrame::place(){
-
-        isWalled_=true;
-    }
-
+    isWalled_=true;
+}
+void WallFrame::empty(){}
 
 #endif // FRAME
 

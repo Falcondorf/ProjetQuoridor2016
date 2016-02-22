@@ -6,36 +6,29 @@
 class Game {
 private:
     Board * board_;
-    vector<Player> listPlayer;
+    vector<Player *> listPlayer;
     bool gameover_;
 
 public:
-    inline Game(Board &board, Player p1, Player p2);
-    inline Game(Board &board, Player p1, Player p2, Player p3, Player p4);
+
+    Game(string n1, string n3, unsigned size);
+    Game(string n1, string n2, string n3, string n4, unsigned size);
     inline void setOver();
-    inline void isOver();
+    inline bool isOver();
+    inline Board & getBoard();
     void move (Side dir, Player currPlay);
 };
-
-Game::Game(Board &board, Player p1, Player p2){
-    board_ = board;
-    gameover_ = false;
-    listPlayer.push_back(p1);
-    listPlayer.push_back(p2);
-}
-
-Game::Game(Board &board, Player p1, Player p2, Player p3, Player p4){
-    Game::Game(&board, p1, p2);
-    listPlayer.push_back(p3);
-    listPlayer.push_back(p4);
-}
 
 void Game::setOver(){
     gameover_ = true;
 }
 
-void Game::isOver(){
+bool Game::isOver(){
     return gameover_;
+}
+
+Board &Game::getBoard(){
+    return *board_;
 }
 
 #endif // GAME
