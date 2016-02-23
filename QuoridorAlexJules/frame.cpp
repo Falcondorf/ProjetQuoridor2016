@@ -9,7 +9,7 @@ PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
         throw "incorrect position";
     }
     hasPiece_ = false;
-
+    // Très important de refaire de module car il ne fonctionne pas correctement!!!
     if(row==0){
         if(column==0){
             //nord ouest
