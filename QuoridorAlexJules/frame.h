@@ -8,6 +8,7 @@ protected:
     Frame()=default;
 public:
     virtual std::string toString()=0;
+    virtual Side getSide()=0;
     virtual void place()=0;
     virtual bool isFree()=0;
     virtual void empty()=0;
@@ -46,6 +47,7 @@ private:
 
 public:
     inline WallFrame();
+    inline Side getSide();
     inline void place();
     inline void empty();
     bool isFree();
@@ -60,6 +62,6 @@ void WallFrame::place(){
     isWalled_=true;
 }
 void WallFrame::empty(){}
-
+Side WallFrame::getSide(){return Side::Blank;}
 #endif // FRAME
 

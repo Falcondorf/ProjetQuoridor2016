@@ -22,7 +22,7 @@ public:
     void pickWall();
     inline std::pair<unsigned, unsigned> getPos();
     inline void setPos(unsigned row, unsigned column);
-
+    inline Side getObjective();
 };
 
 Player::Player(){}
@@ -46,6 +46,9 @@ std::pair<unsigned, unsigned> Player::getPos(){
 void Player::setPos(unsigned row, unsigned column){
     pos_.first = row;
     pos_.second = column;
+}
+Side Player::getObjective(){
+    return sideObjective_;
 }
 
 #endif // PLAYER
