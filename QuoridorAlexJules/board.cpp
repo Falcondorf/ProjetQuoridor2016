@@ -114,3 +114,6 @@ void Board::empty(unsigned row, unsigned column){
         throw QuoridorExceptions(1,"pawn wrongly placed",1);
     }
 }
+Side Board::getside(unsigned row, unsigned column){
+    return plateau_[row][column]->getSide();
+}

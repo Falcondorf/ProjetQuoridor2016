@@ -26,7 +26,7 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size): gameover_
 
 void Game::move (Side dir, Player play){
     //Gestion des collision à dévelloper ici
-    if(Game::colision(dir, play)){
+    if(Game::collision(dir, play)){
         throw QuoridorExceptions(1,"Mur sur le chemin, choisissez une autre voie...", 1);
     }
 
@@ -57,7 +57,7 @@ void Game::move (Side dir, Player play){
     }
 }
 
-bool Game::colision(Side dir, Player play){
+bool Game::collision(Side dir, Player play){
     switch (dir){
     case Side::North:
         if (board_->isFree(play.getPos().first-1, play.getPos().second)){
@@ -91,4 +91,25 @@ bool Game::colision(Side dir, Player play){
         throw QuoridorExceptions(1,"Incorrect direction provided",1);
     }
     return false;
+}
+bool Game::victoryCond(Player play){
+    Side bSide;
+    bSide = board_->getside(play.getPos().first, play.getPos().second);
+    switch (play.getObjective()){
+    case Side::North:
+        return (bSide == Side::North || bSide == Side::NorthEast || bSide == Side::NorthWest);
+        break;
+    case Side::South:
+        return (bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
+        break;
+    case Side::West:
+        return (bSide == Side::West || bSide == Side::NorthWest || bSide == Side::SouthWest);
+        break;
+
+    case Side::East:
+        return (bSide == Side::East || bSide == Side::NorthEast || bSide == Side::SouthEast);
+        break;
+    default:
+        throw QuoridorExceptions(1,"invalid objective provided", 1);
+    }
 }
