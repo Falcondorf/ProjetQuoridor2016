@@ -77,6 +77,8 @@ int main()
     cout << testG.getPlayer(2).getPos().first << "; " << testG.getPlayer(2).getPos().second << endl;
     cout << testG.getBoard().toString() << endl;
     cout << toString(testG.getBoard().getside(0,0)) << endl;
+    testG.getBoard().place(3,4,0);
+    cout << testG.getBoard().toString() << endl;
     /*if(testG.victoryCond(testG.getPlayer(1))){
         testG.getPlayer(1).setWin();
         cout << testG.getPlayer(1).getName() << " a gagné..." << endl;
