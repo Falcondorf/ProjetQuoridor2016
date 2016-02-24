@@ -69,6 +69,16 @@ int main()
         cout << "ERROR: " << e.what() << endl;
     }
     cout << testG.getBoard().toString() << endl;
+    /*  ------Revoir la méthode move qui semble ne faire qu'une seule mouvement------*/
+    testG.move(Side::South, testG.getPlayer(2));
+    cout << testG.getBoard().toString() << endl;
+    //cout << toString(testG.getBoard().getside(4,8)) << endl;
+    /*if(testG.victoryCond(testG.getPlayer(1))){
+        testG.getPlayer(1).setWin();
+        cout << testG.getPlayer(1).getName() << " a gagné..." << endl;
+    } else {
+        cout << "La partie continue..." << endl;
+    }*/
     return 0;
 }
 

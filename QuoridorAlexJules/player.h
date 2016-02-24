@@ -18,6 +18,7 @@ public:
     inline std::string getName();
     inline unsigned getNum();
     inline bool hasWon();
+    inline void setWin();
     inline unsigned getWallstock();
     void pickWall();
     inline std::pair<unsigned, unsigned> getPos();
@@ -35,6 +36,10 @@ unsigned Player::getNum(){
 bool Player::hasWon(){
     return win_;
 }
+void Player::setWin(){
+    win_=true;
+}
+
 unsigned Player::getWallstock(){
     return wallstock_;
 }
