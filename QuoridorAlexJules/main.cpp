@@ -47,16 +47,16 @@ int main()
     }catch (std::exception const& e){
         cerr << "ERROR: " << e.what() << endl;
     }
-    Board plat(9);
+    /*Board plat(9);
     cout << plat.toString() << endl;
     plat.place(1,11,1); // par surcharge on place un mur vertical
     plat.place(1,9,0);
     plat.place(0,0); //on place un pion
-    cout << plat.toString() << endl;
+    cout << plat.toString() << endl;*/
 
     /*---------------Tests sur le jeux----------------------*/
     Game testG("Alex", "Jules","Marty", "Vanessa", 5);
-    testG.getBoard().place(0, 4);
+    //testG.getBoard().place(0, 8);
     cout << testG.getPlayer(2).getName() << "::" << testG.getPlayer(2).getPos().first << "::" << testG.getPlayer(2).getPos().second << endl;
     cout << testG.getBoard().toString() << endl;
     testG.move(Side::South, testG.getPlayer(2));
@@ -72,7 +72,7 @@ int main()
     /*  ------Revoir la méthode move qui semble ne faire qu'une seule mouvement------*/
     testG.move(Side::South, testG.getPlayer(2));
     cout << testG.getBoard().toString() << endl;
-    //cout << toString(testG.getBoard().getside(4,8)) << endl;
+    cout << toString(testG.getBoard().getside(0,0)) << endl;
     /*if(testG.victoryCond(testG.getPlayer(1))){
         testG.getPlayer(1).setWin();
         cout << testG.getPlayer(1).getName() << " a gagné..." << endl;
