@@ -24,7 +24,7 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size): gameover_
     board_->place(listPlayer_[3].getPos().first, listPlayer_[3].getPos().second);
 }
 
-void Game::move (Side dir, Player play){
+void Game::move (Side dir, Player &play){
     //Gestion des collision à dévelloper ici
     if(Game::collision(dir, play)){
         throw QuoridorExceptions(1,"Mur sur le chemin, choisissez une autre voie...", 1);

@@ -16,8 +16,8 @@ public:
     inline void setOver();
     inline bool isOver();
     inline Board & getBoard();
-    inline Player getPlayer(unsigned nb);
-    void move (Side dir, Player play);
+    inline Player &getPlayer(unsigned nb);
+    void move (Side dir, Player & play);
     bool collision(Side dir, Player play);
     bool victoryCond(Player play);
 };
@@ -34,7 +34,7 @@ Board &Game::getBoard(){
     return *board_;
 }
 
-Player Game::getPlayer(unsigned nb){
+Player &Game::getPlayer(unsigned nb){
     return listPlayer_[nb-1];
 }
 
