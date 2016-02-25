@@ -86,7 +86,7 @@ int main()
     cout << testG.getBoard().toString() << endl;
     if(testG.victoryCond(testG.getPlayer(2))){
         testG.getPlayer(1).setWin();
-        cout << testG.getPlayer(1).getName() << " a gagné..." << endl;
+        cout << testG.getPlayer(1).getName() << " a gagne..." << endl;
     } else {
         cout << "La partie continue..." << endl;
     }
