@@ -32,7 +32,7 @@ void Game::move (Side dir, Player &play){
 
     //suppr bool de la case courante
     board_->empty(play.getPos().first, play.getPos().second);
-
+/*------------Rajouter les diag et pour les NSOE revérif si pion posé pour faire un saut---------------*/
     switch (dir){
     case Side::North:
        //déplacement du pion sur la nouvelle case
@@ -51,6 +51,18 @@ void Game::move (Side dir, Player &play){
     case Side::East:
         board_->place(play.getPos().first, play.getPos().second+2);
         play.setPos(play.getPos().first, play.getPos().second+2);
+        break;
+    case Side::NorthWest:
+
+        break;
+    case Side::NorthEast:
+
+        break;
+    case Side::SouthWest:
+
+        break;
+    case Side::SouthEast:
+
         break;
     default:
         throw QuoridorExceptions(1,"Direction chosen is not appliable",1);
@@ -243,20 +255,12 @@ void Game::evalWest(std::vector <Side> ListOfDirections, Player p)
 
 std::vector <Side> Game::possiblePositions(Player p){
     std::vector <Side> ListOfDirections;
-
     evalNorth(ListOfDirections, p);
     evalSouth(p, ListOfDirections);
     evalEast(p, ListOfDirections);
     evalWest(ListOfDirections, p);
     return ListOfDirections;
 }
-
-
-
-
-
-
-
 
 bool Game::victoryCond(Player play){
     Side bSide;
