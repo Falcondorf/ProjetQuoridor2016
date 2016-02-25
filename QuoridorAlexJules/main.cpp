@@ -33,7 +33,6 @@ int main()
     }
     cout << "Posi: " << j1.getPos().first << ", " << j1.getPos().second << endl;
 
-
     /*-------------Tests sur cases--------------------------*/
     PlayerFrame frm(0, 0, 9);
     cout << frm.toString() << " + Side: "<< toString(frm.getSide()) << endl;
@@ -41,6 +40,7 @@ int main()
     Frame * frm2;
     frm2 = &frm;
     cout << frm2->toString() << endl;
+
     /*--------------Tests sur plateau----------------------------*/
     try{
         Board platErr(6);
@@ -69,9 +69,9 @@ int main()
         cout << "ERROR: " << e.what() << endl;
     }
     cout << testG.getBoard().toString() << endl;
-    /*  ------Revoir la méthode move qui semble ne faire qu'une seule mouvement------*/
+
     /*-------------l'image seule est bougée. Les coordonée du player ne change pas réellement--------*/
-      testG.move(Side::South, testG.getPlayer(2));
+    testG.move(Side::South, testG.getPlayer(2));
     cout << testG.getPlayer(2).getPos().first << "; " << testG.getPlayer(2).getPos().second << endl;
     testG.move(Side::East, testG.getPlayer(2));
     cout << testG.getPlayer(2).getPos().first << "; " << testG.getPlayer(2).getPos().second << endl;
