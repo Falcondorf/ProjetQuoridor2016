@@ -93,7 +93,7 @@ int main()
     }
 
     /*-----------------------Eval position posible et mouvement------------------------------*/
-    vector<Side> pp = testG.possiblePositions(testG.getPlayer(3));
+    set<Side> pp = testG.possiblePositions(testG.getPlayer(3));
     for (auto s: pp){
         cout << toString(s) << endl;
     }

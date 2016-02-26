@@ -157,26 +157,26 @@ bool Game::collisionPiece(Side dir, Player play){
     }
     return false;
 }
-void Game::oblicNorth(std::vector <Side> ListOfDirections, Player p)
+void Game::oblicNorth(std::set<Side> *ListOfDirections, Player p)
 {
     if(board_->isFree(p.getPos().first-2, p.getPos().second+2)){ //droit libre
-         ListOfDirections.push_back(Side::NorthEast);
+         ListOfDirections->insert(Side::NorthEast);
     }
     if(board_->isFree(p.getPos().first-2, p.getPos().second-2)){ //gauche libre
-        ListOfDirections.push_back(Side::NorthWest);
+        ListOfDirections->insert(Side::NorthWest);
     }
 }
 
-void Game::evalNorth(std::vector <Side> ListOfDirections, Player p)
+void Game::evalNorth(std::set<Side> *ListOfDirections, Player p)
 {
     if (!collisionWall(Side::North,p)){ //pas de mur
         if(!collisionPiece(Side::North,p)){ //pas de piece
-            ListOfDirections.push_back(Side::North);
+            ListOfDirections->insert(Side::North);
         }else{
             //saut ou oblique
             if(board_->isFree(p.getPos().first-3, p.getPos().second)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first-4, p.getPos().second)){ //pas de pion -> saut
-                     ListOfDirections.push_back(Side::North);
+                     ListOfDirections->insert(Side::North);
                 }else{
                     oblicNorth(ListOfDirections, p);
                 }
@@ -187,26 +187,26 @@ void Game::evalNorth(std::vector <Side> ListOfDirections, Player p)
     }
 }
 
-void Game::oblicSouth(std::vector <Side> ListOfDirections, Player p)
+void Game::oblicSouth(std::set<Side> *ListOfDirections, Player p)
 {
     if(board_->isFree(p.getPos().first+2, p.getPos().second-2)){ //gauche libre
-         ListOfDirections.push_back(Side::SouthWest);
+         ListOfDirections->insert(Side::SouthWest);
     }
     if(board_->isFree(p.getPos().first+2, p.getPos().second+2)){ //droit libre
-        ListOfDirections.push_back(Side::SouthEast);
+        ListOfDirections->insert(Side::SouthEast);
     }
 }
 
-void Game::evalSouth(Player p, std::vector <Side> ListOfDirections)
+void Game::evalSouth(Player p, std::set <Side> *ListOfDirections)
 {
     if (!collisionWall(Side::South,p)){ //pas de mur
         if(!collisionPiece(Side::South,p)){ //pas de piece
-            ListOfDirections.push_back(Side::South);
+            ListOfDirections->insert(Side::South);
         }else{
             //saut ou oblique
             if(board_->isFree(p.getPos().first+3, p.getPos().second)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first+4, p.getPos().second)){ //pas de pion -> saut
-                     ListOfDirections.push_back(Side::South);
+                     ListOfDirections->insert(Side::South);
                 }else{
 
                     oblicSouth(ListOfDirections, p);
@@ -218,26 +218,26 @@ void Game::evalSouth(Player p, std::vector <Side> ListOfDirections)
     }
 }
 
-void Game::oblicEast(std::vector <Side> ListOfDirections, Player p)
+void Game::oblicEast(std::set<Side> *ListOfDirections, Player p)
 {
     if(board_->isFree(p.getPos().first-2, p.getPos().second+2)){ //haut libre
-         ListOfDirections.push_back(Side::NorthEast);
+         ListOfDirections->insert(Side::NorthEast);
     }
     if(board_->isFree(p.getPos().first+2, p.getPos().second+2)){ //bas libre
-        ListOfDirections.push_back(Side::SouthEast);
+        ListOfDirections->insert(Side::SouthEast);
     }
 }
 
-void Game::evalEast(Player p, std::vector <Side> ListOfDirections)
+void Game::evalEast(Player p, std::set <Side> *ListOfDirections)
 {
     if (!collisionWall(Side::East,p)){ //pas de mur
         if(!collisionPiece(Side::East,p)){ //pas de piece
-            ListOfDirections.push_back(Side::East);
+            ListOfDirections->insert(Side::East);
         }else{
             //saut ou oblique
             if(board_->isFree(p.getPos().first, p.getPos().second+3)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first, p.getPos().second+4)){ //pas de pion -> saut
-                     ListOfDirections.push_back(Side::East);
+                     ListOfDirections->insert(Side::East);
                 }else{
                     oblicEast(ListOfDirections, p);
                 }
@@ -248,26 +248,26 @@ void Game::evalEast(Player p, std::vector <Side> ListOfDirections)
     }
 }
 
-void Game::oblicWest(std::vector <Side> ListOfDirections, Player p)
+void Game::oblicWest(std::set<Side> *ListOfDirections, Player p)
 {
     if(board_->isFree(p.getPos().first-2, p.getPos().second-2)){ //haut libre
-         ListOfDirections.push_back(Side::NorthWest);
+         ListOfDirections->insert(Side::NorthWest);
     }
     if(board_->isFree(p.getPos().first+2, p.getPos().second-2)){ //bas libre
-        ListOfDirections.push_back(Side::SouthWest);
+        ListOfDirections->insert(Side::SouthWest);
     }
 }
 
-void Game::evalWest(std::vector <Side> ListOfDirections, Player p)
+void Game::evalWest(std::set<Side> *ListOfDirections, Player p)
 {
     if (!collisionWall(Side::West,p)){ //pas de mur
         if(!collisionPiece(Side::West,p)){ //pas de piece
-            ListOfDirections.push_back(Side::West);
+            ListOfDirections->insert(Side::West);
         }else{
             //saut ou oblique
             if(board_->isFree(p.getPos().first, p.getPos().second-3)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first, p.getPos().second-4)){ //pas de pion -> saut
-                     ListOfDirections.push_back(Side::West);
+                     ListOfDirections->insert(Side::West);
                 }else{
                     oblicWest(ListOfDirections, p);
                 }
@@ -278,12 +278,12 @@ void Game::evalWest(std::vector <Side> ListOfDirections, Player p)
     }
 }
 
-std::vector <Side> Game::possiblePositions(Player p){
-    std::vector <Side> ListOfDirections;
-    evalNorth(ListOfDirections, p);
-    evalSouth(p, ListOfDirections);
-    evalEast(p, ListOfDirections);
-    evalWest(ListOfDirections, p);
+std::set <Side> Game::possiblePositions(Player p){
+    std::set <Side> ListOfDirections;
+    evalNorth(&ListOfDirections, p);
+    evalSouth(p, &ListOfDirections);
+    evalEast(p, &ListOfDirections);
+    evalWest(&ListOfDirections, p);
     return ListOfDirections;
 }
 

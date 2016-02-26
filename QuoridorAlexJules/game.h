@@ -2,6 +2,7 @@
 #define GAME
 #include "Board.h"
 #include <vector>
+#include <set>
 
 class Game {
 private:
@@ -9,21 +10,21 @@ private:
     vector<Player> listPlayer_;
     bool gameover_;
 
-    void oblicNorth(std::vector <Side> ListOfDirections, Player p);
+    void oblicNorth(std::set<Side> *ListOfDirections, Player p);
 
-    void evalNorth(std::vector <Side> ListOfDirections, Player p);
+    void evalNorth(std::set <Side> *ListOfDirections, Player p);
 
-    void oblicSouth(std::vector <Side> ListOfDirections, Player p);
+    void oblicSouth(std::set <Side> *ListOfDirections, Player p);
 
-    void evalSouth(Player p, std::vector <Side> ListOfDirections);
+    void evalSouth(Player p, std::set <Side> *ListOfDirections);
 
-    void oblicEast(std::vector <Side> ListOfDirections, Player p);
+    void oblicEast(std::set <Side> *ListOfDirections, Player p);
 
-    void evalEast(Player p, std::vector <Side> ListOfDirections);
+    void evalEast(Player p, std::set<Side> *ListOfDirections);
 
-    void oblicWest(std::vector <Side> ListOfDirections, Player p);
+    void oblicWest(std::set <Side> *ListOfDirections, Player p);
 
-    void evalWest(std::vector <Side> ListOfDirections, Player p);
+    void evalWest(std::set<Side> *ListOfDirections, Player p);
 
 public:
 
@@ -37,7 +38,7 @@ public:
     bool collisionWall(Side dir, Player play);
     bool collisionPiece(Side dir, Player play);
     bool victoryCond(Player play);
-    std::vector<Side> possiblePositions(Player p);
+    std::set<Side> possiblePositions(Player p);
 };
 
 void Game::setOver(){
