@@ -66,5 +66,5 @@ string WallFrame::toString(){
 }
 
 bool WallFrame::isFree(){
-    return isWalled_;
+    return !isWalled_;
 }

@@ -9,21 +9,13 @@ private:
     Board * board_;
     vector<Player> listPlayer_;
     bool gameover_;
-
     void oblicNorth(std::set<Side> *ListOfDirections, Player p);
-
     void evalNorth(std::set <Side> *ListOfDirections, Player p);
-
     void oblicSouth(std::set <Side> *ListOfDirections, Player p);
-
     void evalSouth(Player p, std::set <Side> *ListOfDirections);
-
     void oblicEast(std::set <Side> *ListOfDirections, Player p);
-
     void evalEast(Player p, std::set<Side> *ListOfDirections);
-
     void oblicWest(std::set <Side> *ListOfDirections, Player p);
-
     void evalWest(std::set<Side> *ListOfDirections, Player p);
 
 public:
@@ -34,6 +26,7 @@ public:
     inline bool isOver();
     inline Board & getBoard();
     inline Player &getPlayer(unsigned nb);
+    inline unsigned getNbP();
     void move (Side dir, Player & play);
     bool collisionWall(Side dir, Player play);
     bool collisionPiece(Side dir, Player play);
@@ -55,6 +48,10 @@ Board &Game::getBoard(){
 
 Player &Game::getPlayer(unsigned nb){
     return listPlayer_[nb-1];
+}
+
+unsigned Game::getNbP(){
+    return listPlayer_.size();
 }
 
 #endif // GAME

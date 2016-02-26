@@ -18,21 +18,14 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size): gameover_
     listPlayer_.push_back(Player(n2,2, 4, size));
     listPlayer_.push_back(Player(n3,3, 4, size));
     listPlayer_.push_back(Player(n4,4, 4, size));
-    board_->place(listPlayer_[0].getPos().first, listPlayer_[0].getPos().second);
-    board_->place(listPlayer_[1].getPos().first, listPlayer_[1].getPos().second);
-    board_->place(listPlayer_[2].getPos().first, listPlayer_[2].getPos().second);
-    board_->place(listPlayer_[3].getPos().first, listPlayer_[3].getPos().second);
+    for (unsigned i=0; i<=3;i++){
+        board_->place(listPlayer_[i].getPos().first, listPlayer_[i].getPos().second);
+    }
 }
 
 void Game::move (Side dir, Player &play){
-    //Gestion des collision à dévelloper ici
-//    if(Game::collisionWall(dir, play)){
-//        throw QuoridorExceptions(1,"Mur sur le chemin, choisissez une autre voie...", 1);
-//    }
-
     //suppr bool de la case courante
     board_->empty(play.getPos().first, play.getPos().second);
-/*------------Rajouter les diag et pour les NSOE revérif si pion posé pour faire un saut---------------*/
     switch (dir){
     case Side::North:
         //revérif si pion pour saut pion
@@ -97,32 +90,16 @@ void Game::move (Side dir, Player &play){
 bool Game::collisionWall(Side dir, Player play){
     switch (dir){
     case Side::North:
-        if (board_->isFree(play.getPos().first-1, play.getPos().second)){
-            return true;
-//        } else if (!board_->isFree(play.getPos().first-2, play.getPos().second)){
-//            //Saut de pion
-        }
+        return !board_->isFree(play.getPos().first-1, play.getPos().second);
         break;
     case Side::South:
-        if (board_->isFree(play.getPos().first+1, play.getPos().second)){
-            return true;
-//        } else if (!board_->isFree(play.getPos().first+2, play.getPos().second)){
-//            //Saut de pion
-        }
+        return !board_->isFree(play.getPos().first+1, play.getPos().second);
         break;
     case Side::West:
-        if (board_->isFree(play.getPos().first, play.getPos().second-1)){
-            return true;
-//        } else if (!board_->isFree(play.getPos().first, play.getPos().second-2)){
-//            //Saut de pion
-        }
+        return !board_->isFree(play.getPos().first, play.getPos().second-1);
         break;
     case Side::East:
-        if (board_->isFree(play.getPos().first, play.getPos().second+1)){
-            return true;
-//        } else if (!board_->isFree(play.getPos().first, play.getPos().second+2)){
-//            //Saut de pion
-        }
+        return !board_->isFree(play.getPos().first, play.getPos().second+1);
         break;
     default:
         throw QuoridorExceptions(1,"Incorrect direction provided",1);
@@ -133,32 +110,23 @@ bool Game::collisionWall(Side dir, Player play){
 bool Game::collisionPiece(Side dir, Player play){
     switch (dir){
     case Side::North:
-        if (!board_->isFree(play.getPos().first-2, play.getPos().second)){
-            return true;
-        }
+        return !board_->isFree(play.getPos().first-2, play.getPos().second);
         break;
     case Side::South:
-        if (!board_->isFree(play.getPos().first+2, play.getPos().second)){
-            return true;
-        }
+        return !board_->isFree(play.getPos().first+2, play.getPos().second);
         break;
     case Side::West:
-        if (!board_->isFree(play.getPos().first, play.getPos().second-2)){
-            return true;
-        }
+        return !board_->isFree(play.getPos().first, play.getPos().second-2);
         break;
     case Side::East:
-        if (!board_->isFree(play.getPos().first, play.getPos().second+2)){
-            return true;
-        }
+        return !board_->isFree(play.getPos().first, play.getPos().second+2);
         break;
     default:
         throw QuoridorExceptions(1,"Incorrect direction provided",1);
     }
     return false;
 }
-void Game::oblicNorth(std::set<Side> *ListOfDirections, Player p)
-{
+void Game::oblicNorth(std::set<Side> *ListOfDirections, Player p){
     if(board_->isFree(p.getPos().first-2, p.getPos().second+2)){ //droit libre
          ListOfDirections->insert(Side::NorthEast);
     }
@@ -167,8 +135,7 @@ void Game::oblicNorth(std::set<Side> *ListOfDirections, Player p)
     }
 }
 
-void Game::evalNorth(std::set<Side> *ListOfDirections, Player p)
-{
+void Game::evalNorth(std::set<Side> *ListOfDirections, Player p){
     if (!collisionWall(Side::North,p)){ //pas de mur
         if(!collisionPiece(Side::North,p)){ //pas de piece
             ListOfDirections->insert(Side::North);
@@ -187,8 +154,7 @@ void Game::evalNorth(std::set<Side> *ListOfDirections, Player p)
     }
 }
 
-void Game::oblicSouth(std::set<Side> *ListOfDirections, Player p)
-{
+void Game::oblicSouth(std::set<Side> *ListOfDirections, Player p){
     if(board_->isFree(p.getPos().first+2, p.getPos().second-2)){ //gauche libre
          ListOfDirections->insert(Side::SouthWest);
     }
@@ -197,8 +163,7 @@ void Game::oblicSouth(std::set<Side> *ListOfDirections, Player p)
     }
 }
 
-void Game::evalSouth(Player p, std::set <Side> *ListOfDirections)
-{
+void Game::evalSouth(Player p, std::set <Side> *ListOfDirections){
     if (!collisionWall(Side::South,p)){ //pas de mur
         if(!collisionPiece(Side::South,p)){ //pas de piece
             ListOfDirections->insert(Side::South);
@@ -208,7 +173,6 @@ void Game::evalSouth(Player p, std::set <Side> *ListOfDirections)
                 if(board_->isFree(p.getPos().first+4, p.getPos().second)){ //pas de pion -> saut
                      ListOfDirections->insert(Side::South);
                 }else{
-
                     oblicSouth(ListOfDirections, p);
                 }
             }else{ //il y a soit un mur soit un pion -> oblique droit ou gauche
@@ -218,8 +182,7 @@ void Game::evalSouth(Player p, std::set <Side> *ListOfDirections)
     }
 }
 
-void Game::oblicEast(std::set<Side> *ListOfDirections, Player p)
-{
+void Game::oblicEast(std::set<Side> *ListOfDirections, Player p){
     if(board_->isFree(p.getPos().first-2, p.getPos().second+2)){ //haut libre
          ListOfDirections->insert(Side::NorthEast);
     }
@@ -228,13 +191,14 @@ void Game::oblicEast(std::set<Side> *ListOfDirections, Player p)
     }
 }
 
-void Game::evalEast(Player p, std::set <Side> *ListOfDirections)
-{
+void Game::evalEast(Player p, std::set <Side> *ListOfDirections){
     if (!collisionWall(Side::East,p)){ //pas de mur
         if(!collisionPiece(Side::East,p)){ //pas de piece
             ListOfDirections->insert(Side::East);
         }else{
             //saut ou oblique
+            std::cout << std::boolalpha << endl;
+            std::cout << board_->isFree(p.getPos().first, p.getPos().second+3) << endl;
             if(board_->isFree(p.getPos().first, p.getPos().second+3)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first, p.getPos().second+4)){ //pas de pion -> saut
                      ListOfDirections->insert(Side::East);
@@ -248,8 +212,7 @@ void Game::evalEast(Player p, std::set <Side> *ListOfDirections)
     }
 }
 
-void Game::oblicWest(std::set<Side> *ListOfDirections, Player p)
-{
+void Game::oblicWest(std::set<Side> *ListOfDirections, Player p){
     if(board_->isFree(p.getPos().first-2, p.getPos().second-2)){ //haut libre
          ListOfDirections->insert(Side::NorthWest);
     }
@@ -258,13 +221,11 @@ void Game::oblicWest(std::set<Side> *ListOfDirections, Player p)
     }
 }
 
-void Game::evalWest(std::set<Side> *ListOfDirections, Player p)
-{
+void Game::evalWest(std::set<Side> *ListOfDirections, Player p){
     if (!collisionWall(Side::West,p)){ //pas de mur
         if(!collisionPiece(Side::West,p)){ //pas de piece
             ListOfDirections->insert(Side::West);
-        }else{
-            //saut ou oblique
+        }else{ //saut ou oblique
             if(board_->isFree(p.getPos().first, p.getPos().second-3)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first, p.getPos().second-4)){ //pas de pion -> saut
                      ListOfDirections->insert(Side::West);
@@ -300,7 +261,6 @@ bool Game::victoryCond(Player play){
     case Side::West:
         return (bSide == Side::West || bSide == Side::NorthWest || bSide == Side::SouthWest);
         break;
-
     case Side::East:
         return (bSide == Side::East || bSide == Side::NorthEast || bSide == Side::SouthEast);
         break;

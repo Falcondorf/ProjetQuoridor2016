@@ -84,20 +84,25 @@ int main()
     /*-----------------Mouvement vers l'objectif et test de victoire-------------------*/
     testG.move(Side::South, testG.getPlayer(2));
     testG.move(Side::South, testG.getPlayer(2));
+    testG.move(Side::West, testG.getPlayer(2));
+    testG.move(Side::West, testG.getPlayer(1));
     cout << testG.getBoard().toString() << endl;
     if(testG.victoryCond(testG.getPlayer(2))){
         testG.getPlayer(1).setWin();
-        cout << testG.getPlayer(1).getName() << " a gagne..." << endl;
+        cout << testG.getPlayer(1).getName() << " est gagnant..." << endl;
     } else {
         cout << "La partie continue..." << endl;
     }
 
     /*-----------------------Eval position posible et mouvement------------------------------*/
-    set<Side> pp = testG.possiblePositions(testG.getPlayer(1));
-    for (auto s: pp){
-        cout << toString(s) << endl;
+    cout << testG.getNbP() << endl;
+    for (unsigned i=1; i<=testG.getNbP(); i++){
+        set<Side> pp = testG.possiblePositions(testG.getPlayer(i));
+        cout << "J" << i << "possibilite:\n" << endl;
+        for (auto s: pp){
+            cout <<  "*" <<toString(s) << endl;
+        }
     }
-    // for_each (pp.begin(), pp.end(), s);
         return 0;
 }
 

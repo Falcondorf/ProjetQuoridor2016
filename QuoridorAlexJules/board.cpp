@@ -76,7 +76,7 @@ void Board::place(unsigned row, unsigned column, unsigned direction){  ;
 
      unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
      if (row%2!=0 &&column%2!=0 && column>=1 && column < hidden_len-1 && direction==0){
-         if(!plateau_[row][column]->isFree()&&!plateau_[row][column-1]->isFree()&& !plateau_[row][column+1]->isFree()){
+         if(plateau_[row][column]->isFree()&&plateau_[row][column-1]->isFree()&& plateau_[row][column+1]->isFree()){
              plateau_[row][column]->place();
              plateau_[row][column-1]->place();
              plateau_[row][column+1]->place();
@@ -85,7 +85,7 @@ void Board::place(unsigned row, unsigned column, unsigned direction){  ;
          }
 
      }else if(column%2!=0 && row%2!=0 && row>=1 && row< hidden_len-1 && direction==1 ){
-         if(!plateau_[row][column]->isFree()&&! plateau_[row+1][column]->isFree()&& !plateau_[row-1][column]->isFree()){
+         if(plateau_[row][column]->isFree()&& plateau_[row+1][column]->isFree()&& plateau_[row-1][column]->isFree()){
              plateau_[row][column]->place();
              plateau_[row+1][column]->place();
              plateau_[row-1][column]->place();
