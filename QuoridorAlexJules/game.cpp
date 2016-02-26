@@ -133,22 +133,22 @@ bool Game::collisionWall(Side dir, Player play){
 bool Game::collisionPiece(Side dir, Player play){
     switch (dir){
     case Side::North:
-        if (board_->isFree(play.getPos().first-2, play.getPos().second)){
+        if (!board_->isFree(play.getPos().first-2, play.getPos().second)){
             return true;
         }
         break;
     case Side::South:
-        if (board_->isFree(play.getPos().first+2, play.getPos().second)){
+        if (!board_->isFree(play.getPos().first+2, play.getPos().second)){
             return true;
         }
         break;
     case Side::West:
-        if (board_->isFree(play.getPos().first, play.getPos().second-2)){
+        if (!board_->isFree(play.getPos().first, play.getPos().second-2)){
             return true;
         }
         break;
     case Side::East:
-        if (board_->isFree(play.getPos().first, play.getPos().second+2)){
+        if (!board_->isFree(play.getPos().first, play.getPos().second+2)){
             return true;
         }
         break;
