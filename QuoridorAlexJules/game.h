@@ -17,6 +17,14 @@ private:
 
     void evalSouth(Player p, std::vector <Side> ListOfDirections);
 
+    void oblicEast(std::vector <Side> ListOfDirections, Player p);
+
+    void evalEast(Player p, std::vector <Side> ListOfDirections);
+
+    void oblicWest(std::vector <Side> ListOfDirections, Player p);
+
+    void evalWest(std::vector <Side> ListOfDirections, Player p);
+
 public:
 
     Game(string n1, string n3, unsigned size);

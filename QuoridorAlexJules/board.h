@@ -12,7 +12,7 @@ private:
     vector<vector<Frame *> > plateau_;
 public:
     Board(unsigned len);
-    inline int getLen();
+    inline unsigned getLen();
     Side getside(unsigned row, unsigned column);
     bool isFree(unsigned row, unsigned column);
     void place(unsigned row, unsigned column, unsigned direction);
@@ -23,7 +23,7 @@ public:
 };
 
 
- int Board::getLen(){
+ unsigned Board::getLen(){
     return len_;
 }
 

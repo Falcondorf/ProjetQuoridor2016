@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "Game.h"
 
 using namespace std;
@@ -90,6 +91,13 @@ int main()
     } else {
         cout << "La partie continue..." << endl;
     }
-    return 0;
+
+    /*-----------------------Eval position posible et mouvement------------------------------*/
+    vector<Side> pp = testG.possiblePositions(testG.getPlayer(3));
+    for (auto s: pp){
+        cout << toString(s) << endl;
+    }
+    // for_each (pp.begin(), pp.end(), s);
+        return 0;
 }
 
