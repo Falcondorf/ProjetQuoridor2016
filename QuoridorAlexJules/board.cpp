@@ -117,3 +117,7 @@ void Board::empty(unsigned row, unsigned column){
 Side Board::getside(unsigned row, unsigned column){
     return plateau_[row][column]->getSide();
 }
+
+bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
+
+}
