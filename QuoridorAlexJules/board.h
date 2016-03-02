@@ -10,6 +10,10 @@ class Board{
 private:
     unsigned len_;
     vector<vector<Frame *> > plateau_;
+    void tourner (int *cpt, Side *dir, bool gauche);
+    void displace(Side dir, std::pair<unsigned, unsigned> *pos);
+    bool verifWall(unsigned row, unsigned column, Side dir);
+    bool verifLeftArm(unsigned row, unsigned column, Side dir);
 public:
     Board(unsigned len);
     inline unsigned getLen();

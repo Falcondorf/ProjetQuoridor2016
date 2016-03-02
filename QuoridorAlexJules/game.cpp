@@ -104,7 +104,6 @@ bool Game::collisionWall(Side dir, Player play){
     default:
         throw QuoridorExceptions(1,"Incorrect direction provided",1);
     }
-    return false;
 }
 
 bool Game::collisionPiece(Side dir, Player play){

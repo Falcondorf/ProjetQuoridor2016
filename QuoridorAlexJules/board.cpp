@@ -118,6 +118,131 @@ Side Board::getside(unsigned row, unsigned column){
     return plateau_[row][column]->getSide();
 }
 
-bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
+void Board::tourner(int *cpt, Side *dir, bool gauche){
+    switch (*dir){
+    case Side::North:
+        if (gauche){
+            *dir = Side::West;
+            *cpt -= 1;
+        } else {
+            *dir = Side::East;
+            *cpt += 1;
+        }
+        break;
+    case Side::South:
+        if (gauche){
+            *dir = Side::East;
+            *cpt -= 1;
+        } else {
+            *dir = Side::West;
+            *cpt += 1;
+        }
+        break;
+    case Side::East:
+        if (gauche){
+            *dir = Side::North;
+            *cpt -= 1;
+        } else {
+            *dir = Side::South;
+            *cpt += 1;
+        }
+        break;
+    case Side::West:
+        if (gauche){
+            *dir = Side::South;
+            *cpt -= 1;
+        } else {
+            *dir = Side::North;
+            *cpt += 1;
+        }
+        break;
+    default:
+        throw QuoridorExceptions(1,"Not applicable side" ,1);
+    }
+}
 
+void Board::displace(Side dir, std::pair<unsigned, unsigned> *pos){
+    switch (dir){
+    case Side::North:
+        pos->first -= 1;
+        break;
+    case Side::South:
+        pos->first += 1;
+        break;
+    case Side::West:
+        pos->second -=1;
+        break;
+    case Side::East:
+        pos->second += 1;
+        break;
+    default:
+        throw QuoridorExceptions(1,"Not applicable Side", 1);
+    }
+}
+//renvoie true si pas de mur face à soi
+bool Board::verifWall(unsigned row, unsigned column, Side dir){
+    switch (dir){
+    case Side::North:
+        return plateau_[row-1][column]->isFree();
+        break;
+    case Side::South:
+        return plateau_[row+1][column]->isFree();
+        break;
+    case Side::West:
+        return plateau_[row][column-1]->isFree();
+        break;
+    case Side::East:
+        return plateau_[row][column+1]->isFree();
+        break;
+    default:
+        throw QuoridorExceptions(1,"Not applicable Side", 1);
+    }
+}
+//renvoie true lorsque le bras est dans le vent
+bool Board::verifLeftArm(unsigned row, unsigned column, Side dir){
+    switch (dir){
+    case Side::North:
+        return plateau_[row][column-1]->isFree();
+        break;
+    case Side::South:
+        return plateau_[row][column+1]->isFree();
+        break;
+    case Side::West:
+        return plateau_[row+1][column]->isFree();
+        break;
+    case Side::East:
+        return plateau_[row-1][column]->isFree();
+        break;
+    default:
+        throw QuoridorExceptions(1,"Not applicable Side", 1);
+    }
+}
+
+bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
+    int cpt {0};
+    Side nose {obj};
+
+    while (getside(pos.first, pos.second) != obj){
+        if (cpt == 0){
+            //avancer juqu'au mur : move until wall
+            if (verifWall(pos.first, pos.second, nose)){
+                displace(nose, &pos);
+            } else { //si mur cpt + 1 et tourner vers la droite
+                tourner(&cpt, &nose, false);
+            }
+        } else {
+            //vérif bras gauche (si bras contre mur, vérif nez:Si il y
+            // a pas de mur devant on avance Sinon tourner droite et cpt + 1
+            //Si bras dans le vent, tourner gauche cpt - 1)
+            if (verifLeftArm(pos.first, pos.second, nose)){
+                tourner(&cpt, &nose, true);
+            } else {
+                if (verifWall(pos.first, pos.second, nose)){
+                    displace(nose, &pos); //avancer
+                } else {
+                    tourner(&cpt, &nose, false);
+                }
+            }
+        }
+    }
 }
