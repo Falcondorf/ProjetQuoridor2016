@@ -50,7 +50,7 @@ int main()
     }
     Board plat(9);
     cout << plat.toString() << endl;
-   // plat.place(1,11,1); // par surcharge on place un mur vertical
+    plat.place(1,11,1); // par surcharge on place un mur vertical
     plat.place(1,9,0);
     plat.place(0,0); //on place un pion
     cout << plat.toString() << endl;

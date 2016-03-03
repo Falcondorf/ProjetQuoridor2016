@@ -187,16 +187,16 @@ bool Board::verifWall(unsigned row, unsigned column, Side dir){
     unsigned hidden_len=len_*2-1;
     switch (dir){
     case Side::North:
-        return row-1<=hidden_len && plateau_[row-1][column]->isFree() ;
+        return row-1<hidden_len && plateau_[row-1][column]->isFree() ;
         break;
     case Side::South:
-        return row+1<=hidden_len && plateau_[row+1][column]->isFree();
+        return row+1<hidden_len && plateau_[row+1][column]->isFree();
         break;
     case Side::West:
-        return column-1<=hidden_len && plateau_[row][column-1]->isFree();
+        return column-1<hidden_len && plateau_[row][column-1]->isFree();
         break;
     case Side::East:
-        return column+1<=hidden_len &&  plateau_[row][column+1]->isFree();
+        return column+1<hidden_len &&  plateau_[row][column+1]->isFree();
         break;
     default:
         throw QuoridorExceptions(1,"Not applicable Side", 1);
@@ -207,20 +207,35 @@ bool Board::verifLeftArm(unsigned row, unsigned column, Side dir){
      unsigned hidden_len=len_*2-1;
     switch (dir){
     case Side::North:
-        return column-1<=hidden_len &&  plateau_[row][column-1]->isFree();
+        return column-1<hidden_len &&  plateau_[row][column-1]->isFree();
         break;
     case Side::South:
-        return  column+1<=hidden_len && plateau_[row][column+1]->isFree();
+        return  column+1<hidden_len && plateau_[row][column+1]->isFree();
         break;
     case Side::West:
-        return row+1<=hidden_len && plateau_[row+1][column]->isFree();
+        return row+1<hidden_len && plateau_[row+1][column]->isFree();
         break;
     case Side::East:
-        return row-1<=hidden_len && plateau_[row-1][column]->isFree();
+        return row-1<hidden_len && plateau_[row-1][column]->isFree();
         break;
     default:
         throw QuoridorExceptions(1,"Not applicable Side", 1);
     }
+}
+
+bool Board::reachEnd(Side currFrame, Side obj){
+    switch (currFrame){
+    case Side::North: return obj == Side::North;break;
+    case Side::NorthWest: return obj == Side::North || obj == Side::West;break;
+    case Side::NorthEast: return obj == Side::North || obj == Side::East;break;
+    case Side::South: return obj == Side::South;break;
+    case Side::SouthWest: return obj == Side::South || obj == Side::West;break;
+    case Side::SouthEast: return obj == Side::South || obj == Side::East;break;
+    case Side::West: return obj == Side::West;break;
+    case Side::East: return obj == Side::East;break;
+    case Side::Blank: return false;
+    }
+    throw QuoridorExceptions(1, "Bug", 1);
 }
 
 bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
@@ -228,7 +243,7 @@ bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
     int cpt =0;
     Side nose =obj;
     bool blocked =false;
-    while (getside(pos.first, pos.second) != obj && !blocked){
+    while (!reachEnd(getside(pos.first, pos.second), obj) && !blocked && cpt<15){
         if (cpt == 0){
             //avancer juqu'au mur : move until wall
             if (verifWall(pos.first, pos.second, nose)){
@@ -236,6 +251,7 @@ bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
                 displace(nose, &pos);
             } else { //si mur cpt + 1 et tourner vers la droite
                 tourner(&cpt, &nose, false);
+
             }
         } else {
             //vérif bras gauche (si bras contre mur, vérif nez:Si il y
@@ -243,6 +259,8 @@ bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
             //Si bras dans le vent, tourner gauche cpt - 1)
             if (verifLeftArm(pos.first, pos.second, nose)){
                 tourner(&cpt, &nose, true);
+                save.push_back(std::make_tuple(pos,cpt));
+                displace(nose, &pos);
             } else {
                 if (verifWall(pos.first, pos.second, nose)){
                     save.push_back(std::make_tuple(pos,cpt));
@@ -257,6 +275,9 @@ bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
         auto it = find (save.begin(), save.end(), search);
         if (it != save.end()){
             blocked=true;
+        }
+        if (cpt < 15){
+            blocked = true;
         }
     }
     return !blocked;   // evalPath renvoie true si il existe un chemin (pas blocké)

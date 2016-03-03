@@ -14,6 +14,7 @@ private:
     void displace(Side dir, std::pair<unsigned, unsigned> *pos);
     bool verifWall(unsigned row, unsigned column, Side dir);
     bool verifLeftArm(unsigned row, unsigned column, Side dir);
+    bool reachEnd(Side currFrame, Side obj);
 public:
     Board(unsigned len);
     inline unsigned getLen();
