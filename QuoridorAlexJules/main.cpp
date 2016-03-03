@@ -103,15 +103,42 @@ int main()
             cout <<  "*" <<toString(s) << endl;
         }
     }
-    /*-----------------------Test evalPath------------------------------*/
+    /*-----------------------Test findPath enfermé------------------------------*/
 
 
     plat.place(3,1,0);
     plat.place(3,5,0);
     plat.place(3,9,0);
-    bool hey =plat.evalPath(make_pair(0,4),Side::South);
+    bool hey =plat.findPath(make_pair(0,4),Side::South);
     cout << hey<< endl;
     cout << plat.toString() << endl;
+    /*---------------------Test findPath dans spirale------------------------------*/
+    //On vide d'abord le plateau de 9x9
+    plat.empty(3,1,0);
+    plat.empty(3,5,0);
+    plat.empty(3,9,0);
+    plat.empty(1,11,1);
+    plat.empty(1,9,0);
+    cout << plat.toString() << endl;
+    //On le rempli avec une spirale(cas des plus improbable mais bon test sur a fonctionnalité)
+    plat.place(1,1,1);
+    plat.place(5,1,1);
+    plat.place(9,1,1);
+    plat.place(13,1,1);
+    plat.place(15,3,0);
+    plat.place(15,7,0);
+    plat.place(15,11,0);
+    plat.place(13,13,1);
+    plat.place(9,13,1);
+    plat.place(5,13,1);
+    plat.place(3,11,0);
+    plat.place(3,7,0);
+    plat.place(5,5,1);
+    plat.place(9,5,1);
+    plat.place(11,7,0);
+    plat.place(9,9,1);
+    cout << plat.toString() << endl;
+    cout << plat.findPath(make_pair(8,8), Side::West) <<endl;
 
         return 0;
 }

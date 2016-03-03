@@ -61,7 +61,9 @@ WallFrame::WallFrame() : Frame(){
 void WallFrame::place(){
     isWalled_=true;
 }
-void WallFrame::empty(){}
+void WallFrame::empty(){
+    isWalled_=false;
+}
 Side WallFrame::getSide(){return Side::Blank;}
 #endif // FRAME
 

@@ -23,7 +23,8 @@ public:
     void place(unsigned row, unsigned column, unsigned direction);
     void place(unsigned row, unsigned column);
     void empty(unsigned row, unsigned column);
-    bool evalPath(pair<unsigned, unsigned> pos, Side obj);
+    void empty(unsigned row, unsigned column, unsigned direction);
+    bool findPath(pair<unsigned, unsigned> pos, Side obj);
     string toString();
 };
 
