@@ -1,7 +1,10 @@
 #include "Frame.h"
 #include <iostream>
+#include <tuple>
+#include <algorithm>
 #include "Board.h"
 #include "QuoridorExceptions.h"
+
 
 Board::Board(unsigned len) : len_(len)
 {
@@ -164,35 +167,36 @@ void Board::tourner(int *cpt, Side *dir, bool gauche){
 void Board::displace(Side dir, std::pair<unsigned, unsigned> *pos){
     switch (dir){
     case Side::North:
-        pos->first -= 1;
+        pos->first -= 2 ;
         break;
     case Side::South:
-        pos->first += 1;
+        pos->first += 2;
         break;
     case Side::West:
-        pos->second -=1;
+        pos->second -=2;
         break;
     case Side::East:
-        pos->second += 1;
+        pos->second += 2;
         break;
     default:
         throw QuoridorExceptions(1,"Not applicable Side", 1);
     }
 }
-//renvoie true si pas de mur face à soi
+//renvoie true si pas de mur face à soi et true si pas le vide
 bool Board::verifWall(unsigned row, unsigned column, Side dir){
+    unsigned hidden_len=len_*2-1;
     switch (dir){
     case Side::North:
-        return plateau_[row-1][column]->isFree();
+        return row-1<=hidden_len && plateau_[row-1][column]->isFree() ;
         break;
     case Side::South:
-        return plateau_[row+1][column]->isFree();
+        return row+1<=hidden_len && plateau_[row+1][column]->isFree();
         break;
     case Side::West:
-        return plateau_[row][column-1]->isFree();
+        return column-1<=hidden_len && plateau_[row][column-1]->isFree();
         break;
     case Side::East:
-        return plateau_[row][column+1]->isFree();
+        return column+1<=hidden_len &&  plateau_[row][column+1]->isFree();
         break;
     default:
         throw QuoridorExceptions(1,"Not applicable Side", 1);
@@ -200,18 +204,19 @@ bool Board::verifWall(unsigned row, unsigned column, Side dir){
 }
 //renvoie true lorsque le bras est dans le vent
 bool Board::verifLeftArm(unsigned row, unsigned column, Side dir){
+     unsigned hidden_len=len_*2-1;
     switch (dir){
     case Side::North:
-        return plateau_[row][column-1]->isFree();
+        return column-1<=hidden_len &&  plateau_[row][column-1]->isFree();
         break;
     case Side::South:
-        return plateau_[row][column+1]->isFree();
+        return  column+1<=hidden_len && plateau_[row][column+1]->isFree();
         break;
     case Side::West:
-        return plateau_[row+1][column]->isFree();
+        return row+1<=hidden_len && plateau_[row+1][column]->isFree();
         break;
     case Side::East:
-        return plateau_[row-1][column]->isFree();
+        return row-1<=hidden_len && plateau_[row-1][column]->isFree();
         break;
     default:
         throw QuoridorExceptions(1,"Not applicable Side", 1);
@@ -219,13 +224,15 @@ bool Board::verifLeftArm(unsigned row, unsigned column, Side dir){
 }
 
 bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
-    int cpt {0};
-    Side nose {obj};
-
-    while (getside(pos.first, pos.second) != obj){
+    vector<tuple<pair<unsigned,unsigned>,int >> save;
+    int cpt =0;
+    Side nose =obj;
+    bool blocked =false;
+    while (getside(pos.first, pos.second) != obj && !blocked){
         if (cpt == 0){
             //avancer juqu'au mur : move until wall
             if (verifWall(pos.first, pos.second, nose)){
+                save.push_back(std::make_tuple(pos,cpt));
                 displace(nose, &pos);
             } else { //si mur cpt + 1 et tourner vers la droite
                 tourner(&cpt, &nose, false);
@@ -238,11 +245,19 @@ bool Board::evalPath(pair<unsigned, unsigned> pos, Side obj){
                 tourner(&cpt, &nose, true);
             } else {
                 if (verifWall(pos.first, pos.second, nose)){
+                    save.push_back(std::make_tuple(pos,cpt));
                     displace(nose, &pos); //avancer
                 } else {
                     tourner(&cpt, &nose, false);
                 }
             }
         }
+        tuple<pair<unsigned,unsigned>,int>  search;
+        search= std::make_tuple(pos,cpt);
+        auto it = find (save.begin(), save.end(), search);
+        if (it != save.end()){
+            blocked=true;
+        }
     }
+    return !blocked;   // evalPath renvoie true si il existe un chemin (pas blocké)
 }

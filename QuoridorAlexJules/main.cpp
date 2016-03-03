@@ -50,7 +50,7 @@ int main()
     }
     Board plat(9);
     cout << plat.toString() << endl;
-    plat.place(1,11,1); // par surcharge on place un mur vertical
+   // plat.place(1,11,1); // par surcharge on place un mur vertical
     plat.place(1,9,0);
     plat.place(0,0); //on place un pion
     cout << plat.toString() << endl;
@@ -103,6 +103,16 @@ int main()
             cout <<  "*" <<toString(s) << endl;
         }
     }
+    /*-----------------------Test evalPath------------------------------*/
+
+
+    plat.place(3,1,0);
+    plat.place(3,5,0);
+    plat.place(3,9,0);
+    bool hey =plat.evalPath(make_pair(0,4),Side::South);
+    cout << hey<< endl;
+    cout << plat.toString() << endl;
+
         return 0;
 }
 
