@@ -20,10 +20,10 @@ public:
     inline unsigned getLen();
     Side getside(unsigned row, unsigned column);
     bool isFree(unsigned row, unsigned column);
-    void place(unsigned row, unsigned column, unsigned direction);
+    void place(unsigned row, unsigned column, bool vertical);
     void place(unsigned row, unsigned column);
     void empty(unsigned row, unsigned column);
-    void empty(unsigned row, unsigned column, unsigned direction);
+    void empty(unsigned row, unsigned column, bool vertical);
     bool findPath(pair<unsigned, unsigned> pos, Side obj);
     string toString();
 };

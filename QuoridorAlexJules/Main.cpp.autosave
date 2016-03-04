@@ -118,15 +118,7 @@ int main()
    // cout << hey<< endl;
     cout << plate.toString() << endl;
     /*---------------------Test findPath dans spirale------------------------------*/
-    //On vide d'abord le plateau de 9x9
-  /*  plate.empty(3,1,0);
-    plate.empty(3,5,0);
-    plate.empty(3,9,0);
-    plate.empty(1,11,1);
-    plate.empty(1,9,0);
-    cout << plate.toString() << endl;
-    //On le rempli avec une spirale(cas des plus improbable mais bon test sur a fonctionnalité)
-    */
+    
     Game testG2("alex","ed",9);
     cout << testG2.getBoard().toString() << endl;
     try{
@@ -146,7 +138,7 @@ int main()
     testG2.playWall(9,5,1);
     testG2.playWall(11,7,0);
     testG2.playWall(9,9,1);
-     testG2.playWall(3,15,0); // joueur blocké
+    testG2.playWall(3,15,0); // joueur blocké
     }catch(std::exception const& e){
         cerr << "ERROR: " << e.what() << endl;
     }

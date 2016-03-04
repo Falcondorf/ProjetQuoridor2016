@@ -9,7 +9,9 @@ SOURCES += \
     Game.cpp \
     Main.cpp \
     Player.cpp \
-    Side.cpp
+    Side.cpp \
+    subject.cpp \
+    QuoridorConsole.cpp
 
 HEADERS += \
     Frame.h \
@@ -17,7 +19,10 @@ HEADERS += \
     Player.h \
     Board.h \
     Side.h \
-    QuoridorExceptions.h
+    QuoridorExceptions.h \
+    observer.h \
+    subject.h \
+    QuoridorConsole.h
 
 DISTFILES +=
 

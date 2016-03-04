@@ -85,6 +85,7 @@ void Game::move (Side dir, Player &play){
     default:
         throw QuoridorExceptions(1,"Direction chosen is not appliable",1);
     }
+    notifyObservers();
 }
 
 bool Game::collisionWall(Side dir, Player play){
@@ -276,5 +277,6 @@ bool Game::playWall(unsigned row, unsigned column, bool vertical){
             return false;
         }
     }
+    notifyObservers();
     return true;
 }

@@ -4,7 +4,9 @@
 #include <vector>
 #include <set>
 
-class Game {
+#include "subject.h"
+
+class Game : public nvs::Subject {
 private:
     Board * board_;
     vector<Player> listPlayer_;

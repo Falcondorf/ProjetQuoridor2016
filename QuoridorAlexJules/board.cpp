@@ -73,12 +73,12 @@ bool Board::isFree(unsigned row, unsigned column){
 }
 
 //Peut-être devoir moduler cette algo pour différencier les placements de pions et de murs
-void Board::place(unsigned row, unsigned column, unsigned direction){  ;
+void Board::place(unsigned row, unsigned column, bool vertical){
     //Envisager cette condition afin de vérifier qu'on puisse placer un mur sans problème
     //Dans le cas d'un pion, traitement différent lié aux obstacles etc...
 
      unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
-     if (row%2!=0 &&column%2!=0 && column>=1 && column < hidden_len-1 && direction==0){
+     if (row%2!=0 &&column%2!=0 && column>=1 && column < hidden_len-1 && !vertical){
          if(plateau_[row][column]->isFree()&&plateau_[row][column-1]->isFree()&& plateau_[row][column+1]->isFree()){
              plateau_[row][column]->place();
              plateau_[row][column-1]->place();
@@ -87,7 +87,7 @@ void Board::place(unsigned row, unsigned column, unsigned direction){  ;
              throw QuoridorExceptions(1,"collision of walls",1);
          }
 
-     }else if(column%2!=0 && row%2!=0 && row>=1 && row< hidden_len-1 && direction==1 ){
+     }else if(column%2!=0 && row%2!=0 && row>=1 && row< hidden_len-1 && vertical ){
          if(plateau_[row][column]->isFree()&& plateau_[row+1][column]->isFree()&& plateau_[row-1][column]->isFree()){
              plateau_[row][column]->place();
              plateau_[row+1][column]->place();
@@ -100,9 +100,9 @@ void Board::place(unsigned row, unsigned column, unsigned direction){  ;
       }
 }
 
-void Board::empty(unsigned row, unsigned column, unsigned direction){
+void Board::empty(unsigned row, unsigned column, bool vertical){
     unsigned hidden_len=len_*2-1;  //rendre ca GLOBAL
-    if (row%2!=0 &&column%2!=0 && column>=1 && column < hidden_len-1 && direction==0){
+    if (row%2!=0 &&column%2!=0 && column>=1 && column < hidden_len-1 && !vertical){
         if(!plateau_[row][column]->isFree()&&!plateau_[row][column-1]->isFree()&& !plateau_[row][column+1]->isFree()){
             plateau_[row][column]->empty();
             plateau_[row][column-1]->empty();
@@ -111,7 +111,7 @@ void Board::empty(unsigned row, unsigned column, unsigned direction){
             throw QuoridorExceptions(1,"collision of walls",1);
         }
 
-    }else if(column%2!=0 && row%2!=0 && row>=1 && row< hidden_len-1 && direction==1 ){
+    }else if(column%2!=0 && row%2!=0 && row>=1 && row< hidden_len-1 && vertical ){
         if(!plateau_[row][column]->isFree()&& !plateau_[row+1][column]->isFree()&& !plateau_[row-1][column]->isFree()){
             plateau_[row][column]->empty();
             plateau_[row+1][column]->empty();
