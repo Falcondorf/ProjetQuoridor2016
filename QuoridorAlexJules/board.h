@@ -3,13 +3,13 @@
 #include "Frame.h"
 #include <vector>
 
-using namespace std;
+
 
 class Board{
 
 private:
     unsigned len_;
-    vector<vector<Frame *> > plateau_;
+    std::vector< std::vector<Frame *> > plateau_;
     void tourner (int *cpt, Side *dir, bool gauche);
     void displace(Side dir, std::pair<unsigned, unsigned> *pos);
     bool verifWall(unsigned row, unsigned column, Side dir);
@@ -24,8 +24,8 @@ public:
     void place(unsigned row, unsigned column);
     void empty(unsigned row, unsigned column);
     void empty(unsigned row, unsigned column, bool vertical);
-    bool findPath(pair<unsigned, unsigned> pos, Side obj);
-    string toString();
+    bool findPath( std::pair<unsigned, unsigned> pos, Side obj);
+    std::string toString();
 };
 
 

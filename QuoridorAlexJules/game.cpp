@@ -1,9 +1,13 @@
 #include "Game.h"
 #include "QuoridorExceptions.h"
-#include <iostream>
 
-Game::Game(string n1, string n2, unsigned size):gameover_(false){
-    Board * b = new Board(size);
+using namespace std;
+
+
+
+
+Game::Game(string n1, string n2, unsigned size){
+    Board * b = new Board(size);//fuite mémoire
     board_ = b;
     listPlayer_.push_back(Player(n1, 1, 2, size));
     listPlayer_.push_back(Player(n2, 2, 2, size));
@@ -11,8 +15,8 @@ Game::Game(string n1, string n2, unsigned size):gameover_(false){
     board_->place(listPlayer_[1].getPos().first, listPlayer_[1].getPos().second);
 }
 
-Game::Game(string n1, string n2, string n3, string n4, unsigned size): gameover_(false){
-    Board * b = new Board(size);
+Game::Game(string n1, string n2, string n3, string n4, unsigned size){
+    Board * b = new Board(size); //fuite
     board_ = b;
     listPlayer_.push_back(Player(n1,1, 4, size));
     listPlayer_.push_back(Player(n2,2, 4, size));
@@ -85,6 +89,8 @@ void Game::move (Side dir, Player &play){
     default:
         throw QuoridorExceptions(1,"Direction chosen is not appliable",1);
     }
+    next();
+    notifyObservers();
 }
 
 bool Game::collisionWall(Side dir, Player play){
@@ -196,8 +202,6 @@ void Game::evalEast(Player p, std::set <Side> *ListOfDirections){
             ListOfDirections->insert(Side::East);
         }else{
             //saut ou oblique
-            std::cout << std::boolalpha << endl;
-            std::cout << board_->isFree(p.getPos().first, p.getPos().second+3) << endl;
             if(board_->isFree(p.getPos().first, p.getPos().second+3)){ //pas de mur derrière la pièce
                 if(board_->isFree(p.getPos().first, p.getPos().second+4)){ //pas de pion -> saut
                      ListOfDirections->insert(Side::East);
@@ -276,5 +280,14 @@ bool Game::playWall(unsigned row, unsigned column, bool vertical){
             return false;
         }
     }
+    next();
+    notifyObservers();
     return true;
 }
+std::set<Side> Game::possiblePositions(){
+    return possiblePositions(getPlayer(currentPlayer_));
+}
+void Game::move (Side dir){
+    return move(dir,getPlayer(currentPlayer_));
+}
+

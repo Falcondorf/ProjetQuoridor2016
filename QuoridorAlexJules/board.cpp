@@ -1,10 +1,10 @@
 #include "Frame.h"
-#include <iostream>
 #include <tuple>
 #include <algorithm>
 #include "Board.h"
 #include "QuoridorExceptions.h"
 
+using namespace std;
 
 Board::Board(unsigned len) : len_(len)
 {
@@ -14,7 +14,6 @@ Board::Board(unsigned len) : len_(len)
     unsigned hidden_len=len*2-1;
     plateau_=std::vector<std::vector<Frame *> > (hidden_len, std::vector<Frame *>(hidden_len, nullptr));
     for (unsigned i=0;i<hidden_len;i++){
-        std::cout << endl;
         for (unsigned j=0;j<hidden_len;j++){
             if(i%2==0 && j%2==0){
                PlayerFrame * pf = new PlayerFrame(i,j,hidden_len);

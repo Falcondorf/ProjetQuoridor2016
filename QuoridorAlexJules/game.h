@@ -4,11 +4,14 @@
 #include <vector>
 #include <set>
 
-class Game {
+#include "subject.h"
+
+class Game : public nvs::Subject {
 private:
     Board * board_;
-    vector<Player> listPlayer_;
-    bool gameover_;
+    unsigned currentPlayer_ ;
+    std::vector<Player> listPlayer_;
+
     void oblicNorth(std::set<Side> *ListOfDirections, Player p);
     void evalNorth(std::set <Side> *ListOfDirections, Player p);
     void oblicSouth(std::set <Side> *ListOfDirections, Player p);
@@ -17,31 +20,44 @@ private:
     void evalEast(Player p, std::set<Side> *ListOfDirections);
     void oblicWest(std::set <Side> *ListOfDirections, Player p);
     void evalWest(std::set<Side> *ListOfDirections, Player p);
-
+    void move (Side dir, Player & play);
+    inline void next();
+    std::set<Side> possiblePositions(Player p);
 public:
 
-    Game(string n1, string n3, unsigned size);
-    Game(string n1, string n2, string n3, string n4, unsigned size);
-    inline void setOver();
+    Game( std::string n1,  std::string n3, unsigned size);
+    Game( std::string n1,  std::string n2,  std::string n3,  std::string n4, unsigned size);
+
     inline bool isOver();
     inline Board & getBoard();
     inline Player &getPlayer(unsigned nb);
     inline unsigned getNbP();
-    void move (Side dir, Player & play);
+    std::set<Side> possiblePositions();
     bool collisionWall(Side dir, Player play);
     bool collisionPiece(Side dir, Player play);
     bool victoryCond(Player play);
     bool playWall(unsigned row, unsigned column, bool vertical);
+    void move (Side dir);
 
-    std::set<Side> possiblePositions(Player p);
 };
 
-void Game::setOver(){
-    gameover_ = true;
+
+void Game::next(){
+    if(getNbP()==4){
+        currentPlayer_ = (currentPlayer_%4)+1; //ca marche
+    }else{
+        currentPlayer_ = (currentPlayer_%2)+1; //ca marche
+    }
 }
 
+
 bool Game::isOver(){
-    return gameover_;
+    for (unsigned i=1;i<= getNbP();i++ ){
+        if(victoryCond(getPlayer(i))){
+            return true;
+        }
+    }
+    return false;
 }
 
 Board &Game::getBoard(){

@@ -2,6 +2,7 @@
 #define QUORIDORCONSOLE_H
 
 #include "observer.h"
+#include "subject.h"
 #include "Game.h"
 
 class QuoridorConsole : public nvs::Observer
@@ -9,11 +10,12 @@ class QuoridorConsole : public nvs::Observer
 private:
     Game game_;
 public:
-    QuoridorConsole(string n1, string n3, unsigned size);
-    QuoridorConsole(string n1, string n2, string n3, string n4, unsigned size);
+    QuoridorConsole( std::string n1,  std::string n3, unsigned size);
+    QuoridorConsole( std::string n1,  std::string n2,  std::string n3,  std::string n4, unsigned size);
     ~QuoridorConsole();
 public:
-    virtual void update(const Subject *subject);
+
+    virtual void update(const nvs::Subject *subject) override;
 private:
     //ces deux mthodes divent demander à l'utilisateur
     // via le clavier de mover le pion ou placer un mur selon la
