@@ -7,14 +7,14 @@ using namespace nvs;
 QuoridorConsole::QuoridorConsole(string n1, string n3, unsigned size)
     : game_(n1, n3, size)
 {
-    cout << game_.getBoard().toString();
+    cout << game_.stringBoard();
     game_.registerObserver(this);
 }
 
 QuoridorConsole::QuoridorConsole(string n1, string n2, string n3, string n4, unsigned size)
     : game_(n1, n2, n3, n4, size)
 {
-    cout << game_.getBoard().toString();
+    cout << game_.stringBoard();
     game_.registerObserver(this);
 }
 
@@ -26,7 +26,7 @@ QuoridorConsole::~QuoridorConsole()
 void QuoridorConsole::update(const Subject *subject)
 {
     if (subject!=&game_) return;
-    cout << game_.getBoard().toString() << endl;
+    cout << game_.stringBoard() << endl;
 }
 void QuoridorConsole::play(){
 

@@ -8,7 +8,7 @@
 
 class Game : public nvs::Subject {
 private:
-    Board * board_;
+    Board board_;
     unsigned currentPlayer_ ;
     std::vector<Player> listPlayer_;
 
@@ -29,7 +29,6 @@ public:
     Game( std::string n1,  std::string n2,  std::string n3,  std::string n4, unsigned size);
 
     bool isOver();
-    inline Board & getBoard();
     inline Player &getPlayer(unsigned nb);
     inline unsigned getNbP();
     std::set<Side> possiblePositions();
@@ -38,12 +37,8 @@ public:
     bool victoryCond(Player play);
     bool playWall(unsigned row, unsigned column, bool vertical);
     void move (Side dir);
-
+    inline std::string stringBoard();
 };
-
-Board &Game::getBoard(){
-    return *board_;
-}
 
 Player &Game::getPlayer(unsigned nb){
     return listPlayer_[nb-1];
@@ -51,6 +46,10 @@ Player &Game::getPlayer(unsigned nb){
 
 unsigned Game::getNbP(){
     return listPlayer_.size();
+}
+
+std::string Game::stringBoard(){
+    return board_.toString();
 }
 
 #endif // GAME
