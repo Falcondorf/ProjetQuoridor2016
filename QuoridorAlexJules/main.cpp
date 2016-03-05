@@ -80,7 +80,12 @@ int main()
         myConsole = new QuoridorConsole(name1,name2,name3,name4,taille);
 
     }
+    try{
     myConsole->play();
+    }catch(std::exception const& e){
+        cout << "ERROR: " << e.what() << endl;
+    }
+
     delete myConsole;
     return 0;
 }

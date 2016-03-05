@@ -92,7 +92,6 @@ void QuoridorConsole::placeMur(){
          cin>>column;
          cout<< "Entrez 1 pour un mur vertical, 0 pour horizontal"<< endl;
          cin >> vertical ;
-         game_.playWall(row,column,vertical);
      }while(!game_.playWall(row,column,vertical));
 
 }

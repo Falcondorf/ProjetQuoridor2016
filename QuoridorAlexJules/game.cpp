@@ -10,21 +10,23 @@ using namespace std;
 Game::Game(string n1, string n2, unsigned size){
     Board * b = new Board(size);//fuite mémoire
     board_ = b;
+    currentPlayer_=1;
     listPlayer_.push_back(Player(n1, 1, 2, size));
     listPlayer_.push_back(Player(n2, 2, 2, size));
-    board_->place(listPlayer_[0].getPos().first, listPlayer_[0].getPos().second);
-    board_->place(listPlayer_[1].getPos().first, listPlayer_[1].getPos().second);
+    board_->place(getPlayer(1).getPos().first, getPlayer(1).getPos().second);
+    board_->place(getPlayer(2).getPos().first, getPlayer(2).getPos().second);
 }
 
 Game::Game(string n1, string n2, string n3, string n4, unsigned size){
     Board * b = new Board(size); //fuite
     board_ = b;
+    currentPlayer_=1;
     listPlayer_.push_back(Player(n1,1, 4, size));
     listPlayer_.push_back(Player(n2,2, 4, size));
     listPlayer_.push_back(Player(n3,3, 4, size));
     listPlayer_.push_back(Player(n4,4, 4, size));
-    for (unsigned i=0; i<=3;i++){
-        board_->place(listPlayer_[i].getPos().first, listPlayer_[i].getPos().second);
+    for (unsigned i=1; i<=4;i++){
+        board_->place(getPlayer(i).getPos().first, getPlayer(i).getPos().second);
     }
 
 }
@@ -285,13 +287,14 @@ bool Game::victoryCond(Player play){
 }
 bool Game::playWall(unsigned row, unsigned column, bool vertical){
     board_->place(row,column,vertical);
-    for(unsigned i=0;i<getNbP();i++){
-        if(!board_->findPath(make_pair(listPlayer_[i].getPos().first,listPlayer_[i].getPos().second),listPlayer_[i].getObjective())){
+    for(unsigned i=1;i<=getNbP();i++){
+        if(!board_->findPath(make_pair(getPlayer(i).getPos().first,getPlayer(i).getPos().second),listPlayer_[i].getObjective())){
             //enelver le mur
             board_->empty( row,column,vertical);
             return false;
         }
     }
+    getPlayer(currentPlayer_).pickWall();
     next();
     notifyObservers();
     return true;
