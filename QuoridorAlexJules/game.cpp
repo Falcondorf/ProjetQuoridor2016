@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "QuoridorExceptions.h"
+#include <iostream>
 
 using namespace std;
 
@@ -25,6 +26,7 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size){
     for (unsigned i=0; i<=3;i++){
         board_->place(listPlayer_[i].getPos().first, listPlayer_[i].getPos().second);
     }
+
 }
 
 void Game::move (Side dir, Player &play){
@@ -252,10 +254,20 @@ std::set <Side> Game::possiblePositions(Player p){
 }
 
 bool Game::victoryCond(Player play){
+    //011 110 000 000
     Side bSide;
     bSide = board_->getside(play.getPos().first, play.getPos().second);
+    bool a=(bSide == Side::North || bSide == Side::NorthEast || bSide == Side::NorthWest);
+    cout << a; //011
+    bool b=(bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
+    cout << b;//110
+    bool c=(bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
+    cout << c;//000
+    bool d=(bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
+    cout << d;//000
     switch (play.getObjective()){
     case Side::North:
+
         return (bSide == Side::North || bSide == Side::NorthEast || bSide == Side::NorthWest);
         break;
     case Side::South:
@@ -289,5 +301,24 @@ std::set<Side> Game::possiblePositions(){
 }
 void Game::move (Side dir){
     return move(dir,getPlayer(currentPlayer_));
+}
+void Game::next(){
+    if(getNbP()==4){
+        currentPlayer_ = (currentPlayer_%4)+1; //ca marche
+    }else{
+        currentPlayer_ = (currentPlayer_%2)+1; //ca marche
+    }
+    cout << "à" << getPlayer(currentPlayer_).getName() << "de jouer" << endl;
+}
+bool Game::isOver(){
+     cout <<"hello"<< endl;
+    for (unsigned i=1;i<= getNbP();i++ ){
+        if(victoryCond(getPlayer(i))){
+            cout << toString(getPlayer(i).getObjective())<< endl;
+            cout << getPlayer(i).getName() << "a gagné !" << endl;
+            return true;
+        }
+    }
+    return false;
 }
 

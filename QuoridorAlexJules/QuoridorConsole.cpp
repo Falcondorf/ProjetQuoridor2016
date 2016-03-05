@@ -13,6 +13,7 @@ QuoridorConsole::QuoridorConsole(string n1, string n3, unsigned size)
 QuoridorConsole::QuoridorConsole(string n1, string n2, string n3, string n4, unsigned size)
     : game_(n1, n2, n3, n4, size)
 {
+    cout << game_.getBoard().toString();
     game_.registerObserver(this);
 }
 
@@ -27,27 +28,21 @@ void QuoridorConsole::update(const Subject *subject)
     cout << game_.getBoard().toString() << endl;
 }
 void QuoridorConsole::play(){
-    bool gameOver=false;
-    unsigned currPlayer =game_.getPlayer(1).getNum();
-    while (!gameOver){
 
+    while (!game_.isOver()){
         cout<< "Tapez 1 pour placer un pion, tapez 2 pour placer un mur" << endl;
         int nb;
         cin >> nb;
         while(nb!=1 && nb!=2){
-            cout << "choix invalide" << endl;
+            cout << "choix d'action invalide" << endl;
             cin >> nb;
         }
         if (nb==1){
-
-
-
             movePion();
         }else{
             placeMur();
         }
     }
-    cout << game_.getPlayer(currPlayer).getName() << "a gagné !" << endl;
 }
 void QuoridorConsole::movePion(){
     set<Side> possiblePos = game_.possiblePositions(); //position possible du joueur courant
@@ -61,7 +56,7 @@ void QuoridorConsole::movePion(){
     while(direction!="n"&& direction!="s" &&direction!="e" &&
           direction!="o"&& direction!="ne"&&direction!="no"&&
           direction!="se"&&direction!="so"){
-        cout << "choix invalide" << endl;
+        cout << "choix de direction invalide" << endl;
         cin >> direction;
     }
     if(direction =="n"){
@@ -85,6 +80,19 @@ void QuoridorConsole::movePion(){
 }
 
 void QuoridorConsole::placeMur(){
+     unsigned row;
+     unsigned column;
+     bool vertical;
+     do{
+         cout<< "Entrez les coordonnées du milieu du mur que vous souhaitez placer"<< endl;
+         cout << "la ligne : ";
+         cin>>row;
+         cout << "la colonne : ";
+         cin>>column;
+         cout<< "Entrez 1 pour un mur vertical, 0 pour horizontal"<< endl;
+         cin >> vertical ;
+         game_.playWall(row,column,vertical);
+     }while(!game_.playWall(row,column,vertical));
 
 }
 

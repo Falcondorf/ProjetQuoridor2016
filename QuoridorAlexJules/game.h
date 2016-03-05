@@ -21,14 +21,14 @@ private:
     void oblicWest(std::set <Side> *ListOfDirections, Player p);
     void evalWest(std::set<Side> *ListOfDirections, Player p);
     void move (Side dir, Player & play);
-    inline void next();
+    void next();
     std::set<Side> possiblePositions(Player p);
 public:
 
     Game( std::string n1,  std::string n3, unsigned size);
     Game( std::string n1,  std::string n2,  std::string n3,  std::string n4, unsigned size);
 
-    inline bool isOver();
+    bool isOver();
     inline Board & getBoard();
     inline Player &getPlayer(unsigned nb);
     inline unsigned getNbP();
@@ -40,25 +40,6 @@ public:
     void move (Side dir);
 
 };
-
-
-void Game::next(){
-    if(getNbP()==4){
-        currentPlayer_ = (currentPlayer_%4)+1; //ca marche
-    }else{
-        currentPlayer_ = (currentPlayer_%2)+1; //ca marche
-    }
-}
-
-
-bool Game::isOver(){
-    for (unsigned i=1;i<= getNbP();i++ ){
-        if(victoryCond(getPlayer(i))){
-            return true;
-        }
-    }
-    return false;
-}
 
 Board &Game::getBoard(){
     return *board_;
