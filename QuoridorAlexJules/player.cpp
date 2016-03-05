@@ -22,10 +22,10 @@ Player::Player(std::string thename,unsigned num,unsigned nbOfPlayer, unsigned bo
        case 4:
            if(num == 3){
                setPos(altSize/2, 0);//formule position ouest
-               sideObjective_ = Side::West;
+               sideObjective_ = Side::East;//onjectif Est
            } else if(num == 4){
                setPos(altSize/2, altSize-1);//formule position est
-               sideObjective_ = Side::East;
+               sideObjective_ = Side::West;//objectif Ouest
            }
        case 2:
            if(num == 1){

@@ -257,14 +257,14 @@ bool Game::victoryCond(Player play){
     //011 110 000 000
     Side bSide;
     bSide = board_->getside(play.getPos().first, play.getPos().second);
-    bool a=(bSide == Side::North || bSide == Side::NorthEast || bSide == Side::NorthWest);
+    /*bool a=(bSide == Side::North || bSide == Side::NorthEast || bSide == Side::NorthWest);
     cout << a; //011
     bool b=(bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
     cout << b;//110
     bool c=(bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
     cout << c;//000
     bool d=(bSide == Side::South || bSide == Side::SouthEast || bSide == Side::SouthWest);
-    cout << d;//000
+    cout << d;*///000
     switch (play.getObjective()){
     case Side::North:
 
@@ -311,7 +311,6 @@ void Game::next(){
     cout << "à" << getPlayer(currentPlayer_).getName() << "de jouer" << endl;
 }
 bool Game::isOver(){
-     cout <<"hello"<< endl;
     for (unsigned i=1;i<= getNbP();i++ ){
         if(victoryCond(getPlayer(i))){
             cout << toString(getPlayer(i).getObjective())<< endl;

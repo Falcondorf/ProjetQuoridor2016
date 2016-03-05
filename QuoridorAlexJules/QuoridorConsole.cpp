@@ -7,6 +7,7 @@ using namespace nvs;
 QuoridorConsole::QuoridorConsole(string n1, string n3, unsigned size)
     : game_(n1, n3, size)
 {
+    cout << game_.getBoard().toString();
     game_.registerObserver(this);
 }
 
