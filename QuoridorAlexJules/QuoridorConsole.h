@@ -8,10 +8,9 @@
 class QuoridorConsole : public nvs::Observer
 {
 private:
-    Game game_;
+    Game * game_;
 public:
-    QuoridorConsole( std::string n1,  std::string n3, unsigned size);
-    QuoridorConsole( std::string n1,  std::string n2,  std::string n3,  std::string n4, unsigned size);
+    QuoridorConsole( Game * game);
     ~QuoridorConsole();
 public:
 

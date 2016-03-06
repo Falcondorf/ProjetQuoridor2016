@@ -22,7 +22,9 @@ HEADERS += \
     QuoridorExceptions.h \
     observer.h \
     subject.h \
-    QuoridorConsole.h
+    QuoridorConsole.h \
+    keyboard.hpp \
+    stringConvert.hpp
 
 DISTFILES +=
 

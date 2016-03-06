@@ -4,13 +4,8 @@
 
 using namespace std;
 
-
-
-
 Game::Game(string n1, string n2, unsigned size)
     :board_(size), currentPlayer_(1){
-    //board_ (size);fuite mémoire
-    //currentPlayer_=1;
     listPlayer_.push_back(Player(n1, 1, 2, size));
     listPlayer_.push_back(Player(n2, 2, 2, size));
     board_.place(getPlayer(1).getPos().first, getPlayer(1).getPos().second);
@@ -19,8 +14,6 @@ Game::Game(string n1, string n2, unsigned size)
 
 Game::Game(string n1, string n2, string n3, string n4, unsigned size)
     :board_(size), currentPlayer_(1){
-    //board_ = new Board(size); //fuite
-    //currentPlayer_=1;
     listPlayer_.push_back(Player(n1,1, 4, size));
     listPlayer_.push_back(Player(n2,2, 4, size));
     listPlayer_.push_back(Player(n3,3, 4, size));
@@ -31,9 +24,14 @@ Game::Game(string n1, string n2, string n3, string n4, unsigned size)
 
 }
 
-void Game::move (Side dir, Player &play){
+bool Game::move (Side dir, Player &play){
+    auto directions = possiblePositions(play);
+    if (directions.find(dir) == directions.end()){
+        return false;
+    }
     //suppr bool de la case courante
     board_.empty(play.getPos().first, play.getPos().second);
+
     switch (dir){
     case Side::North:
         //revérif si pion pour saut pion
@@ -95,6 +93,7 @@ void Game::move (Side dir, Player &play){
     }
     next();
     notifyObservers();
+    return true;
 }
 
 bool Game::collisionWall(Side dir, Player play){
@@ -288,7 +287,7 @@ bool Game::victoryCond(Player play){
 bool Game::playWall(unsigned row, unsigned column, bool vertical){
     board_.place(row,column,vertical);
     for(unsigned i=1;i<=getNbP();i++){
-        if(!board_.findPath(make_pair(getPlayer(i).getPos().first,getPlayer(i).getPos().second),listPlayer_[i].getObjective())){
+        if(!board_.findPath(make_pair(getPlayer(i).getPos().first,getPlayer(i).getPos().second),getPlayer(i).getObjective())){
             //enelver le mur
             board_.empty( row,column,vertical);
             return false;
@@ -302,7 +301,7 @@ bool Game::playWall(unsigned row, unsigned column, bool vertical){
 std::set<Side> Game::possiblePositions(){
     return possiblePositions(getPlayer(currentPlayer_));
 }
-void Game::move (Side dir){
+bool Game::move (Side dir){
     return move(dir,getPlayer(currentPlayer_));
 }
 void Game::next(){

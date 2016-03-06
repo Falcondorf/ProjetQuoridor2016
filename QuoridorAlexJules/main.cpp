@@ -29,7 +29,7 @@ int main()
        cin >> taille ;
     }
 
-    QuoridorConsole * myConsole =nullptr;
+    Game * game =nullptr;
     if(nbJoueurs==2){
         string name1;
         cout << "Entrez le nom du premier joueur" << endl;
@@ -46,7 +46,7 @@ int main()
             cin >> name2;
         }
 
-        myConsole = new QuoridorConsole(name1,name2,taille);
+        game = new Game(name1,name2,taille);
     }else{
         string name1;
         cout << "Entrez le nom du premier joueur" << endl;
@@ -77,16 +77,14 @@ int main()
             cin >> name4;
         }
 
-        myConsole = new QuoridorConsole(name1,name2,name3,name4,taille);
+        game = new Game(name1,name2,name3,name4,taille);
 
     }
-    try{
-    myConsole->play();
-    }catch(std::exception const& e){
-        cout << "ERROR: " << e.what() << endl;
-    }
+    QuoridorConsole myConsole(game);
 
-    delete myConsole;
+    myConsole.play();
+
+    delete game;
     return 0;
 }
 

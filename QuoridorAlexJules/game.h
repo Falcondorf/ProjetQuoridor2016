@@ -20,7 +20,7 @@ private:
     void evalEast(Player p, std::set<Side> *ListOfDirections);
     void oblicWest(std::set <Side> *ListOfDirections, Player p);
     void evalWest(std::set<Side> *ListOfDirections, Player p);
-    void move (Side dir, Player & play);
+    bool move(Side dir, Player & play);
     void next();
     std::set<Side> possiblePositions(Player p);
 public:
@@ -36,7 +36,7 @@ public:
     bool collisionPiece(Side dir, Player play);
     bool victoryCond(Player play);
     bool playWall(unsigned row, unsigned column, bool vertical);
-    void move (Side dir);
+    bool move(Side dir);
     inline std::string stringBoard();
 };
 

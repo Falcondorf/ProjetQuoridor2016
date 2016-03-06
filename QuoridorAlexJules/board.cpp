@@ -1,5 +1,6 @@
 #include "Frame.h"
 #include <tuple>
+#include <iostream>
 #include <algorithm>
 #include "Board.h"
 #include "QuoridorExceptions.h"
@@ -183,7 +184,7 @@ void Board::tourner(int *cpt, Side *dir, bool gauche){
         }
         break;
     default:
-        throw QuoridorExceptions(1,"Not applicable side" ,1);
+        throw QuoridorExceptions(1,"Not applicable side(tourner)" ,1);
     }
 }
 
@@ -202,7 +203,7 @@ void Board::displace(Side dir, std::pair<unsigned, unsigned> *pos){
         pos->second += 2;
         break;
     default:
-        throw QuoridorExceptions(1,"Not applicable Side", 1);
+        throw QuoridorExceptions(1,"Not applicable Side(displace)", 1);
     }
 }
 //renvoie true si pas de mur face à soi et true si pas le vide
@@ -222,7 +223,7 @@ bool Board::verifWall(unsigned row, unsigned column, Side dir){
         return column+1<hidden_len &&  plateau_[row][column+1]->isFree();
         break;
     default:
-        throw QuoridorExceptions(1,"Not applicable Side", 1);
+        throw QuoridorExceptions(1,"Not applicable Side(verifWall)", 1);
     }
 }
 //renvoie true lorsque le bras est dans le vent
