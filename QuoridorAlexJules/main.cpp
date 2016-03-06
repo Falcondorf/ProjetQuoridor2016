@@ -1,9 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include "QuoridorConsole.h"
-
+#include "keyboard.hpp"
 
 using namespace std;
+using namespace nvs;
 
 int main()
 {
@@ -11,14 +12,15 @@ int main()
     cout << "Entrez le nombre de joueurs (2 ou 4 Joueurs)" << endl;
     int nbJoueurs =-1;
 
-    cin >> nbJoueurs ;
+    //cin >> nbJoueurs ;
+
+    nbJoueurs = lineFromKbd<int>();
 
     while(nbJoueurs!=2 && nbJoueurs!=4){
-
        cout << "ERROR : Reessayez" << endl;
-       cin >> nbJoueurs ;
+       //cin >> nbJoueurs ;
+       nbJoueurs = lineFromKbd<int>();
     }
-
 
     cout << "choisissez la taille du plateau de jeu (entre 5 et 19) de largeur" << endl;
     int taille =-1;

@@ -1,4 +1,5 @@
 #include "QuoridorConsole.h"
+#include "keyboard.hpp"
 
 #include <iostream>
 using namespace std;
@@ -26,10 +27,12 @@ void QuoridorConsole::play(){
     while (!game_->isOver()){
         cout<< "Tapez 1 pour placer un pion, tapez 2 pour placer un mur" << endl;
         int nb;
-        cin >> nb;
+        //cin >> nb;
+        lineFromKbd(nb);
         while(nb!=1 && nb!=2){
             cout << "choix d'action invalide" << endl;
-            cin >> nb;
+            //cin >> nb;
+            lineFromKbd(nb);
         }
         if (nb==1){
             movePion();
