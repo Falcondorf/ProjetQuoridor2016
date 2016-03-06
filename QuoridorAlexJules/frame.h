@@ -85,22 +85,15 @@ public:
     std::string toString();
 
 };
-/*!
- * \brief place un pion à la case
- */
+
 void PlayerFrame::place(){
     hasPiece_=true;
 }
-/*!
- * \brief getSide donne  le type de coté de la case
- * \return  le type de coté de la case
- */
+
 Side PlayerFrame::getSide(){
     return side_;
 }
-/*!
- * \brief empty libère la case de son pion
- */
+
 void PlayerFrame::empty(){
     hasPiece_=false;
 }
@@ -145,28 +138,19 @@ public:
      */
     std::string toString();
 };
-/*!
- * \brief WallFrame::WallFrame crée les cases mur sans mur à l'intérieur
- */
+
 WallFrame::WallFrame() : Frame(){
     isWalled_=false;
 }
-/*!
- * \brief WallFrame::place place un mur
- */
+
 void WallFrame::place(){
     isWalled_=true;
 }
-/*!
- * \brief WallFrame::empty enleve un mur
- */
+
 void WallFrame::empty(){
     isWalled_=false;
 }
-/*!
- * \brief WallFrame::getSide donne le type de coté
- * \return blank
- */
+
 Side WallFrame::getSide(){return Side::Blank;}
 #endif // FRAME
 
