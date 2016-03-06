@@ -77,8 +77,8 @@ bool Game::move (Side dir, Player &play){
         play.setPos(play.getPos().first-2, play.getPos().second-2);
         break;
     case Side::NorthEast:
-        board_.place(play.getPos().first+2, play.getPos().second-2);
-        play.setPos(play.getPos().first+2, play.getPos().second-2);
+        board_.place(play.getPos().first-2, play.getPos().second+2);
+        play.setPos(play.getPos().first-2, play.getPos().second+2);
         break;
     case Side::SouthWest:
         board_.place(play.getPos().first+2, play.getPos().second-2);

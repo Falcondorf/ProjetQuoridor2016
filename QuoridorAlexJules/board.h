@@ -4,12 +4,26 @@
 #include <vector>
 
 
-
+/*!
+ * \brief The Board class la classe chargée des opération sur le plateau
+ */
 class Board{
 
 private:
+    /*!
+     * \brief len_ la longueur du coté plateau
+     */
     unsigned len_;
+    /*!
+     * \brief plateau_ le plateau de jeu corridor
+     */
     std::vector< std::vector<Frame *> > plateau_;
+    /*!
+     * \brief tourner
+     * \param cpt
+     * \param dir
+     * \param gauche
+     */
     void tourner (int *cpt, Side *dir, bool gauche);
     void displace(Side dir, std::pair<unsigned, unsigned> *pos);
     bool verifWall(unsigned row, unsigned column, Side dir);
