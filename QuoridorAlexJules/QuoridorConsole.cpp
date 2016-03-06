@@ -1,7 +1,7 @@
 #include "QuoridorConsole.h"
 #include "keyboard.hpp"
-
 #include <iostream>
+
 using namespace std;
 using namespace nvs;
 
@@ -28,15 +28,16 @@ void QuoridorConsole::play(){
         cout<< "Tapez 1 pour placer un pion, tapez 2 pour placer un mur" << endl;
         int nb;
         //cin >> nb;
-        lineFromKbd(nb);
+        nb = lineFromKbd<int>();
         while(nb!=1 && nb!=2){
             cout << "choix d'action invalide" << endl;
             //cin >> nb;
-            lineFromKbd(nb);
+            nb = lineFromKbd<int>();
         }
         if (nb==1){
             movePion();
         }else{
+            cout << "Il vous reste: " << game_->getPlayer(game_->getCurrentPlayer()).getWallstock() << endl;
             placeMur();
         }
     }
@@ -51,12 +52,14 @@ void QuoridorConsole::movePion(){
         cout<< "Tapez N, S, E, W, NE, NW, SE, SW pour déplacer votre pion"<< endl;
         string direction;
 
-        cin >> direction;
+        //cin >> direction;
+        direction = lineFromKbd<string>();
         while(direction!="N"&& direction!="S" &&direction!="E" &&
               direction!="W"&& direction!="NE"&&direction!="NW"&&
               direction!="SE"&&direction!="SW"){
             cout << "choix de direction invalide" << endl;
-            cin >> direction;
+            //cin >> direction;
+            direction = lineFromKbd<string>();
         }
 
         if(direction =="N"){
@@ -90,11 +93,14 @@ void QuoridorConsole::placeMur(){
      while (!hasPlayed){
          cout<< "Entrez les coordonnées du milieu du mur que vous souhaitez placer"<< endl;
          cout << "la ligne : ";
-         cin>>row;
+         //cin>>row;
+         row = lineFromKbd<unsigned>();
          cout << "la colonne : ";
-         cin>>column;
+         //cin>>column;
+         column = lineFromKbd<unsigned>();
          cout<< "Entrez 1 pour un mur vertical, 0 pour horizontal"<< endl;
-         cin >> vertical ;
+         //cin >> vertical ;
+         vertical = lineFromKbd<bool>();
          try{
          hasPlayed = game_->playWall(row,column,vertical);
          }catch(std::exception const & e){

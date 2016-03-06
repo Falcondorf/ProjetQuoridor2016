@@ -3,6 +3,9 @@
 #include <string>
 #include "Side.h"
 
+/*!
+ * \brief Classe définissant un joueur et les interactions qu'il peut faire lors du jeu.
+ */
 class Player{
 private:
     std::string name_;

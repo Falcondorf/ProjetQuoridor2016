@@ -24,59 +24,72 @@ int main()
 
     cout << "choisissez la taille du plateau de jeu (entre 5 et 19) de largeur" << endl;
     int taille =-1;
-    cin >> taille ;
+    //cin >> taille ;
+    taille = lineFromKbd<int>();
     while(taille%2==0 || taille<5 || taille>19){
 
        cout << "ERROR : mauvaise dimension" << endl;
-       cin >> taille ;
+       //cin >> taille ;
+       taille = lineFromKbd<int>();
     }
 
     Game * game =nullptr;
     if(nbJoueurs==2){
         string name1;
         cout << "Entrez le nom du premier joueur" << endl;
-        cin >> name1;
+        //cin >> name1;
+        name1 = lineFromKbd<string>();
         while(name1.empty()){
             cout << "le nom est vide" << endl;
             cin >> name1;
         }
         string name2;
         cout << "Entrez le nom du deuxième joueur" << endl;
-        cin >> name2;
+        //cin >> name2;
+        name2 = lineFromKbd<string>();
         while(name2.empty()){
             cout << "le nom est vide";
-            cin >> name2;
+            //cin >> name2;
+            name2 = lineFromKbd<string>();
         }
 
         game = new Game(name1,name2,taille);
     }else{
         string name1;
         cout << "Entrez le nom du premier joueur" << endl;
-        cin >> name1;
+        //cin >> name1;
+        name1 = lineFromKbd<string>();
         while(name1.empty()){
             cout << "le nom est vide" << endl;
-            cin >> name1;
+            //cin >> name1;
+            name1 = lineFromKbd<string>();
         }
         string name2;
         cout << "Entrez le nom du deuxième joueur" << endl;
-        cin >> name2;
+        //cin >> name2;
+        name2 = lineFromKbd<string>();
         while(name2.empty()){
             cout << "le nom est vide";
-            cin >> name2;
+            //cin >> name2;
+            name2 = lineFromKbd<string>();
         }
         string name3;
         cout << "Entrez le nom du troisième joueur" << endl;
-        cin >> name3;
+        //cin >> name3;
+        name3 = lineFromKbd<string>();
         while(name3.empty()){
             cout << "le nom est vide";
-            cin >> name3;
+            //cin >> name3;
+            name3 = lineFromKbd<string>();
         }
         string name4;
         cout << "Entrez le nom du quatrième joueur" << endl;
-        cin >> name4;
+        //cin >> name4;
+        name4 = lineFromKbd<string>();
         while(name4.empty()){
             cout << "le nom est vide";
-            cin >> name4;
+            //cin >> name4;
+            name4 = lineFromKbd<string>();
         }
 
         game = new Game(name1,name2,name3,name4,taille);

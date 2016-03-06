@@ -134,6 +134,11 @@ public:
      */
     inline unsigned getNbP();
     /*!
+     * \brief Accesseur de joueur courant.
+     * return Retourne le joueur courant.
+     */
+    inline unsigned getCurrentPlayer();
+    /*!
      * \brief Méthode fabriquant un set de toutes les directions que le joueur courant
      * peut choisir avant de se déplacer.
      * \return Retourne un set (éviter les doublons) des directions que le joueur courant
@@ -164,22 +169,22 @@ public:
      */
     bool victoryCond(Player play);
     /*!
-     * \brief playWall
-     * \param row
-     * \param column
-     * \param vertical
-     * \return
+     * \brief Méthode permettant au joueur de choisir où placer un mur dans le plateau.
+     * \param row La ligne du plateau
+     * \param column La colonne du plateau
+     * \param vertical Booléen désigant si la position est verticale ou non
+     * \return Retourne Vrai si le placement du mur s'est bien déroulé.
      */
     bool playWall(unsigned row, unsigned column, bool vertical);
     /*!
-     * \brief move
-     * \param dir
-     * \return
+     * \brief Méthode permettant de déplacer le joueur courant vers une direction donnée.
+     * \param dir La direction du déplacement souhaité.
+     * \return Retourne Vrai si le déplacement s'est bien effectué.
      */
     bool move(Side dir);
     /*!
-     * \brief stringBoard
-     * \return
+     * \brief Méthode permettant l'affichage du plateau de jeu via la partie actuelle.
+     * \return Retourne le plateau sous forme d'une chaîne.
      */
     inline std::string stringBoard();
 };
@@ -190,6 +195,10 @@ Player &Game::getPlayer(unsigned nb){
 
 unsigned Game::getNbP(){
     return listPlayer_.size();
+}
+
+unsigned Game::getCurrentPlayer(){
+    return currentPlayer_;
 }
 
 std::string Game::stringBoard(){
