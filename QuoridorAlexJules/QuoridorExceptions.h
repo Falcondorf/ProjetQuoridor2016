@@ -13,7 +13,7 @@ public:
      * \param niveau le niveau de l'exception
      * \param phrase la phrase expliquant l'exception
      */
-    QuoridorExceptions(int numero=0, int niveau=0 ,std::string const& phrase="") throw()
+    QuoridorExceptions(int numero=0, std::string const& phrase="" ,int niveau=0) throw()
              :m_numero(numero),m_phrase(phrase),m_niveau(niveau){}
     /*!
      * \brief what
