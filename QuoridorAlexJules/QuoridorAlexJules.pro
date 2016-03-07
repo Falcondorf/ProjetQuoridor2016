@@ -11,7 +11,8 @@ SOURCES += \
     Player.cpp \
     Side.cpp \
     subject.cpp \
-    QuoridorConsole.cpp
+    QuoridorConsole.cpp \
+    Test.cpp
 
 HEADERS += \
     Frame.h \
@@ -24,7 +25,8 @@ HEADERS += \
     subject.h \
     QuoridorConsole.h \
     keyboard.hpp \
-    stringConvert.hpp
+    stringConvert.hpp \
+    Test.h
 
 DISTFILES +=
 

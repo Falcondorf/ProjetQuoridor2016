@@ -2,12 +2,14 @@
 #include <algorithm>
 #include "QuoridorConsole.h"
 #include "keyboard.hpp"
+#include "test.h"
 
 using namespace std;
 using namespace nvs;
 
 int main()
 {
+    Test::runTest(); // ligne à commenter pour ne pas avoir de test.
     cout << "Bienvenue dans le jeu Quoridor" << endl;
     cout << "Entrez le nombre de joueurs (2 ou 4 Joueurs)" << endl;
     int nbJoueurs =-1;
