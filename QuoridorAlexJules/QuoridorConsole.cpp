@@ -28,11 +28,20 @@ void QuoridorConsole::play(){
         cout<< "Tapez 1 pour placer un pion, tapez 2 pour placer un mur" << endl;
         int nb;
         //cin >> nb;
-        nb = lineFromKbd<int>();
+        try {
+            nb = lineFromKbd<int>();
+        } catch (exception const & e){
+            cerr << e.what() << endl;
+        }
+
         while(nb!=1 && nb!=2){
             cout << "choix d'action invalide" << endl;
             //cin >> nb;
-            nb = lineFromKbd<int>();
+            try {
+                nb = lineFromKbd<int>();
+            } catch (exception const & e){
+                cerr << e.what() << endl;
+            }
         }
         if (nb==1){
             movePion();
@@ -54,6 +63,7 @@ void QuoridorConsole::movePion(){
 
         //cin >> direction;
         direction = lineFromKbd<string>();
+
         while(direction!="N"&& direction!="S" &&direction!="E" &&
               direction!="W"&& direction!="NE"&&direction!="NW"&&
               direction!="SE"&&direction!="SW"){
@@ -94,13 +104,26 @@ void QuoridorConsole::placeMur(){
          cout<< "Entrez les coordonnées du milieu du mur que vous souhaitez placer"<< endl;
          cout << "la ligne : ";
          //cin>>row;
-         row = lineFromKbd<unsigned>();
+         try {
+             row = lineFromKbd<unsigned>();
+         } catch (exception const & e){
+             cerr << e.what() << endl;
+         }
+
          cout << "la colonne : ";
          //cin>>column;
-         column = lineFromKbd<unsigned>();
+         try {
+             column = lineFromKbd<unsigned>();
+         } catch (exception const & e){
+             cerr << e.what() << endl;
+         }
          cout<< "Entrez 1 pour un mur vertical, 0 pour horizontal"<< endl;
          //cin >> vertical ;
-         vertical = lineFromKbd<bool>();
+         try {
+             vertical = lineFromKbd<bool>();
+         } catch (exception const & e){
+             cerr << e.what() << endl;
+         }
          try{
          hasPlayed = game_->playWall(row,column,vertical);
          }catch(std::exception const & e){

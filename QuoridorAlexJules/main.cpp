@@ -13,24 +13,40 @@ int main()
     int nbJoueurs =-1;
 
     //cin >> nbJoueurs ;
-
-    nbJoueurs = lineFromKbd<int>();
+    try {
+        nbJoueurs = lineFromKbd<int>();
+    }catch (exception const & e){
+        cerr << e.what() << endl;
+    }
 
     while(nbJoueurs!=2 && nbJoueurs!=4){
        cout << "ERROR : Reessayez" << endl;
        //cin >> nbJoueurs ;
-       nbJoueurs = lineFromKbd<int>();
+       try{
+        nbJoueurs = lineFromKbd<int>();
+       } catch(exception const & e){
+           cerr << e.what() << endl;
+       }
     }
 
     cout << "choisissez la taille du plateau de jeu (entre 5 et 19) de largeur" << endl;
     int taille =-1;
     //cin >> taille ;
-    taille = lineFromKbd<int>();
+    try{
+     taille = lineFromKbd<int>();
+    } catch (exception const & e){
+        cerr << e.what() << endl;
+    }
+
     while(taille%2==0 || taille<5 || taille>19){
 
        cout << "ERROR : mauvaise dimension" << endl;
        //cin >> taille ;
-       taille = lineFromKbd<int>();
+       try{
+        taille = lineFromKbd<int>();
+       } catch (exception const & e){
+           cerr << e.what() << endl;
+       }
     }
 
     Game * game =nullptr;
@@ -41,7 +57,8 @@ int main()
         name1 = lineFromKbd<string>();
         while(name1.empty()){
             cout << "le nom est vide" << endl;
-            cin >> name1;
+            //cin >> name1;
+            name1 = lineFromKbd<string>();
         }
         string name2;
         cout << "Entrez le nom du deuxième joueur" << endl;
