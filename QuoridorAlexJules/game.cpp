@@ -135,10 +135,12 @@ bool Game::collisionPiece(Side dir, Player play){
     return false;
 }
 void Game::oblicNorth(std::set<Side> *ListOfDirections, Player p){
-    if(board_.isFree(p.getPos().first-2, p.getPos().second+2)){ //droit libre
+    if(board_.isFree(p.getPos().first-2,p.getPos().second+1)
+            && board_.isFree(p.getPos().first-2, p.getPos().second+2)){ //droit libre
          ListOfDirections->insert(Side::NorthEast);
     }
-    if(board_.isFree(p.getPos().first-2, p.getPos().second-2)){ //gauche libre
+    if(board_.isFree(p.getPos().first-2,p.getPos().second-1)
+            && board_.isFree(p.getPos().first-2, p.getPos().second-2)){ //gauche libre
         ListOfDirections->insert(Side::NorthWest);
     }
 }
@@ -163,10 +165,12 @@ void Game::evalNorth(std::set<Side> *ListOfDirections, Player p){
 }
 
 void Game::oblicSouth(std::set<Side> *ListOfDirections, Player p){
-    if(board_.isFree(p.getPos().first+2, p.getPos().second-2)){ //gauche libre
+    if(board_.isFree(p.getPos().first+2,p.getPos().second-1)
+            && board_.isFree(p.getPos().first+2, p.getPos().second-2)){ //gauche libre
          ListOfDirections->insert(Side::SouthWest);
     }
-    if(board_.isFree(p.getPos().first+2, p.getPos().second+2)){ //droit libre
+    if(board_.isFree(p.getPos().first+2,p.getPos().second+1)
+            && board_.isFree(p.getPos().first+2, p.getPos().second+2)){ //droit libre
         ListOfDirections->insert(Side::SouthEast);
     }
 }
@@ -191,10 +195,12 @@ void Game::evalSouth(Player p, std::set <Side> *ListOfDirections){
 }
 
 void Game::oblicEast(std::set<Side> *ListOfDirections, Player p){
-    if(board_.isFree(p.getPos().first-2, p.getPos().second+2)){ //haut libre
+    if(board_.isFree(p.getPos().first-2,p.getPos().second+1)
+            && board_.isFree(p.getPos().first-2, p.getPos().second+2)){ //haut libre
          ListOfDirections->insert(Side::NorthEast);
     }
-    if(board_.isFree(p.getPos().first+2, p.getPos().second+2)){ //bas libre
+    if(board_.isFree(p.getPos().first+2,p.getPos().second+1)
+            && board_.isFree(p.getPos().first+2, p.getPos().second+2)){ //bas libre
         ListOfDirections->insert(Side::SouthEast);
     }
 }
@@ -219,10 +225,12 @@ void Game::evalEast(Player p, std::set <Side> *ListOfDirections){
 }
 
 void Game::oblicWest(std::set<Side> *ListOfDirections, Player p){
-    if(board_.isFree(p.getPos().first-2, p.getPos().second-2)){ //haut libre
+    if(board_.isFree(p.getPos().first-2,p.getPos().second-1)
+            && board_.isFree(p.getPos().first-2, p.getPos().second-2)){ //haut libre
          ListOfDirections->insert(Side::NorthWest);
     }
-    if(board_.isFree(p.getPos().first+2, p.getPos().second-2)){ //bas libre
+    if(board_.isFree(p.getPos().first+2,p.getPos().second-1)
+            && board_.isFree(p.getPos().first+2, p.getPos().second-2)){ //bas libre
         ListOfDirections->insert(Side::SouthWest);
     }
 }
@@ -303,13 +311,17 @@ void Game::next(){
     cout << "à" << getPlayer(currentPlayer_).getName() << "de jouer" << endl;
 }
 bool Game::isOver(){
-    for (unsigned i=1;i<= getNbP();i++ ){
-        if(victoryCond(getPlayer(i))){
-            cout << toString(getPlayer(i).getObjective())<< endl;
-            cout << getPlayer(i).getName() << "a gagné !" << endl;
-            return true;
-        }
+    if(possiblePositions(getPlayer(getCurrentPlayer())).empty()){
+        cout << "Match nul" << endl;
+        return true;
+    }else {
+        for (unsigned i=1;i<= getNbP();i++ ){
+            if(victoryCond(getPlayer(i))){
+                cout << toString(getPlayer(i).getObjective())<< endl;
+                cout << getPlayer(i).getName() << "a gagné !" << endl;
+                return true;
+            }
+         }
     }
     return false;
 }
-
