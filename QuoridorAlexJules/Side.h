@@ -2,7 +2,7 @@
 #define SIDE
 #include <string>
 /*!
- * \brief The Side enum l'énumération des points cardinaux que peuvent posseder les cases
+ * \brief Enumération des points cardinaux que peuvent posseder les cases
  */
 enum class Side{
     North,
@@ -17,7 +17,7 @@ enum class Side{
 
 };
 /*!
- * \brief toString l'affichage du point cardinaux donné
+ * \brief Méthode d'affichage d'un point cardinal donné
  * \param s le point cardinal donné
  * \return la représentation en chaîne de caractère du point cardinal
  */

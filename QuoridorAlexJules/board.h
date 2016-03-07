@@ -10,15 +10,15 @@ class Board{
 
 private:
     /*!
-     * \brief la longueur du coté plateau
+     * \brief La longueur du coté plateau
      */
     unsigned len_;
     /*!
-     * \brief le plateau de jeu corridor
+     * \brief Le plateau de jeu corridor
      */
     std::vector< std::vector<Frame *> > plateau_;
     /*!
-     * \brief methode qui a pour rôle de faire pivoter le pion vers la droite ou
+     * \brief Méthode qui a pour rôle de faire pivoter le pion vers la droite ou
      * la gauche et en se faisant changer la direction vers laquelle il pointe
      * \param cpt le compteur qui determine si il faut tourner à gauche ou aller tout droit
      * \param dir la direction vers laquelle le pion "regarde"
