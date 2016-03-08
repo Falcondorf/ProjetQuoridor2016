@@ -25,29 +25,40 @@ void QuoridorConsole::update(const Subject *subject)
 void QuoridorConsole::play(){
 
     while (!game_->isOver()){
-        cout<< "Tapez 1 pour placer un pion, tapez 2 pour placer un mur" << endl;
-        int nb;
-        //cin >> nb;
-        try {
-            nb = lineFromKbd<int>();
-        } catch (exception const & e){
-            cerr << e.what() << endl;
-        }
-
-        while(nb!=1 && nb!=2){
-            cout << "choix d'action invalide" << endl;
+        if (game_->getPlayer(game_->getCurrentPlayer()).getWallstock()==0
+                && game_->possiblePositions().empty()){
+            cout << " Match nul; plus de mur ni aucun déplacment possible." << endl;
+            return;
+        } else if (game_->getPlayer(game_->getCurrentPlayer()).getWallstock()==0){
+            cout << "Plus de mur vous devez vous déplacer." << endl;
+            movePion();
+        } else if (game_->possiblePositions().empty()){
+            cout << "Vous n'avez aucun déplacement possible mais vous pouvez poser des murs." << endl;
+            placeMur();
+        } else {
+            cout<< "Tapez 1 pour placer un pion, tapez 2 pour placer un mur" << endl;
+            int nb;
             //cin >> nb;
             try {
                 nb = lineFromKbd<int>();
             } catch (exception const & e){
                 cerr << e.what() << endl;
             }
-        }
-        if (nb==1){
-            movePion();
-        }else{
-            cout << "Il vous reste: " << game_->getPlayer(game_->getCurrentPlayer()).getWallstock() << endl;
-            placeMur();
+
+            while(nb!=1 && nb!=2){
+                cout << "choix d'action invalide" << endl;
+                //cin >> nb;
+                try {
+                    nb = lineFromKbd<int>();
+                } catch (exception const & e){
+                    cerr << e.what() << endl;
+                }
+            }
+            if (nb==1){
+                movePion();
+            }else{
+                placeMur();
+            }
         }
     }
 }
@@ -101,6 +112,7 @@ void QuoridorConsole::placeMur(){
      bool vertical;
      bool hasPlayed=false;
      while (!hasPlayed){
+         cout << "Il vous reste: " << game_->getPlayer(game_->getCurrentPlayer()).getWallstock() << endl;
          cout<< "Entrez les coordonnées du milieu du mur que vous souhaitez placer"<< endl;
          cout << "la ligne : ";
          //cin>>row;

@@ -311,10 +311,10 @@ void Game::next(){
     cout << "à" << getPlayer(currentPlayer_).getName() << "de jouer" << endl;
 }
 bool Game::isOver(){
-    if(possiblePositions(getPlayer(getCurrentPlayer())).empty()){
+    /*if(possiblePositions(getPlayer(getCurrentPlayer())).empty()){
         cout << "Match nul" << endl;
         return true;
-    }else {
+    }else {*/
         for (unsigned i=1;i<= getNbP();i++ ){
             if(victoryCond(getPlayer(i))){
                 cout << toString(getPlayer(i).getObjective())<< endl;
@@ -322,6 +322,6 @@ bool Game::isOver(){
                 return true;
             }
          }
-    }
+    //}
     return false;
 }
