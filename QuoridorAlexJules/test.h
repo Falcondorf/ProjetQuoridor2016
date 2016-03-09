@@ -25,6 +25,8 @@ private:
     static void TestEvalPosition();
     static void TestPlaceBoard();
     static void TestWinGame();
+    static void TestBoardEmptyWall();
+    static void TestGetlen();
 
 };
 
