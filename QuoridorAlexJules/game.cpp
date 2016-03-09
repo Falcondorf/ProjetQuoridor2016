@@ -195,11 +195,11 @@ void Game::evalSouth(Player p, std::set <Side> *ListOfDirections){
 }
 
 void Game::oblicEast(std::set<Side> *ListOfDirections, Player p){
-    if(board_.isFree(p.getPos().first-2,p.getPos().second+1)
+    if(board_.isFree(p.getPos().first-1,p.getPos().second+2)
             && board_.isFree(p.getPos().first-2, p.getPos().second+2)){ //haut libre
          ListOfDirections->insert(Side::NorthEast);
     }
-    if(board_.isFree(p.getPos().first+2,p.getPos().second+1)
+    if(board_.isFree(p.getPos().first+1,p.getPos().second+2)
             && board_.isFree(p.getPos().first+2, p.getPos().second+2)){ //bas libre
         ListOfDirections->insert(Side::SouthEast);
     }
@@ -225,11 +225,11 @@ void Game::evalEast(Player p, std::set <Side> *ListOfDirections){
 }
 
 void Game::oblicWest(std::set<Side> *ListOfDirections, Player p){
-    if(board_.isFree(p.getPos().first-2,p.getPos().second-1)
+    if(board_.isFree(p.getPos().first-1,p.getPos().second-2)
             && board_.isFree(p.getPos().first-2, p.getPos().second-2)){ //haut libre
          ListOfDirections->insert(Side::NorthWest);
     }
-    if(board_.isFree(p.getPos().first+2,p.getPos().second-1)
+    if(board_.isFree(p.getPos().first+1,p.getPos().second-2)
             && board_.isFree(p.getPos().first+2, p.getPos().second-2)){ //bas libre
         ListOfDirections->insert(Side::SouthWest);
     }
