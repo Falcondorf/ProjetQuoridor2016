@@ -12,9 +12,14 @@ private:
     static void TestPlayerCase3();
     static void TestPlayerWallStock();
     static void TestPlayerPosition();
-    static void TestCaseSide();
-    static void TestCaseSide2();
-
+    static void TestFrameSide();
+    static void TestFrameSide2();
+    static void TestFramePrintContent();
+    static void TestBoardCreateOK();
+    static void TestBoardCreateKO();
+    static void TestFindPath();
+    static void TestFindPathBlocked();
+    static void TestEvalPosition();
 
 };
 

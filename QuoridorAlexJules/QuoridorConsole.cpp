@@ -27,7 +27,7 @@ void QuoridorConsole::play(){
     while (!game_->isOver()){
         if (game_->getPlayer(game_->getCurrentPlayer()).getWallstock()==0
                 && game_->possiblePositions().empty()){
-            cout << " Match nul; plus de mur ni aucun déplacment possible." << endl;
+            cout << "Match nul; plus de mur ni aucun déplacment possible." << endl;
             return;
         } else if (game_->getPlayer(game_->getCurrentPlayer()).getWallstock()==0){
             cout << "Plus de mur vous devez vous déplacer." << endl;

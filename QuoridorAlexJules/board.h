@@ -60,6 +60,7 @@ public:
     /*!
      * \brief Constructeur du plateau de jeu quoridor
      * \param len la longueur du coté du plateau
+     * \bug Fuite mémoire car new sans delete sur les Frame.
      */
     Board(unsigned len);
     /*!
