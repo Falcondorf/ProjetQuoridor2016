@@ -308,7 +308,7 @@ void Game::next(){
     }else{
         currentPlayer_ = (currentPlayer_%2)+1; //ca marche
     }
-    cout << "à" << getPlayer(currentPlayer_).getName() << "de jouer" << endl;
+    cout << "A " << getPlayer(currentPlayer_).getName() << " de jouer" << endl;
 }
 bool Game::isOver(){
     /*if(possiblePositions(getPlayer(getCurrentPlayer())).empty()){
@@ -317,8 +317,8 @@ bool Game::isOver(){
     }else {*/
         for (unsigned i=1;i<= getNbP();i++ ){
             if(victoryCond(getPlayer(i))){
-                cout << toString(getPlayer(i).getObjective())<< endl;
-                cout << getPlayer(i).getName() << "a gagné !" << endl;
+                cout << getPlayer(i).getName() << " a gagne en "
+                     << toString(getPlayer(i).getObjective()) << endl;
                 return true;
             }
          }

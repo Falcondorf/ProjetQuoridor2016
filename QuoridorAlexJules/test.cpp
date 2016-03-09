@@ -93,6 +93,14 @@ void Test::TestBoardCreateKO(){
         cout << "resultat obtenu  : " << e.what() << endl;
     }
 }
+void Test::TestPlaceBoard(){
+    Board plate(5);
+    cout << plate.toString() << endl;
+    plate.place(1,1,1); // par surcharge on place un mur vertical
+    plate.place(1,5,0);
+    plate.place(0,0); //on place un pion
+    cout << plate.toString() << endl;
+}
 
 void Test::TestFindPath(){
     Board plat(9);
@@ -145,10 +153,33 @@ void Test::TestEvalPosition(){
 
     set<Side> pp = testG.possiblePositions();
     cout << "Joueur " << testG.getCurrentPlayer() << " possibilites:\n" << endl;
+
     for (auto s: pp){
         cout <<  "*" << toString(s) << endl;
     }
+    testG.move(Side::North);
+    testG.getPlayer(2).setPos(2,4);
+    cout << "\nPetit test marrant: le J2 délace son fantome via setPos() et evalPos regarde les"
+            " direction possible en prenant en compte la case physique remplie par le pion lol" << endl;
+    pp = testG.possiblePositions();
+    cout << "Joueur " << testG.getCurrentPlayer() << " possibilites:\n" << endl;
+
+    for (auto s: pp){
+        cout <<  "*" << toString(s) << endl;
+    }
+    cout << testG.stringBoard() << endl;
 }
+
+void Test::TestWinGame(){
+    Game testG3("Alex", "Jules", 5);
+    while(!testG3.isOver()){
+        testG3.move(Side::North);
+        testG3.move(Side::South);
+    }
+
+     cout << "resultat attendu : Jules a gagne en SOUTH" << endl;
+}
+
 
 void  Test::runTest(){
 /*-------------Tests sur joueurs----------------------------*/
@@ -190,16 +221,13 @@ void  Test::runTest(){
 
     cout << "\nTest évaluant les positions possibles" << endl;
     TestEvalPosition();
+    cout << "\nTest affichant un board vierge et ensuite le réaffiche avec des murs et un pion " << endl;
+    cout << "place un pion en (0, 0); un mur en (1, 5) horizontale et un autre en (1, 1) vertical " << endl;
+    TestPlaceBoard();
+    cout << "\nTest affichant le joueur gagnant quand il atteint son objectif de victoire" << endl;
+    TestWinGame();
 #if 0
 
-    /*--------------Tests sur plateau----------------------------*/
-
-    Board plate(9);
-    cout << plate.toString() << endl;
-    plate.place(1,11,1); // par surcharge on place un mur vertical
-    plate.place(1,9,0);
-    plate.place(0,0); //on place un pion
-    cout << plate.toString() << endl;
 
     /*---------------Tests sur le jeux----------------------*/
     Game testG("Alex", "Jules","Marty", "Vanessa", 5);
@@ -228,6 +256,7 @@ void  Test::runTest(){
     cout << testG.getBoard().toString() << endl;
 
     /*-----------------Mouvement vers l'objectif et test de victoire-------------------*/
+
     testG.move(Side::South, testG.getPlayer(2));
     testG.move(Side::South, testG.getPlayer(2));
     testG.move(Side::West, testG.getPlayer(2));
@@ -240,56 +269,5 @@ void  Test::runTest(){
         cout << "La partie continue..." << endl;
     }
 
-    /*-----------------------Eval position posible et mouvement------------------------------*/
-    cout << testG.getNbP() << endl;
-    for (unsigned i=1; i<=testG.getNbP(); i++){
-        set<Side> pp = testG.possiblePositions(testG.getPlayer(i));
-        cout << "J" << i << "possibilite:\n" << endl;
-        for (auto s: pp){
-            cout <<  "*" <<toString(s) << endl;
-        }
-    }
-    /*-----------------------Test findPath enfermé------------------------------*/
-
-  /*  try{
-    testG.playWall(3,1,0);
-    }catch(std::exception const& e){
-        cerr << "ERROR: " << e.what() << endl;
-        exit(1);
-    }
-    /*
-    //testG.playWall(3,5,0);
-    //testG.playWall(3,9,0);
-   //bool hey =testG.findPath(make_pair(0,4),Side::South);
-   // cout << hey<< endl;
-    cout << plate.toString() << endl;
-    /*---------------------Test findPath dans spirale------------------------------*/
-
-    Game testG2("alex","ed",9);
-    cout << testG2.getBoard().toString() << endl;
-    try{
-    testG2.playWall(1,1,1);
-    testG2.playWall(5,1,1);
-    testG2.playWall(9,1,1);
-    testG2.playWall(13,1,1);
-    testG2.playWall(15,3,0);
-    testG2.playWall(15,7,0);
-    testG2.playWall(15,11,0);
-    testG2.playWall(13,13,1);
-    testG2.playWall(9,13,1);
-    testG2.playWall(5,13,1);
-    testG2.playWall(3,11,0);
-    testG2.playWall(3,7,0);
-    testG2.playWall(5,5,1);
-    testG2.playWall(9,5,1);
-    testG2.playWall(11,7,0);
-    testG2.playWall(9,9,1);
-    testG2.playWall(3,15,0); // joueur blocké
-    }catch(std::exception const& e){
-        cerr << "ERROR: " << e.what() << endl;
-    }
-
-    cout << testG2.getBoard().toString() << endl;
-    //cout << plat.findPath(make_pair(8,8), Side::West) <<endl;
 #endif
 }

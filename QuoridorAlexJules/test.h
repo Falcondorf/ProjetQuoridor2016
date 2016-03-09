@@ -20,7 +20,8 @@ private:
     static void TestFindPath();
     static void TestFindPathBlocked();
     static void TestEvalPosition();
-
+    static void TestPlaceBoard();
+    static void TestWinGame();
 };
 
 #endif // TEST
