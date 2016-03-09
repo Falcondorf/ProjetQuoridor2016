@@ -12,9 +12,15 @@ private:
     static void TestPlayerCase3();
     static void TestPlayerWallStock();
     static void TestPlayerPosition();
+    static void TestPickWall();
+    static void TestPlayerConstrFail();
+    static void TestPlayerConstrFail2();
+    static void TestPlayerConstrOk();
+
     static void TestFrameSide();
     static void TestFrameSide2();
     static void TestFramePrintContent();
+
     static void TestBoardCreateOK();
     static void TestBoardCreateKO();
     static void TestBoardIsFree();
@@ -30,12 +36,6 @@ private:
     static void TestGetlen();
 
     static void TestSideToString();
-
-    static void TestPlayerConstrFail();
-    static void TestPlayerConstrFail2();
-    static void TestPlayerConstrOk();
-
-    static void TestPickWall();
 
 };
 
