@@ -260,22 +260,26 @@ void Test::TestBoardIsFree2(){
     cout << "resultat attendu : 010001" << endl;
     cout << "resultat obtenu  : " << plat.isFree(0,2) << plat.isFree(3,3) << plat.isFree(3,4) << plat.isFree(3,5) << plat.isFree(3,6) << plat.isFree(3,7) << endl;
 }
-void Test::TestBoardEmptyWall(){
+void Test::TestBoardEmptyWallFail(){
      Board plate(5);
-     cout << "resultat attendu : error there is no wall here" << endl;
+     cout << "resultat attendu : there is no wall here" << endl;
      cout << "resultat obtenu  : " ;
      try{
      plate.empty(1,1,0);
      }catch(QuoridorExceptions const& e){
          cout << e.what() << endl;
-
      }
 
-     plate.place(1,1,0);
-     cout << "resultat attendu : ok" << endl;
-     cout <<"resultat obtenu  : ";
-     plate.empty(1,1,0);
 }
+void Test::TestBoardEmptyWall(){
+    Board plate(5);
+    plate.place(1,1,0);
+    plate.empty(1,1,0);
+    cout << "resultat attendu : true true true" << endl;
+    cout <<"resultat obtenu  : "<<boolalpha<< plate.isFree(1,1) <<" "<<plate.isFree(1,0)<<" "<< plate.isFree(1,2) << endl ;
+
+}
+
 void Test::TestGetlen(){
     Board plateau(7);
     cout << "resultat attendu : 7" << endl;
@@ -340,6 +344,7 @@ void  Test::runTest(){
     cout << "\nTest affichant le joueur gagnant quand il atteint son objectif de victoire" << endl;
     TestWinGame();
     TestBoardEmptyWall();
+    TestBoardEmptyWallFail();
     TestGetlen();
 }
 
