@@ -34,6 +34,8 @@ private:
     static void TestPlayerConstrFail();
     static void TestPlayerConstrFail2();
     static void TestPlayerConstrOk();
+    static void TestGetName();
+   static void TestGetNum();
 
     static void TestPickWall();
 
