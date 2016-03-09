@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <algorithm>
 #include "QuoridorConsole.h"
 #include "keyboard.hpp"
@@ -180,10 +180,89 @@ void Test::TestWinGame(){
      cout << "resultat attendu : Jules a gagne en SOUTH" << endl;
 }
 
+void Test::TestFindPathFig4(){
+    Board plat(9);
+
+    //Placement des murs selon la figure 4 de l'énoncé du projet
+    plat.place(1,1,0);
+    plat.place(1,11,1);
+    plat.place(1,13,0);
+    plat.place(1,15,1);
+
+    plat.place(3,3,1);
+    plat.place(3,7,0);
+    plat.place(3,9,1);
+
+    plat.place(5,3,0);
+    plat.place(5,5,1);
+    plat.place(5,13,1);
+    plat.place(5,15,1);
+    plat.place(5,11,0);
+
+    plat.place(7,1,1);
+    plat.place(7,5,0);
+    plat.place(7,7,1);
+
+    plat.place(9,15,1);
+    plat.place(9,9,0);
+    plat.place(9,11,1);
+    plat.place(9,5,0);
+
+    plat.place(11,1,1);
+    plat.place(11,9,1);
+    plat.place(11,11,0);
+
+    plat.place(13,3,1);
+    plat.place(13,5,0);
+    plat.place(13,13,0);
+
+    plat.place(15,5,1);
+    plat.place(15,7,0);
+    plat.place(15,11,1);
+
+    /*
+    plat.place(1,7,1);  Décommenter pour bloquer le way4
+    plat.place(15,1,1);
+    */
+    cout << plat.toString() << endl;
+
+    //Eval des chemins pour les 4 positionset leur objectif.
+    bool way1 = plat.findPath(make_pair(4, 12), Side::North);
+    bool way2 = plat.findPath(make_pair(6, 6), Side::South);
+    bool way3 = plat.findPath(make_pair(8, 6), Side::East);
+    bool way4 = plat.findPath(make_pair(10, 12), Side::West);
+    if(way1 && way2 && way3 && way4){
+        cout << "resultat obtenu  : Tout chemin ouvert" << endl;
+    }   else {
+        cout << "resulatat obtenu  : Au moins un des chemins est bloqué." << endl;
+    }
+    cout << "resultat attendu : Tout chemin ouvert" << endl;
+}
+
+void Test::TestBoardIsFree(){
+    Board plat(5);
+
+    cout << "Après création du plateau, toutes les positions doivent être libres: Nous testons 4 quatres aléatoire de deux cases"
+            " pions et mur.\nresultat attendu : 1111" << endl;
+    cout << "resultat obtenu  : " << plat.isFree(0,0);
+    cout << plat.isFree(3,7);
+    cout << plat.isFree(4,8);
+    cout << plat.isFree(7,2) << endl;
+
+}
+
+void Test::TestBoardIsFree2(){
+    Board plat(7);
+
+    plat.place(0,2);
+    plat.place(3,5,0);
+
+    cout << "resultat attendu : 010001" << endl;
+    cout << "resultat obtenu  : " << plat.isFree(0,2) << plat.isFree(3,3) << plat.isFree(3,4) << plat.isFree(3,5) << plat.isFree(3,6) << plat.isFree(3,7) << endl;
+}
 
 void  Test::runTest(){
 /*-------------Tests sur joueurs----------------------------*/
-
 
     cout << "Creation simple d'un joueur partie à quatre joueurs" << endl;
     TestPlayerCase1();
@@ -209,6 +288,13 @@ void  Test::runTest(){
     TestBoardCreateOK();
     cout << "\nTest Création d'un plateau KO" << endl;
     TestBoardCreateKO();
+    cout << "\nTests de position libres" << endl;
+    TestBoardIsFree();
+    cout << "\nTest de position après placement de pion et mur" << endl;
+    TestBoardIsFree2();
+    cout << "\nTest affichant un board vierge et ensuite le réaffiche avec des murs et un pion " << endl;
+    cout << "place un pion en (0, 0); un mur en (1, 5) horizontale et un autre en (1, 1) vertical " << endl;
+    TestPlaceBoard();
 
 /*--------------Test findPath sur Spirale-------------------*/
 
@@ -216,58 +302,14 @@ void  Test::runTest(){
     TestFindPath();
     cout << "\nTest sur la recherche de chemin dans une spirale avec résultat bloquant" << endl;
     TestFindPathBlocked();
+    cout << "\nTest recherche chemin ouvert selon la figure 4 de l'énoncé du projet" << endl;
+    TestFindPathFig4();
 
 /*--------------Test l'évaluation des positions possibles---*/
 
     cout << "\nTest évaluant les positions possibles" << endl;
     TestEvalPosition();
-    cout << "\nTest affichant un board vierge et ensuite le réaffiche avec des murs et un pion " << endl;
-    cout << "place un pion en (0, 0); un mur en (1, 5) horizontale et un autre en (1, 1) vertical " << endl;
-    TestPlaceBoard();
     cout << "\nTest affichant le joueur gagnant quand il atteint son objectif de victoire" << endl;
     TestWinGame();
-#if 0
 
-
-    /*---------------Tests sur le jeux----------------------*/
-    Game testG("Alex", "Jules","Marty", "Vanessa", 5);
-    //testG.getBoard().place(0, 8);
-    cout << testG.getPlayer(2).getName() << "::" << testG.getPlayer(2).getPos().first << "::" << testG.getPlayer(2).getPos().second << endl;
-    cout << testG.getBoard().toString() << endl;
-    testG.move(Side::South, testG.getPlayer(2));
-    cout << testG.getBoard().toString() << endl;
-    testG.getBoard().place(3,7,0);
-    cout << testG.getBoard().toString() << endl;
-    try{
-        testG.move(Side::North, testG.getPlayer(4));
-    } catch (std::exception const& e){
-        cout << "ERROR: " << e.what() << endl;
-    }
-    cout << testG.getBoard().toString() << endl;
-
-    /*-------------l'image seule est bougée. Les coordonée du player ne change pas réellement--------*/
-    testG.move(Side::South, testG.getPlayer(2));
-    cout << testG.getPlayer(2).getPos().first << "; " << testG.getPlayer(2).getPos().second << endl;
-    testG.move(Side::East, testG.getPlayer(2));
-    cout << testG.getPlayer(2).getPos().first << "; " << testG.getPlayer(2).getPos().second << endl;
-    cout << testG.getBoard().toString() << endl;
-    cout << toString(testG.getBoard().getside(0,0)) << endl;
-    testG.getBoard().place(3,3,0);
-    cout << testG.getBoard().toString() << endl;
-
-    /*-----------------Mouvement vers l'objectif et test de victoire-------------------*/
-
-    testG.move(Side::South, testG.getPlayer(2));
-    testG.move(Side::South, testG.getPlayer(2));
-    testG.move(Side::West, testG.getPlayer(2));
-    testG.move(Side::West, testG.getPlayer(1));
-    cout << testG.getBoard().toString() << endl;
-    if(testG.victoryCond(testG.getPlayer(2))){
-        testG.getPlayer(1).setWin();
-        cout << testG.getPlayer(1).getName() << " est gagnant..." << endl;
-    } else {
-        cout << "La partie continue..." << endl;
-    }
-
-#endif
 }

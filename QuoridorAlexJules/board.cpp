@@ -1,4 +1,4 @@
-#include "Frame.h"
+﻿#include "Frame.h"
 #include <tuple>
 #include <iostream>
 #include <algorithm>
@@ -108,7 +108,7 @@ void Board::empty(unsigned row, unsigned column, bool vertical){
             plateau_[row][column-1]->empty();
             plateau_[row][column+1]->empty();
         }else{
-            throw QuoridorExceptions(1,"collision of walls",1);
+            throw QuoridorExceptions(1,"There is no wall here",1);
         }
 
     }else if(column%2!=0 && row%2!=0 && row>=1 && row< hidden_len-1 && vertical ){
@@ -117,7 +117,7 @@ void Board::empty(unsigned row, unsigned column, bool vertical){
             plateau_[row+1][column]->empty();
             plateau_[row-1][column]->empty();
         }else{
-             throw QuoridorExceptions(1,"collision of walls",1);
+             throw QuoridorExceptions(1,"There is no wall here",1);
         }
      }else{
          throw QuoridorExceptions(1,"wall wrongly placed",1);

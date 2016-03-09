@@ -1,4 +1,4 @@
-#ifndef TEST
+﻿#ifndef TEST
 #define TEST
 class Test{
 
@@ -17,11 +17,15 @@ private:
     static void TestFramePrintContent();
     static void TestBoardCreateOK();
     static void TestBoardCreateKO();
+    static void TestBoardIsFree();
+    static void TestBoardIsFree2();
     static void TestFindPath();
     static void TestFindPathBlocked();
+    static void TestFindPathFig4();
     static void TestEvalPosition();
     static void TestPlaceBoard();
     static void TestWinGame();
+
 };
 
 #endif // TEST
