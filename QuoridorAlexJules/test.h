@@ -35,6 +35,8 @@ private:
     static void TestPlayerConstrFail2();
     static void TestPlayerConstrOk();
 
+    static void TestPickWall();
+
 };
 
 #endif // TEST

@@ -317,6 +317,15 @@ void Test::TestPlayerConstrOk(){
     cout << "resultat obtenu  : " << joueur1.getName() << endl;
 
 }
+void Test::TestPickWall(){
+    Player j5("Ed", 3, 4, 5);
+    cout << "resultat attendu : Nombre de mur restant: 3" << endl;
+    cout << "resultat obtenu  : Nombre de mur restant: " << j5.getWallstock() << endl;
+    j5.pickWall();
+    cout << "resultat attendu : Nombre de mur restant: 2" << endl;
+    cout << "resultat obtenu  : Nombre de mur restant: " << j5.getWallstock() << endl;
+
+}
 
 
 
@@ -381,5 +390,6 @@ void  Test::runTest(){
     TestPlayerConstrFail();
     TestPlayerConstrFail2();
     TestPlayerConstrOk();
+    TestPickWall();
 }
 
