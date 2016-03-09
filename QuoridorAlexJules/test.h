@@ -29,6 +29,12 @@ private:
     static void TestBoardEmptyWallFail();
     static void TestGetlen();
 
+    static void TestSideToString();
+
+    static void TestPlayerConstrFail();
+    static void TestPlayerConstrFail2();
+    static void TestPlayerConstrOk();
+
 };
 
 #endif // TEST

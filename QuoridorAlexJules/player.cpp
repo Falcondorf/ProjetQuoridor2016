@@ -40,7 +40,7 @@ Player::Player(std::string thename,unsigned num,unsigned nbOfPlayer, unsigned bo
            break;*/
        default:
             if(num != 1 && num!= 2 && num != 3 && num !=4){
-             throw QuoridorExceptions(2,"Incorrect number of player provided",2);
+             throw QuoridorExceptions(2,"Incorrect number for the player",2);
             }
        }
  }

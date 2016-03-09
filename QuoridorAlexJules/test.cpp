@@ -286,6 +286,37 @@ void Test::TestGetlen(){
     cout << "resultat obtenu  : " <<plateau.getLen() << endl;
 }
 
+void Test::TestSideToString(){
+    Side cote;
+    cote = Side::NorthWest;
+    cout << "resultat attendu : NORTHWEST" << endl;
+    cout << "resultat obtenu  : " <<toString(cote) << endl;
+
+}
+void Test::TestPlayerConstrFail(){
+    try{
+    Player joueur1("mark",1,3,7);
+    }catch(QuoridorExceptions const& e){
+        cout << "resultat attendu : Incorrect number of player" << endl;
+        cout << "resultat obtenu  : " << e.what() << endl;
+    }
+
+}
+
+void Test::TestPlayerConstrFail2(){
+    try{
+    Player joueur1("mark",12,4,7);
+    }catch(QuoridorExceptions const& e){
+        cout << "resultat attendu : Incorrect number for the player" << endl;
+        cout << "resultat obtenu  : " << e.what() << endl;
+    }
+}
+void Test::TestPlayerConstrOk(){
+    Player joueur1("mark",2,4,7);
+    cout << "resultat attendu : mark" << endl;
+    cout << "resultat obtenu  : " << joueur1.getName() << endl;
+
+}
 
 
 
@@ -346,5 +377,9 @@ void  Test::runTest(){
     TestBoardEmptyWall();
     TestBoardEmptyWallFail();
     TestGetlen();
+    TestSideToString();
+    TestPlayerConstrFail();
+    TestPlayerConstrFail2();
+    TestPlayerConstrOk();
 }
 
