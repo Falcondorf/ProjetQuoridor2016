@@ -37,6 +37,17 @@ private:
 
     static void TestSideToString();
 
+<<<<<<< HEAD
+=======
+    static void TestPlayerConstrFail();
+    static void TestPlayerConstrFail2();
+    static void TestPlayerConstrOk();
+    static void TestGetName();
+   static void TestGetNum();
+
+    static void TestPickWall();
+
+>>>>>>> 9aba62a2490e803a9394d98615b27eed4c8dab48
 };
 
 #endif // TEST
