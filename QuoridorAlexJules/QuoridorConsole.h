@@ -45,6 +45,10 @@ public:
      * \brief play gère le jeu entier, en demandant à tour de rôle, les inputs aux joueurs
      */
     void play();
+    /*!
+     * \brief Affiche l'écran titre du jeu.
+     */
+    static void displayTitle();
 };
 
 #endif // QUORIDORCONSOLE_H

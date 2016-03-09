@@ -10,7 +10,8 @@ using namespace nvs;
 int main()
 {
     Test::runTest(); // ligne à commenter pour ne pas avoir de test.
-    cout << "Bienvenue dans le jeu Quoridor" << endl;
+    //cout << "Bienvenue dans le jeu Quoridor" << endl;
+    QuoridorConsole::displayTitle();
     cout << "Entrez le nombre de joueurs (2 ou 4 Joueurs)" << endl;
     int nbJoueurs =-1;
 

@@ -313,8 +313,9 @@ void Test::TestPlayerConstrFail2(){
 }
 void Test::TestPlayerConstrOk(){
     Player joueur1("mark",2,4,7);
-    cout << "resultat attendu : mark" << endl;
-    cout << "resultat obtenu  : " << joueur1.getName() << endl;
+    cout << "resultat attendu : mark 2" << endl;
+    cout << "resultat obtenu  : " << joueur1.getName() <<
+            " " << joueur1.getNum() << endl;
 
 }
 void Test::TestPickWall(){
@@ -337,7 +338,16 @@ void Test::TestGetNum(){
     cout << "resultat obtenu  : " << joueur1.getNum() << endl;
 }
 
-
+void Test::TestPlaceBoardFail(){
+    Board plateau(5);
+    plateau.place(1,1,1); // par surcharge on place un mur vertical
+    try{
+    plateau.place(1,1,0); //collision
+    }catch(QuoridorExceptions const& e){
+        cout << "resultat attendu : Collision of walls" << endl;
+        cout << "resultat obtenu  : " << e.what() << endl;
+    }
+}
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -357,6 +367,18 @@ void  Test::runTest(){
     TestPlayerWallStock();
     cout << "\nTest sur l'attribution d'un position de départ" << endl;
     TestPlayerPosition();
+    cout << "\nTest erreur construction de joueur" << endl;
+    TestPlayerConstrFail();
+    cout << "\nAutre test d'erreur à la construction de joueur" << endl;
+    TestPlayerConstrFail2();
+    cout << "\nTest de construction de joueur fonctionnel" << endl;
+    TestPlayerConstrOk();
+    cout << "\nTest d'enlèvement de mur du stock" << endl;
+    TestPickWall();
+    cout << "\nTest de récupération du nom d'un joueur" << endl;
+    TestGetName();
+    cout << "\nTest de récupération du numero d'un joueur" << endl;
+    TestGetNum();
 /*-------------Tests sur cases-----------------------------*/
 
     cout << "\nTest création d'une case pion et récupération de son orientation sur les contours" << endl;
@@ -378,6 +400,14 @@ void  Test::runTest(){
     cout << "\nTest affichant un board vierge et ensuite le réaffiche avec des murs et un pion " << endl;
     cout << "place un pion en (0, 0); un mur en (1, 5) horizontale et un autre en (1, 1) vertical " << endl;
     TestPlaceBoard();
+    cout << "\nTest d'erreur après placement dans un plateau" << endl;
+    TestPlaceBoardFail();
+    cout << "\nTest de vidage de case mur" << endl;
+    TestBoardEmptyWall();
+    cout << "\nTest avec erreur de vidage mur" << endl;
+    TestBoardEmptyWallFail();
+    cout << "\nTest de récupération de la taille du plateau" << endl;
+    TestGetlen();
 
 /*--------------Test findPath sur Spirale-------------------*/
 
@@ -394,15 +424,10 @@ void  Test::runTest(){
     TestEvalPosition();
     cout << "\nTest affichant le joueur gagnant quand il atteint son objectif de victoire" << endl;
     TestWinGame();
-    TestBoardEmptyWall();
-    TestBoardEmptyWallFail();
-    TestGetlen();
+/*--------------Test sur la classe d'énumération Side-------*/
+
+    cout << "\nTest d'affichage de chaîne sur un side avec toString()" << endl;
     TestSideToString();
-    TestPlayerConstrFail();
-    TestPlayerConstrFail2();
-    TestPlayerConstrOk();
-    TestPickWall();
-    TestGetName();
-    TestGetNum();
+
 }
 
