@@ -415,6 +415,33 @@ void Test::FrameFailConstrP(){
     }
 }
 
+void Test::TestFramePPlace(){
+    PlayerFrame frmP(1,1,5);
+    cout << "Avant placement:\nresultat attendu : _" << endl;
+    cout << "resultat obtenu  : " << frmP.toString() << endl;
+    frmP.place();
+    cout << "Après placement:\nresultat attendu : X" << endl;
+    cout << "resultat obtenu  : " << frmP.toString() << endl;
+}
+
+void Test::TestFrameWPlace(){
+    WallFrame frmW;
+    cout << "Avant placement:\nresultat attendu : ( )" << endl;
+    cout << "resultat obtenu  : (" << frmW.toString() << ")" <<endl;
+    frmW.place();
+    cout << "Après placement:\nresultat attendu : #" << endl;
+    cout << "resultat obtenu  : " << frmW.toString() <<endl;
+}
+void Test::TestFrameWEmpty(){
+    WallFrame frmW;
+    frmW.place();
+    cout << "Après placement:\nresultat attendu : #" << endl;
+    cout << "resultat obtenu  : " << frmW.toString() <<endl;
+    frmW.empty();
+    cout << "Après placement:\nresultat attendu : ( )" << endl;
+    cout << "resultat obtenu  : (" << frmW.toString() <<")" <<endl;
+
+}
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -454,9 +481,16 @@ void  Test::runTest(){
     TestFrameSide();
     cout << "\nTest création d'une case pion dans l'intérieur du plateau et récupération de son orientation" << endl;
     TestFrameSide2();
+    cout << "" << endl;
     FrameFailConstrP();
     cout << "\nTest initialisant une case avec un placement et retourant le string du contenu" << endl;
     TestFramePrintContent();
+    cout << "" << endl;
+    TestFramePPlace();
+    cout << "" << endl;
+    TestFrameWPlace();
+    cout << "" << endl;
+    TestFrameWEmpty();
 /*-------------Tests dur Plateau---------------------------*/
 
     cout << "\nTest Création d'un plateau OK" << endl;

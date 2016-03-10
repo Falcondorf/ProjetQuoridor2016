@@ -25,6 +25,9 @@ private:
     static void TestFrameSide2();
     static void TestFramePrintContent();
     static void FrameFailConstrP();
+    static void TestFramePPlace();
+    static void TestFrameWPlace();
+    static void TestFrameWEmpty();
 //classe Board
     static void TestBoardCreateOK();
     static void TestBoardCreateKO();
