@@ -16,6 +16,7 @@ private:
     static void TestPlayerConstrFail();
     static void TestPlayerConstrFail2();
     static void TestPlayerConstrOk();
+    static void TestHasWonSetwin();
 
     static void TestFrameSide();
     static void TestFrameSide2();
@@ -30,7 +31,7 @@ private:
     static void TestFindPathFig4();
     static void TestEvalPosition();
     static void TestPlaceBoard();
-    static void TestWinGame();
+    static void TestIsOverWinGame();
     static void TestBoardEmptyWall();
     static void TestBoardEmptyWallFail();
     static void TestGetlen();
@@ -41,6 +42,12 @@ private:
     static void TestGetNum();
 
     static void TestPlaceBoardFail();
+
+    static void TestGameConstr();
+    static void TestGameConstrFail();
+    static void TestGameNbPlayer();
+    static void TestGetCurrentPlayerAndName();
+    static void TestGameMove();
 
 };
 

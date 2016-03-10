@@ -170,7 +170,7 @@ void Test::TestEvalPosition(){
     cout << testG.stringBoard() << endl;
 }
 
-void Test::TestWinGame(){
+void Test::TestIsOverWinGame(){
     Game testG3("Alex", "Jules", 5);
     while(!testG3.isOver()){
         testG3.move(Side::North);
@@ -337,6 +337,14 @@ void Test::TestGetNum(){
     cout << "resultat attendu : 2" << endl;
     cout << "resultat obtenu  : " << joueur1.getNum() << endl;
 }
+void Test::TestHasWonSetwin(){
+    Player joueur1("mark",2,4,7);
+    cout << "resultat attendu : false" << endl;
+    cout << "resultat obtenu  : " << boolalpha<< joueur1.hasWon() << endl;
+    joueur1.setWin();
+    cout << "resultat obtenu  : " << boolalpha<< joueur1.hasWon() << endl;
+    cout << "resultat attendu : true" << endl;
+}
 
 void Test::TestPlaceBoardFail(){
     Board plateau(5);
@@ -348,6 +356,43 @@ void Test::TestPlaceBoardFail(){
         cout << "resultat obtenu  : " << e.what() << endl;
     }
 }
+void Test::TestGameConstr(){
+    Game jeu("Alex", "Jules", 9);
+    cout << "resultat attendu : Jules" << endl;
+    cout << "resultat obtenu  : " << jeu.getPlayer(2).getName() << endl;
+}
+void Test::TestGameConstrFail(){
+    try{
+     Game jeu("Alex", "Jules", 8);
+    }catch(QuoridorExceptions const& e){
+        cout << "resultat attendu : Incorrect input of size(Only 5 to 19 and not pair)" << endl;
+        cout << "resultat obtenu  : " << e.what() << endl;
+    }
+}
+void Test::TestGameNbPlayer(){
+
+     Game jeu("Alex", "Jules","marc","elliot", 9);
+        cout << "resultat attendu : 4" << endl;
+        cout << "resultat obtenu  : " << jeu.getNbP() << endl;
+
+}
+void Test::TestGetCurrentPlayerAndName(){
+    Game jeu("Alex", "Jules","marc","elliot", 9);
+    cout << "resultat attendu : Alex"  << endl;
+    cout << "resultat obtenu  : " << jeu.getPlayer(jeu.getCurrentPlayer()).getName() << endl;
+    jeu.move(Side::North);
+    cout << "resultat attendu : Jules"  << endl;
+    cout << "resultat obtenu  : " << jeu.getPlayer(jeu.getCurrentPlayer()).getName() << endl;
+}
+void Test::TestGameMove(){
+     Game jeu("Alex", "Jules","marc","elliot", 9);
+     cout << "resultat attendu : A Jules de jouer"  << endl;
+     cout << "resultat obtenu  : " ;
+     jeu.move(Side::North);
+
+}
+
+//Test play wall
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -379,6 +424,8 @@ void  Test::runTest(){
     TestGetName();
     cout << "\nTest de récupération du numero d'un joueur" << endl;
     TestGetNum();
+     cout << "\nTest de la victoire d'un joueur avant et apres la mise en victoire de ce joueur" << endl;
+    TestHasWonSetwin();
 /*-------------Tests sur cases-----------------------------*/
 
     cout << "\nTest création d'une case pion et récupération de son orientation sur les contours" << endl;
@@ -423,11 +470,16 @@ void  Test::runTest(){
     cout << "\nTest évaluant les positions possibles" << endl;
     TestEvalPosition();
     cout << "\nTest affichant le joueur gagnant quand il atteint son objectif de victoire" << endl;
-    TestWinGame();
+    TestIsOverWinGame();
 /*--------------Test sur la classe d'énumération Side-------*/
 
     cout << "\nTest d'affichage de chaîne sur un side avec toString()" << endl;
     TestSideToString();
-
+/*--------------Test sur game--------------------------------------*/
+    TestGameConstr();
+    TestGameConstrFail();
+    TestGameNbPlayer();
+    TestGetCurrentPlayerAndName();
+    TestGameMove();
 }
 
