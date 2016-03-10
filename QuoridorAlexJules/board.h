@@ -64,6 +64,30 @@ public:
      */
     Board(unsigned len);
     /*!
+     * \brief Destructeur de plateau du jeu
+     */
+    ~Board();
+    /*!
+     * \brief On evite ainsi la construction par copie
+     * \param board un pointeur de plateau
+     */
+    Board(const Board &board)=delete;
+    /*!
+     * \brief On evite d'attribuer un plateau par copie
+     * \param board un pointeur de plateau
+     * \return pas de retour
+     */
+    Board &operator=(const Board &board)=delete;
+    /*!
+     * \brief On evite la construction par recopie
+     */
+    Board(const Board &&)=delete;
+    /*!
+     * \brief On evite l'attribution par recopie
+     * \return aucun retour
+     */
+    Board &operator=(const Board &&)=delete;
+    /*!
      * \brief Renvoie la longueur du coté du plateau
      * \return la longueur du coté du plateau
      */

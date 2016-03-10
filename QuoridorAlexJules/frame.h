@@ -35,6 +35,34 @@ public:
      * \brief Vide la case donnée de ses occupants
      */
     virtual void empty()=0;
+    /*!
+     * \brief Destructeur de Case
+     */
+    virtual ~Frame()=default;
+    /*!
+     * \brief Constructeur par recopie.
+     *
+     * Le destructeur a des effets en cascade en virtuel
+     */
+    Frame(const Frame &)=default;
+    /*!
+     * \brief Constructeur par déplacement.
+     *
+     * Le destructeur a des effets en cascade en virtuel
+     */
+    Frame(Frame &&)=default;
+    /*!
+     * \brief Opérateur d'assignation par recopie par défaut.
+     *
+     * Le destructeur virtuel par défaut a des effets en cascade.
+     */
+    Frame &operator=(const Frame &)=default;
+    /*!
+     * \brief Opérateur d'assignation par déplacement par défaut.
+     *
+     * Le destructeur virtuel par défaut a des effets en cascade.
+     */
+    Frame &operator=(Frame &&)=default;
 };
 
 /*!

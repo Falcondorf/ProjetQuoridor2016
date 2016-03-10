@@ -450,7 +450,7 @@ void Test::TestFrameWEmpty(){
 
 void  Test::runTest(){
 /*-------------Tests sur joueurs----------------------------*/
-
+    cout << "----------DEBUT DES TESTS------------------------" << endl;
     cout << "Creation simple d'un joueur partie à quatre joueurs" << endl;
     TestPlayerCase1();
     cout << "\nCreation simple d'un joueur partie à deux joueurs dans un plateau 9x9" << endl;
@@ -481,15 +481,15 @@ void  Test::runTest(){
     TestFrameSide();
     cout << "\nTest création d'une case pion dans l'intérieur du plateau et récupération de son orientation" << endl;
     TestFrameSide2();
-    cout << "" << endl;
+    cout << "\nTest d'erreur de construction de case joueur avec position incorrecte " << endl;
     FrameFailConstrP();
     cout << "\nTest initialisant une case avec un placement et retourant le string du contenu" << endl;
     TestFramePrintContent();
-    cout << "" << endl;
+    cout << "\nAffichage avant/apres placement d'un joueur pour vérification" << endl;
     TestFramePPlace();
-    cout << "" << endl;
+    cout << "\nAffichage avant/apres placement d'un mur pour vérification " << endl;
     TestFrameWPlace();
-    cout << "" << endl;
+    cout << "\nAffichage avant/apres suppression d'un mur pour vérification" << endl;
     TestFrameWEmpty();
 /*-------------Tests dur Plateau---------------------------*/
 
@@ -533,12 +533,19 @@ void  Test::runTest(){
     cout << "\nTest d'affichage de chaîne sur un side avec toString()" << endl;
     TestSideToString();
 /*--------------Test sur game--------------------------------------*/
+    cout << "\nTest de création d'un jeu sans probleme avec affichage du nom pour vérifier" << endl;
     TestGameConstr();
+    cout << "\nTest de création d'un jeu avec une dimension erronée" << endl;
     TestGameConstrFail();
+    cout << "\nTest donnant le nombre de joueur d'un jeu créé avec 4 joueurs" << endl;
     TestGameNbPlayer();
+    cout << "\nTest donnant le joueur courant d'un jeu pour vérifier qu'il change de joueur apres le move en donnant le nom" << endl;
     TestGetCurrentPlayerAndName();
+    cout << "\nTest vérifiant que le move lance bien le joueur suivant" << endl;
     TestGameMove();
+    cout << "\nTest vérifiant que la condition de victoire est mise à vrai si un joueur est sur sa destination de victoire " << endl;
     TestVictoryCond();
+    cout << "\nTest vérifiant que les murs sont placés sauf si il bloque completement un joueur" << endl;
     TestPlayWall();
 
 }

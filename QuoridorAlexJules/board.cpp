@@ -32,6 +32,15 @@ Board::Board(unsigned len) : len_(len)
 
 }
 
+Board::~Board(){
+    unsigned size=getLen();
+    for (unsigned i=0;i<size;i++){
+        for (unsigned j=0;j<size;j++){
+            delete plateau_[i][j];
+        }
+    }
+}
+
 string Board::toString(){
     string str="  ";
    for (unsigned f=0;f<getLen()*2-1;f++){
