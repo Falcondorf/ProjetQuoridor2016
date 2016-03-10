@@ -199,6 +199,7 @@ void Game::oblicEast(std::set<Side> *ListOfDirections, Player p){
             && board_.isFree(p.getPos().first-2, p.getPos().second+2)){ //haut libre
          ListOfDirections->insert(Side::NorthEast);
     }
+
     if(board_.isFree(p.getPos().first+1,p.getPos().second+2)
             && board_.isFree(p.getPos().first+2, p.getPos().second+2)){ //bas libre
         ListOfDirections->insert(Side::SouthEast);
@@ -308,7 +309,6 @@ void Game::next(){
     }else{
         currentPlayer_ = (currentPlayer_%2)+1; //ca marche
     }
-    cout << "A " << getPlayer(currentPlayer_).getName() << " de jouer" << endl;
 }
 bool Game::isOver(){
     /*if(possiblePositions(getPlayer(getCurrentPlayer())).empty()){

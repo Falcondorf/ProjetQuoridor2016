@@ -25,6 +25,7 @@ void QuoridorConsole::update(const Subject *subject)
 void QuoridorConsole::play(){
 
     while (!game_->isOver()){
+        cout << "A " << game_->getPlayer(game_->getCurrentPlayer()).getName() << " de jouer" << endl;
         if (game_->getPlayer(game_->getCurrentPlayer()).getWallstock()==0
                 && game_->possiblePositions().empty()){
             cout << "Match nul; plus de mur ni aucun déplacment possible." << endl;

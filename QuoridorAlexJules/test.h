@@ -7,6 +7,7 @@ public:
     static void runTest();
 private:
 
+//classe Player
     static void TestPlayerCase1();
     static void TestPlayerCase2();
     static void TestPlayerCase3();
@@ -16,12 +17,15 @@ private:
     static void TestPlayerConstrFail();
     static void TestPlayerConstrFail2();
     static void TestPlayerConstrOk();
-    static void TestHasWonSetwin();
-
+    static void TestHasWonSetwin();   
+    static void TestGetName();
+    static void TestGetNum();
+//classe Frame
     static void TestFrameSide();
     static void TestFrameSide2();
     static void TestFramePrintContent();
-
+    static void FrameFailConstrP();
+//classe Board
     static void TestBoardCreateOK();
     static void TestBoardCreateKO();
     static void TestBoardIsFree();
@@ -31,23 +35,22 @@ private:
     static void TestFindPathFig4();
     static void TestEvalPosition();
     static void TestPlaceBoard();
+    static void TestPlaceBoardFail();
     static void TestIsOverWinGame();
     static void TestBoardEmptyWall();
     static void TestBoardEmptyWallFail();
-    static void TestGetlen();
-
+    static void TestGetlen();    
+//classe Side
     static void TestSideToString();
 
-    static void TestGetName();
-    static void TestGetNum();
-
-    static void TestPlaceBoardFail();
-
+//classe Game
     static void TestGameConstr();
     static void TestGameConstrFail();
     static void TestGameNbPlayer();
     static void TestGetCurrentPlayerAndName();
     static void TestGameMove();
+    static void TestVictoryCond();
+    static void TestPlayWall();
 
 };
 

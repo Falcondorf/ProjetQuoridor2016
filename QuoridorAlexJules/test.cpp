@@ -244,7 +244,7 @@ void Test::TestBoardIsFree(){
 
     cout << "Après création du plateau, toutes les positions doivent être libres: Nous testons 4 quatres aléatoire de deux cases"
             " pions et mur.\nresultat attendu : 1111" << endl;
-    cout << "resultat obtenu  : " << plat.isFree(0,0);
+    cout << "resultat obtenu  : " << noboolalpha << plat.isFree(0,0);
     cout << plat.isFree(3,7);
     cout << plat.isFree(4,8);
     cout << plat.isFree(7,2) << endl;
@@ -391,8 +391,30 @@ void Test::TestGameMove(){
      jeu.move(Side::North);
 
 }
+void Test::TestVictoryCond(){
+    Game jeu2("Alex", "Jules","marc","elliot", 9);
+    cout << "resultat attendu : false"  << endl;
+    cout << "resultat obtenu  : "<< boolalpha << jeu2.victoryCond(jeu2.getPlayer(3)) << endl;;
+    jeu2.getPlayer(3).setPos(4,16);
+    cout << "resultat attendu : true"  << endl;
+    cout <<  "resultat obtenu  : " << boolalpha << jeu2.victoryCond(jeu2.getPlayer(3)) << noboolalpha <<endl;
+}
+void Test::TestPlayWall(){
+    Game jeu("Alex","Jules",5);
+    cout << "resultat attendu : 110"  <<endl;
+    cout << "resultat obtenu  : " <<jeu.playWall(1,1,0);
+    cout << jeu.playWall(1,5,0);
+    cout << jeu.playWall(1,7,1) << endl;
+}
+void Test::FrameFailConstrP(){
+    try{
+        PlayerFrame frmp(7,80,9);
+    }catch(QuoridorExceptions const& e){
+        cout << "resultat attendu : incorrect position" << endl;
+        cout << "resultat obtenu  : " << e.what() << endl;
+    }
+}
 
-//Test play wall
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -432,6 +454,7 @@ void  Test::runTest(){
     TestFrameSide();
     cout << "\nTest création d'une case pion dans l'intérieur du plateau et récupération de son orientation" << endl;
     TestFrameSide2();
+    FrameFailConstrP();
     cout << "\nTest initialisant une case avec un placement et retourant le string du contenu" << endl;
     TestFramePrintContent();
 /*-------------Tests dur Plateau---------------------------*/
@@ -481,5 +504,8 @@ void  Test::runTest(){
     TestGameNbPlayer();
     TestGetCurrentPlayerAndName();
     TestGameMove();
+    TestVictoryCond();
+    TestPlayWall();
+
 }
 

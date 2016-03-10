@@ -2,11 +2,12 @@
 #include <iostream>
 #include "Board.h"
 #include "Side.h"
+#include "QuoridorExceptions.h"
 using namespace std;
 
 PlayerFrame::PlayerFrame(unsigned row, unsigned column,unsigned size){
     if(row > size || column > size){
-        throw "incorrect position";
+        throw QuoridorExceptions(1,"incorrect position",1) ;
     }
     hasPiece_ = false;
     size -= 1;
