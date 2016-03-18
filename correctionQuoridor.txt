@@ -1,0 +1,6 @@
+Nom de fichier avec tout maj ou min (cohérence)
+Documenter chaque fichier(voir subject.hpp pour exemple)
+Fuite mémoire lors de la destruction de plateau
+Gérer le vidage de stock de mur
+Cout de isOver à changer (déplacer)
+inclure le fichier doxygen
