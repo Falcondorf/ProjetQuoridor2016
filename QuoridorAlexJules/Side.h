@@ -1,10 +1,14 @@
-﻿#ifndef SIDE
+﻿/*!
+ * \file Side.h
+ * \brief l'ensemble des points cardinaux.
+ */
+
+#ifndef SIDE
 #define SIDE
 #include <string>
 /*!
  * \brief Enumération des points cardinaux que peuvent posseder les cases
  *
- * \sa Side.
  */
 enum class Side{
     North,

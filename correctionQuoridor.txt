@@ -1,6 +1,6 @@
 ﻿Nom de fichier avec tout maj ou min (cohérence)
-Documenter chaque fichier(voir subject.hpp pour exemple)
+Documenter chaque fichier(voir subject.hpp pour exemple)	OK
 Fuite mémoire lors de la destruction de plateau			OK
 Gérer le vidage de stock de mur					OK
 Cout de isOver à changer (déplacer)				OK
-inclure le fichier doxygen
+inclure le fichier doxygen					OK

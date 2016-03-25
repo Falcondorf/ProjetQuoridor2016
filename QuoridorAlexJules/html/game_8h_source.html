@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>My Project:  Fichier source de game.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">game.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GAME</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GAME</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Board.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="subject_8h.html">subject.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_game.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game.html">Game</a> : <span class="keyword">public</span> <a class="code" href="classnvs_1_1_subject.html">nvs::Subject</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_game.html#a534b4dd49eb8c2533ff20e6641a1d107">   18</a></span>&#160;    <a class="code" href="class_board.html">Board</a> <a class="code" href="class_game.html#a534b4dd49eb8c2533ff20e6641a1d107">board_</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_game.html#a89acc18c1803c4571834318beb7714eb">   22</a></span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="class_game.html#a89acc18c1803c4571834318beb7714eb">currentPlayer_</a> ;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_game.html#a5a564dd4e9926e5d8822342d5a3d1962">   26</a></span>&#160;    std::vector&lt;Player&gt; <a class="code" href="class_game.html#a5a564dd4e9926e5d8822342d5a3d1962">listPlayer_</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a34ee77aaf21c7cd2de06c689248f2224">oblicNorth</a>(std::set&lt;Side&gt; *ListOfDirections, <a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a2861bffa58c095f786f540bbd2367c1b">evalNorth</a>(std::set &lt;Side&gt; *ListOfDirections, <a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#abe7109ba984620d10d3120756b9a0f54">oblicSouth</a>(std::set &lt;Side&gt; *ListOfDirections, <a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#af8e7c0c40e396ecd245a534c6cdc837b">evalSouth</a>(<a class="code" href="class_player.html">Player</a> p, std::set &lt;Side&gt; *ListOfDirections);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#ad7326d5bf72d112b0ca2ed5634ca0ccf">oblicEast</a>(std::set &lt;Side&gt; *ListOfDirections, <a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a3c0a468f22cac2d4e9bef5545a64fbb5">evalEast</a>(<a class="code" href="class_player.html">Player</a> p, std::set&lt;Side&gt; *ListOfDirections);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#aaa09fa2333941fed88504326ab9a7d1c">oblicWest</a>(std::set &lt;Side&gt; *ListOfDirections, <a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a866c1181e278d44d91871da3576931de">evalWest</a>(std::set&lt;Side&gt; *ListOfDirections, <a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#aed6d628cd670fa903c46f349672bc393">move</a>(<a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> dir, <a class="code" href="class_player.html">Player</a> &amp; play);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#ac3e16bd77171395f0b6e03ce5e9d2c28">next</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    std::set&lt;Side&gt; <a class="code" href="class_game.html#a0859f8bd221da897a3e41b5ae66eb01e">possiblePositions</a>(<a class="code" href="class_player.html">Player</a> p);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="class_game.html#a6e4d342ed2cc2eac3d469b54ea417319">Game</a>( std::string n1,  std::string n3, <span class="keywordtype">unsigned</span> size);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="class_game.html#a6e4d342ed2cc2eac3d469b54ea417319">Game</a>( std::string n1,  std::string n2,  std::string n3,  std::string n4, <span class="keywordtype">unsigned</span> size);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#ab8536df425c768f3524c87de99aa9cd9">isOver</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">inline</span> <a class="code" href="class_player.html">Player</a> &amp;<a class="code" href="class_game.html#ad0e9193a7812e0362c1074e5fffb363b">getPlayer</a>(<span class="keywordtype">unsigned</span> nb);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <a class="code" href="class_game.html#a23e9353db6a7363e756d8865fb3244c5">getNbP</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <a class="code" href="class_game.html#a5cf6ef7f87afab1f5544975872f85172">getCurrentPlayer</a>();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    std::set&lt;Side&gt; <a class="code" href="class_game.html#a0859f8bd221da897a3e41b5ae66eb01e">possiblePositions</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a15087455db691cb2b5ce2480c5986b82">collisionWall</a>(<a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> dir, <a class="code" href="class_player.html">Player</a> play);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a346bf7e1948c8b823bc97bc0cf6c8679">collisionPiece</a>(<a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> dir, <a class="code" href="class_player.html">Player</a> play);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#ae499aad5e7f29cdd64b5f7743a256bdd">victoryCond</a>(<a class="code" href="class_player.html">Player</a> play);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a155a8fa2d655b4022763be1963d57f8b">playWall</a>(<span class="keywordtype">unsigned</span> row, <span class="keywordtype">unsigned</span> column, <span class="keywordtype">bool</span> vertical);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#aed6d628cd670fa903c46f349672bc393">move</a>(<a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> dir);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">inline</span> std::string <a class="code" href="class_game.html#a56b37fd9873a11e000742e50f3e935e1">stringBoard</a>();</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;};</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="class_game.html#ad0e9193a7812e0362c1074e5fffb363b">  192</a></span>&#160;<a class="code" href="class_player.html">Player</a> &amp;<a class="code" href="class_game.html#ad0e9193a7812e0362c1074e5fffb363b">Game::getPlayer</a>(<span class="keywordtype">unsigned</span> nb){</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_game.html#a5a564dd4e9926e5d8822342d5a3d1962">listPlayer_</a>[nb-1];</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="class_game.html#a23e9353db6a7363e756d8865fb3244c5">  196</a></span>&#160;<span class="keywordtype">unsigned</span> <a class="code" href="class_game.html#a23e9353db6a7363e756d8865fb3244c5">Game::getNbP</a>(){</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_game.html#a5a564dd4e9926e5d8822342d5a3d1962">listPlayer_</a>.size();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="class_game.html#a5cf6ef7f87afab1f5544975872f85172">  200</a></span>&#160;<span class="keywordtype">unsigned</span> <a class="code" href="class_game.html#a5cf6ef7f87afab1f5544975872f85172">Game::getCurrentPlayer</a>(){</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_game.html#a89acc18c1803c4571834318beb7714eb">currentPlayer_</a>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="class_game.html#a56b37fd9873a11e000742e50f3e935e1">  204</a></span>&#160;std::string <a class="code" href="class_game.html#a56b37fd9873a11e000742e50f3e935e1">Game::stringBoard</a>(){</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_game.html#a534b4dd49eb8c2533ff20e6641a1d107">board_</a>.<a class="code" href="class_board.html#a54cb9ff0f997470e1616b16f10810ee8">toString</a>();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif // GAME</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="ttc" id="class_game_html_af8e7c0c40e396ecd245a534c6cdc837b"><div class="ttname"><a href="class_game.html#af8e7c0c40e396ecd245a534c6cdc837b">Game::evalSouth</a></div><div class="ttdeci">void evalSouth(Player p, std::set&lt; Side &gt; *ListOfDirections)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des cas au sud...</div><div class="ttdef"><b>Definition:</b> game.cpp:178</div></div>
+<div class="ttc" id="class_game_html_a155a8fa2d655b4022763be1963d57f8b"><div class="ttname"><a href="class_game.html#a155a8fa2d655b4022763be1963d57f8b">Game::playWall</a></div><div class="ttdeci">bool playWall(unsigned row, unsigned column, bool vertical)</div><div class="ttdoc">Méthode permettant au joueur de choisir où placer un mur dans le plateau. </div><div class="ttdef"><b>Definition:</b> game.cpp:286</div></div>
+<div class="ttc" id="class_board_html_a54cb9ff0f997470e1616b16f10810ee8"><div class="ttname"><a href="class_board.html#a54cb9ff0f997470e1616b16f10810ee8">Board::toString</a></div><div class="ttdeci">std::string toString()</div><div class="ttdoc">Affichage du plateau de jeu. </div><div class="ttdef"><b>Definition:</b> board.cpp:44</div></div>
+<div class="ttc" id="classnvs_1_1_subject_html"><div class="ttname"><a href="classnvs_1_1_subject.html">nvs::Subject</a></div><div class="ttdoc">Classe de base de tout "sujet d&#39;observation". </div><div class="ttdef"><b>Definition:</b> subject.h:53</div></div>
+<div class="ttc" id="class_game_html_a23e9353db6a7363e756d8865fb3244c5"><div class="ttname"><a href="class_game.html#a23e9353db6a7363e756d8865fb3244c5">Game::getNbP</a></div><div class="ttdeci">unsigned getNbP()</div><div class="ttdoc">Accesseur du nombre de joueur dans la partie. </div><div class="ttdef"><b>Definition:</b> game.h:196</div></div>
+<div class="ttc" id="class_game_html_abe7109ba984620d10d3120756b9a0f54"><div class="ttname"><a href="class_game.html#abe7109ba984620d10d3120756b9a0f54">Game::oblicSouth</a></div><div class="ttdeci">void oblicSouth(std::set&lt; Side &gt; *ListOfDirections, Player p)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des obliques sud...</div><div class="ttdef"><b>Definition:</b> game.cpp:167</div></div>
+<div class="ttc" id="class_game_html_aaa09fa2333941fed88504326ab9a7d1c"><div class="ttname"><a href="class_game.html#aaa09fa2333941fed88504326ab9a7d1c">Game::oblicWest</a></div><div class="ttdeci">void oblicWest(std::set&lt; Side &gt; *ListOfDirections, Player p)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des obliques ouest...</div><div class="ttdef"><b>Definition:</b> game.cpp:228</div></div>
+<div class="ttc" id="class_game_html_a2861bffa58c095f786f540bbd2367c1b"><div class="ttname"><a href="class_game.html#a2861bffa58c095f786f540bbd2367c1b">Game::evalNorth</a></div><div class="ttdeci">void evalNorth(std::set&lt; Side &gt; *ListOfDirections, Player p)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des cas au nord...</div><div class="ttdef"><b>Definition:</b> game.cpp:148</div></div>
+<div class="ttc" id="class_game_html_a34ee77aaf21c7cd2de06c689248f2224"><div class="ttname"><a href="class_game.html#a34ee77aaf21c7cd2de06c689248f2224">Game::oblicNorth</a></div><div class="ttdeci">void oblicNorth(std::set&lt; Side &gt; *ListOfDirections, Player p)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation du cas des obliques...</div><div class="ttdef"><b>Definition:</b> game.cpp:137</div></div>
+<div class="ttc" id="class_game_html_a5cf6ef7f87afab1f5544975872f85172"><div class="ttname"><a href="class_game.html#a5cf6ef7f87afab1f5544975872f85172">Game::getCurrentPlayer</a></div><div class="ttdeci">unsigned getCurrentPlayer()</div><div class="ttdoc">Accesseur de joueur courant. return Retourne le joueur courant. </div><div class="ttdef"><b>Definition:</b> game.h:200</div></div>
+<div class="ttc" id="class_game_html_ad7326d5bf72d112b0ca2ed5634ca0ccf"><div class="ttname"><a href="class_game.html#ad7326d5bf72d112b0ca2ed5634ca0ccf">Game::oblicEast</a></div><div class="ttdeci">void oblicEast(std::set&lt; Side &gt; *ListOfDirections, Player p)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des obliques est...</div><div class="ttdef"><b>Definition:</b> game.cpp:197</div></div>
+<div class="ttc" id="class_game_html_ab8536df425c768f3524c87de99aa9cd9"><div class="ttname"><a href="class_game.html#ab8536df425c768f3524c87de99aa9cd9">Game::isOver</a></div><div class="ttdeci">bool isOver()</div><div class="ttdoc">Méthode de contrôle de fin de partie. </div><div class="ttdef"><b>Definition:</b> game.cpp:313</div></div>
+<div class="ttc" id="class_game_html_ae499aad5e7f29cdd64b5f7743a256bdd"><div class="ttname"><a href="class_game.html#ae499aad5e7f29cdd64b5f7743a256bdd">Game::victoryCond</a></div><div class="ttdeci">bool victoryCond(Player play)</div><div class="ttdoc">Cette méthode évalue si un pion a atteint son objectif. </div><div class="ttdef"><b>Definition:</b> game.cpp:266</div></div>
+<div class="ttc" id="class_game_html_a534b4dd49eb8c2533ff20e6641a1d107"><div class="ttname"><a href="class_game.html#a534b4dd49eb8c2533ff20e6641a1d107">Game::board_</a></div><div class="ttdeci">Board board_</div><div class="ttdoc">attribut définissant le plateau de jeu. </div><div class="ttdef"><b>Definition:</b> game.h:18</div></div>
+<div class="ttc" id="class_game_html_a866c1181e278d44d91871da3576931de"><div class="ttname"><a href="class_game.html#a866c1181e278d44d91871da3576931de">Game::evalWest</a></div><div class="ttdeci">void evalWest(std::set&lt; Side &gt; *ListOfDirections, Player p)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des cas à l&#39;ouest...</div><div class="ttdef"><b>Definition:</b> game.cpp:239</div></div>
+<div class="ttc" id="class_game_html_a0859f8bd221da897a3e41b5ae66eb01e"><div class="ttname"><a href="class_game.html#a0859f8bd221da897a3e41b5ae66eb01e">Game::possiblePositions</a></div><div class="ttdeci">std::set&lt; Side &gt; possiblePositions()</div><div class="ttdoc">Méthode fabriquant un set de toutes les directions que le joueur courant peut choisir avant de se dép...</div><div class="ttdef"><b>Definition:</b> game.cpp:300</div></div>
+<div class="ttc" id="class_game_html_a15087455db691cb2b5ce2480c5986b82"><div class="ttname"><a href="class_game.html#a15087455db691cb2b5ce2480c5986b82">Game::collisionWall</a></div><div class="ttdeci">bool collisionWall(Side dir, Player play)</div><div class="ttdoc">Méthode vérifiant que dans une certaines direction, un joueur peut se cogner contre un mur...</div><div class="ttdef"><b>Definition:</b> game.cpp:99</div></div>
+<div class="ttc" id="class_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdoc">Classe chargée des opération sur le plateau. </div><div class="ttdef"><b>Definition:</b> board.h:9</div></div>
+<div class="ttc" id="class_game_html_a89acc18c1803c4571834318beb7714eb"><div class="ttname"><a href="class_game.html#a89acc18c1803c4571834318beb7714eb">Game::currentPlayer_</a></div><div class="ttdeci">unsigned currentPlayer_</div><div class="ttdoc">attribut définissant le joueur courant. Soit celui qui est en train de jouer. </div><div class="ttdef"><b>Definition:</b> game.h:22</div></div>
+<div class="ttc" id="class_game_html_a56b37fd9873a11e000742e50f3e935e1"><div class="ttname"><a href="class_game.html#a56b37fd9873a11e000742e50f3e935e1">Game::stringBoard</a></div><div class="ttdeci">std::string stringBoard()</div><div class="ttdoc">Méthode permettant l&#39;affichage du plateau de jeu via la partie actuelle. </div><div class="ttdef"><b>Definition:</b> game.h:204</div></div>
+<div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">Classe Game gérant les interactions entre les joueurs et le plateau de jeu. Surtout tout ce qui conce...</div><div class="ttdef"><b>Definition:</b> game.h:13</div></div>
+<div class="ttc" id="class_game_html_a5a564dd4e9926e5d8822342d5a3d1962"><div class="ttname"><a href="class_game.html#a5a564dd4e9926e5d8822342d5a3d1962">Game::listPlayer_</a></div><div class="ttdeci">std::vector&lt; Player &gt; listPlayer_</div><div class="ttdoc">attribut liste des joueurs de la partie. </div><div class="ttdef"><b>Definition:</b> game.h:26</div></div>
+<div class="ttc" id="class_game_html_a3c0a468f22cac2d4e9bef5545a64fbb5"><div class="ttname"><a href="class_game.html#a3c0a468f22cac2d4e9bef5545a64fbb5">Game::evalEast</a></div><div class="ttdeci">void evalEast(Player p, std::set&lt; Side &gt; *ListOfDirections)</div><div class="ttdoc">Lors de la phase d&#39;évaluation des directions de déplacements possible, évaluation des cas à l&#39;est...</div><div class="ttdef"><b>Definition:</b> game.cpp:209</div></div>
+<div class="ttc" id="subject_8h_html"><div class="ttname"><a href="subject_8h.html">subject.h</a></div><div class="ttdoc">Définition de la classe nvs::Subject. </div></div>
+<div class="ttc" id="class_game_html_aed6d628cd670fa903c46f349672bc393"><div class="ttname"><a href="class_game.html#aed6d628cd670fa903c46f349672bc393">Game::move</a></div><div class="ttdeci">bool move(Side dir, Player &amp;play)</div><div class="ttdoc">Cette méthode a pour but de déplcer un pion dans une direction donnée. </div><div class="ttdef"><b>Definition:</b> game.cpp:27</div></div>
+<div class="ttc" id="_side_8h_html_a8c0137d7160ad71b6ed265c53c99ed00"><div class="ttname"><a href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a></div><div class="ttdeci">Side</div><div class="ttdoc">Enumération des points cardinaux que peuvent posseder les cases. </div><div class="ttdef"><b>Definition:</b> Side.h:13</div></div>
+<div class="ttc" id="class_game_html_ad0e9193a7812e0362c1074e5fffb363b"><div class="ttname"><a href="class_game.html#ad0e9193a7812e0362c1074e5fffb363b">Game::getPlayer</a></div><div class="ttdeci">Player &amp; getPlayer(unsigned nb)</div><div class="ttdoc">Cette méthode à pour fonction de retourner le joueur numéro nb. </div><div class="ttdef"><b>Definition:</b> game.h:192</div></div>
+<div class="ttc" id="class_game_html_a346bf7e1948c8b823bc97bc0cf6c8679"><div class="ttname"><a href="class_game.html#a346bf7e1948c8b823bc97bc0cf6c8679">Game::collisionPiece</a></div><div class="ttdeci">bool collisionPiece(Side dir, Player play)</div><div class="ttdoc">Méthode vérifiant que dans une certaines direction, un joueur peut rencontrer un autre pion...</div><div class="ttdef"><b>Definition:</b> game.cpp:118</div></div>
+<div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">Classe définissant un joueur et les interactions qu&#39;il peut faire lors du jeu. </div><div class="ttdef"><b>Definition:</b> player.h:9</div></div>
+<div class="ttc" id="class_game_html_ac3e16bd77171395f0b6e03ce5e9d2c28"><div class="ttname"><a href="class_game.html#ac3e16bd77171395f0b6e03ce5e9d2c28">Game::next</a></div><div class="ttdeci">void next()</div><div class="ttdoc">Cette méthode change le joueur courant vers le suivant. </div><div class="ttdef"><b>Definition:</b> game.cpp:306</div></div>
+<div class="ttc" id="class_game_html_a6e4d342ed2cc2eac3d469b54ea417319"><div class="ttname"><a href="class_game.html#a6e4d342ed2cc2eac3d469b54ea417319">Game::Game</a></div><div class="ttdeci">Game(std::string n1, std::string n3, unsigned size)</div><div class="ttdoc">Constructeur de partie à deux joueurs. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

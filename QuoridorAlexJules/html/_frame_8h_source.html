@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>My Project:  Fichier source de Frame.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Frame.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FRAME</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FRAME</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_side_8h.html">Side.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Player.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_frame.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_frame.html">Frame</a>{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_frame.html">Frame</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_frame.html#ab379761b41d7f6bdf3d87064bd3cd2ba">toString</a>()=0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> <a class="code" href="class_frame.html#aaadf8544ccf8c7c116488fcada8f4c3f">getSide</a>()=0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_frame.html#a6a388bc44c4b0d0ce38a1fda9dab653d">place</a>()=0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_frame.html#a89b684210517896f11f82f1ca90ddcd0">isFree</a>()=0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_frame.html#a3d92e833f93e1f04a9b98e5867d6e68c">empty</a>()=0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_frame.html#a5a95138589641f2e16bfae0be7c112ce">~Frame</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_frame.html">Frame</a>(<span class="keyword">const</span> <a class="code" href="class_frame.html">Frame</a> &amp;)=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_frame.html">Frame</a>(<a class="code" href="class_frame.html">Frame</a> &amp;&amp;)=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_frame.html">Frame</a> &amp;<a class="code" href="class_frame.html#aba2eed0189ee9da518aee2808c4df0de">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_frame.html">Frame</a> &amp;)=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_frame.html">Frame</a> &amp;<a class="code" href="class_frame.html#aba2eed0189ee9da518aee2808c4df0de">operator=</a>(<a class="code" href="class_frame.html">Frame</a> &amp;&amp;)=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_player_frame.html">   71</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player_frame.html">PlayerFrame</a> : <span class="keyword">public</span> <a class="code" href="class_frame.html">Frame</a>{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_player_frame.html#a1b75928281b4643135f2ec6df1e256a8">   76</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_player_frame.html#a1b75928281b4643135f2ec6df1e256a8">hasPiece_</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_player_frame.html#a097befc8791ac51aff0d17eb95a0c4a5">   80</a></span>&#160;    <a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> <a class="code" href="class_player_frame.html#a097befc8791ac51aff0d17eb95a0c4a5">side_</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="class_player_frame.html#a11d4a27348e878d307f06ca9761c65cd">PlayerFrame</a>(<span class="keywordtype">unsigned</span> row, <span class="keywordtype">unsigned</span> column, <span class="keywordtype">unsigned</span> size);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">inline</span> <a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> <a class="code" href="class_player_frame.html#a5115c273cf6a0889a8d41e2e39d4dc76">getSide</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_player_frame.html#a3e9a6ec5f019dd2ed1f33f2cba925a85">place</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_player_frame.html#a3c98bc714e6dcef012b2e6e84d136c18">empty</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_player_frame.html#a117b55ac4b02c463fd4c0a30dd1a2b3f">isFree</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    std::string <a class="code" href="class_player_frame.html#a7ff133f16e8002bf5a7456035b3cd14d">toString</a>();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_player_frame.html#a3e9a6ec5f019dd2ed1f33f2cba925a85">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_player_frame.html#a3e9a6ec5f019dd2ed1f33f2cba925a85">PlayerFrame::place</a>(){</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="class_player_frame.html#a1b75928281b4643135f2ec6df1e256a8">hasPiece_</a>=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="class_player_frame.html#a5115c273cf6a0889a8d41e2e39d4dc76">  121</a></span>&#160;<a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> <a class="code" href="class_player_frame.html#a5115c273cf6a0889a8d41e2e39d4dc76">PlayerFrame::getSide</a>(){</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_player_frame.html#a097befc8791ac51aff0d17eb95a0c4a5">side_</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="class_player_frame.html#a3c98bc714e6dcef012b2e6e84d136c18">  125</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_player_frame.html#a3c98bc714e6dcef012b2e6e84d136c18">PlayerFrame::empty</a>(){</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="class_player_frame.html#a1b75928281b4643135f2ec6df1e256a8">hasPiece_</a>=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="class_wall_frame.html">  132</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_wall_frame.html">WallFrame</a> : <span class="keyword">public</span> <a class="code" href="class_frame.html">Frame</a>{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="class_wall_frame.html#ae3339d1aea5d11b88162675b72f2c5b8">  137</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wall_frame.html#ae3339d1aea5d11b88162675b72f2c5b8">isWalled_</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">inline</span> <a class="code" href="class_wall_frame.html#ae1cdb779584e15d0b67836f507aa42ee">WallFrame</a>();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">inline</span> <a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> <a class="code" href="class_wall_frame.html#a0cbb6eac9ca454301bdf4e95d2395521">getSide</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_wall_frame.html#a062dfa312acf6e8aae8613966b613a37">place</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_wall_frame.html#a071ae9dc08bebf433017ba18ffb324b5">empty</a>();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wall_frame.html#ad87a75a6c8d7e920543f37f919dfa9f7">isFree</a>();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    std::string <a class="code" href="class_wall_frame.html#a665db28c8b78cb6f6e669100b5f6f17e">toString</a>();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;};</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="class_wall_frame.html#ae1cdb779584e15d0b67836f507aa42ee">  170</a></span>&#160;<a class="code" href="class_wall_frame.html#ae1cdb779584e15d0b67836f507aa42ee">WallFrame::WallFrame</a>() : <a class="code" href="class_frame.html">Frame</a>(){</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="class_wall_frame.html#ae3339d1aea5d11b88162675b72f2c5b8">isWalled_</a>=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="class_wall_frame.html#a062dfa312acf6e8aae8613966b613a37">  174</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_wall_frame.html#a062dfa312acf6e8aae8613966b613a37">WallFrame::place</a>(){</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="class_wall_frame.html#ae3339d1aea5d11b88162675b72f2c5b8">isWalled_</a>=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="class_wall_frame.html#a071ae9dc08bebf433017ba18ffb324b5">  178</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_wall_frame.html#a071ae9dc08bebf433017ba18ffb324b5">WallFrame::empty</a>(){</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="class_wall_frame.html#ae3339d1aea5d11b88162675b72f2c5b8">isWalled_</a>=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="class_wall_frame.html#a0cbb6eac9ca454301bdf4e95d2395521">  182</a></span>&#160;<a class="code" href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a> <a class="code" href="class_wall_frame.html#a0cbb6eac9ca454301bdf4e95d2395521">WallFrame::getSide</a>(){<span class="keywordflow">return</span> Side::Blank;}</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#endif // FRAME</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="ttc" id="class_frame_html_aba2eed0189ee9da518aee2808c4df0de"><div class="ttname"><a href="class_frame.html#aba2eed0189ee9da518aee2808c4df0de">Frame::operator=</a></div><div class="ttdeci">Frame &amp; operator=(const Frame &amp;)=default</div><div class="ttdoc">Opérateur d&#39;assignation par recopie par défaut. </div></div>
+<div class="ttc" id="class_frame_html_ab379761b41d7f6bdf3d87064bd3cd2ba"><div class="ttname"><a href="class_frame.html#ab379761b41d7f6bdf3d87064bd3cd2ba">Frame::toString</a></div><div class="ttdeci">virtual std::string toString()=0</div><div class="ttdoc">Méthode permettant l&#39;affichage de représentation du contenu d&#39;une case. </div></div>
+<div class="ttc" id="class_player_frame_html_a11d4a27348e878d307f06ca9761c65cd"><div class="ttname"><a href="class_player_frame.html#a11d4a27348e878d307f06ca9761c65cd">PlayerFrame::PlayerFrame</a></div><div class="ttdeci">PlayerFrame(unsigned row, unsigned column, unsigned size)</div><div class="ttdoc">Constructeur d&#39;une case de joueur. </div><div class="ttdef"><b>Definition:</b> Frame.cpp:8</div></div>
+<div class="ttc" id="class_wall_frame_html_ae1cdb779584e15d0b67836f507aa42ee"><div class="ttname"><a href="class_wall_frame.html#ae1cdb779584e15d0b67836f507aa42ee">WallFrame::WallFrame</a></div><div class="ttdeci">WallFrame()</div><div class="ttdoc">Constructeur de case mur. </div><div class="ttdef"><b>Definition:</b> Frame.h:170</div></div>
+<div class="ttc" id="class_player_frame_html_a3e9a6ec5f019dd2ed1f33f2cba925a85"><div class="ttname"><a href="class_player_frame.html#a3e9a6ec5f019dd2ed1f33f2cba925a85">PlayerFrame::place</a></div><div class="ttdeci">void place()</div><div class="ttdoc">Place un pion à la case. </div><div class="ttdef"><b>Definition:</b> Frame.h:117</div></div>
+<div class="ttc" id="class_frame_html_a89b684210517896f11f82f1ca90ddcd0"><div class="ttname"><a href="class_frame.html#a89b684210517896f11f82f1ca90ddcd0">Frame::isFree</a></div><div class="ttdeci">virtual bool isFree()=0</div><div class="ttdoc">Indique si une case mur ou pion est sans mur ou sans pion. </div></div>
+<div class="ttc" id="class_wall_frame_html_a062dfa312acf6e8aae8613966b613a37"><div class="ttname"><a href="class_wall_frame.html#a062dfa312acf6e8aae8613966b613a37">WallFrame::place</a></div><div class="ttdeci">void place()</div><div class="ttdoc">Place un mur sur la case. </div><div class="ttdef"><b>Definition:</b> Frame.h:174</div></div>
+<div class="ttc" id="class_frame_html_aaadf8544ccf8c7c116488fcada8f4c3f"><div class="ttname"><a href="class_frame.html#aaadf8544ccf8c7c116488fcada8f4c3f">Frame::getSide</a></div><div class="ttdeci">virtual Side getSide()=0</div><div class="ttdoc">Donne le type de coté de la case. </div></div>
+<div class="ttc" id="class_wall_frame_html_a0cbb6eac9ca454301bdf4e95d2395521"><div class="ttname"><a href="class_wall_frame.html#a0cbb6eac9ca454301bdf4e95d2395521">WallFrame::getSide</a></div><div class="ttdeci">Side getSide()</div><div class="ttdoc">Donne le type de coté de la case (Tjrs blank puisque c est une case mur et qu&#39;il n&#39;est as nécssaire d...</div><div class="ttdef"><b>Definition:</b> Frame.h:182</div></div>
+<div class="ttc" id="class_player_frame_html_a097befc8791ac51aff0d17eb95a0c4a5"><div class="ttname"><a href="class_player_frame.html#a097befc8791ac51aff0d17eb95a0c4a5">PlayerFrame::side_</a></div><div class="ttdeci">Side side_</div><div class="ttdoc">Indique le type de coté de la case. </div><div class="ttdef"><b>Definition:</b> Frame.h:80</div></div>
+<div class="ttc" id="class_frame_html_a3d92e833f93e1f04a9b98e5867d6e68c"><div class="ttname"><a href="class_frame.html#a3d92e833f93e1f04a9b98e5867d6e68c">Frame::empty</a></div><div class="ttdeci">virtual void empty()=0</div><div class="ttdoc">Vide la case donnée de ses occupants. </div></div>
+<div class="ttc" id="class_player_frame_html_a1b75928281b4643135f2ec6df1e256a8"><div class="ttname"><a href="class_player_frame.html#a1b75928281b4643135f2ec6df1e256a8">PlayerFrame::hasPiece_</a></div><div class="ttdeci">bool hasPiece_</div><div class="ttdoc">Indique si une case possède un pion. </div><div class="ttdef"><b>Definition:</b> Frame.h:76</div></div>
+<div class="ttc" id="class_frame_html_a6a388bc44c4b0d0ce38a1fda9dab653d"><div class="ttname"><a href="class_frame.html#a6a388bc44c4b0d0ce38a1fda9dab653d">Frame::place</a></div><div class="ttdeci">virtual void place()=0</div><div class="ttdoc">Place un mur ou un pion. </div></div>
+<div class="ttc" id="class_wall_frame_html_ad87a75a6c8d7e920543f37f919dfa9f7"><div class="ttname"><a href="class_wall_frame.html#ad87a75a6c8d7e920543f37f919dfa9f7">WallFrame::isFree</a></div><div class="ttdeci">bool isFree()</div><div class="ttdoc">Indique si la case ne contient pas de mur. </div><div class="ttdef"><b>Definition:</b> Frame.cpp:69</div></div>
+<div class="ttc" id="class_frame_html_a5a95138589641f2e16bfae0be7c112ce"><div class="ttname"><a href="class_frame.html#a5a95138589641f2e16bfae0be7c112ce">Frame::~Frame</a></div><div class="ttdeci">virtual ~Frame()=default</div><div class="ttdoc">Destructeur de Case. </div></div>
+<div class="ttc" id="class_wall_frame_html_ae3339d1aea5d11b88162675b72f2c5b8"><div class="ttname"><a href="class_wall_frame.html#ae3339d1aea5d11b88162675b72f2c5b8">WallFrame::isWalled_</a></div><div class="ttdeci">bool isWalled_</div><div class="ttdoc">Attribut déterminant quand une case est murée. </div><div class="ttdef"><b>Definition:</b> Frame.h:137</div></div>
+<div class="ttc" id="class_player_frame_html_a7ff133f16e8002bf5a7456035b3cd14d"><div class="ttname"><a href="class_player_frame.html#a7ff133f16e8002bf5a7456035b3cd14d">PlayerFrame::toString</a></div><div class="ttdeci">std::string toString()</div><div class="ttdoc">Affiche si il y a un pion ou pas dans la case? </div><div class="ttdef"><b>Definition:</b> Frame.cpp:49</div></div>
+<div class="ttc" id="class_player_frame_html"><div class="ttname"><a href="class_player_frame.html">PlayerFrame</a></div><div class="ttdoc">Classe héritant de la classe mère Frame spécifique aux cases pouvant contenir des joueurs...</div><div class="ttdef"><b>Definition:</b> Frame.h:71</div></div>
+<div class="ttc" id="class_wall_frame_html_a665db28c8b78cb6f6e669100b5f6f17e"><div class="ttname"><a href="class_wall_frame.html#a665db28c8b78cb6f6e669100b5f6f17e">WallFrame::toString</a></div><div class="ttdeci">std::string toString()</div><div class="ttdoc">Affiche si il y a un mur ou pas. </div><div class="ttdef"><b>Definition:</b> Frame.cpp:61</div></div>
+<div class="ttc" id="class_frame_html"><div class="ttname"><a href="class_frame.html">Frame</a></div><div class="ttdoc">Class gérant tout ce qui concerne les cases du plateau. </div><div class="ttdef"><b>Definition:</b> Frame.h:9</div></div>
+<div class="ttc" id="_side_8h_html_a8c0137d7160ad71b6ed265c53c99ed00"><div class="ttname"><a href="_side_8h.html#a8c0137d7160ad71b6ed265c53c99ed00">Side</a></div><div class="ttdeci">Side</div><div class="ttdoc">Enumération des points cardinaux que peuvent posseder les cases. </div><div class="ttdef"><b>Definition:</b> Side.h:13</div></div>
+<div class="ttc" id="class_player_frame_html_a5115c273cf6a0889a8d41e2e39d4dc76"><div class="ttname"><a href="class_player_frame.html#a5115c273cf6a0889a8d41e2e39d4dc76">PlayerFrame::getSide</a></div><div class="ttdeci">Side getSide()</div><div class="ttdoc">Donne la direction orienté de la case. C&#39;est-à-dire sur quel côté du taleau elle se trouve par rappor...</div><div class="ttdef"><b>Definition:</b> Frame.h:121</div></div>
+<div class="ttc" id="class_wall_frame_html_a071ae9dc08bebf433017ba18ffb324b5"><div class="ttname"><a href="class_wall_frame.html#a071ae9dc08bebf433017ba18ffb324b5">WallFrame::empty</a></div><div class="ttdeci">void empty()</div><div class="ttdoc">Libère la case de son mur. </div><div class="ttdef"><b>Definition:</b> Frame.h:178</div></div>
+<div class="ttc" id="class_wall_frame_html"><div class="ttname"><a href="class_wall_frame.html">WallFrame</a></div><div class="ttdoc">Classe hérite de la classe mère Frame spécifique aux cases pouvant contenir des murs. </div><div class="ttdef"><b>Definition:</b> Frame.h:132</div></div>
+<div class="ttc" id="class_player_frame_html_a117b55ac4b02c463fd4c0a30dd1a2b3f"><div class="ttname"><a href="class_player_frame.html#a117b55ac4b02c463fd4c0a30dd1a2b3f">PlayerFrame::isFree</a></div><div class="ttdeci">bool isFree()</div><div class="ttdoc">Indique si il y n&#39;y a pas de pion sur la case. </div><div class="ttdef"><b>Definition:</b> Frame.cpp:57</div></div>
+<div class="ttc" id="_side_8h_html"><div class="ttname"><a href="_side_8h.html">Side.h</a></div><div class="ttdoc">l&#39;ensemble des points cardinaux. </div></div>
+<div class="ttc" id="class_player_frame_html_a3c98bc714e6dcef012b2e6e84d136c18"><div class="ttname"><a href="class_player_frame.html#a3c98bc714e6dcef012b2e6e84d136c18">PlayerFrame::empty</a></div><div class="ttdeci">void empty()</div><div class="ttdoc">Vide la case de son pion. </div><div class="ttdef"><b>Definition:</b> Frame.h:125</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>
