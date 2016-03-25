@@ -1,4 +1,4 @@
-#include "QuoridorConsole.h"
+﻿#include "QuoridorConsole.h"
 #include "keyboard.hpp"
 #include <iostream>
 
@@ -62,6 +62,8 @@ void QuoridorConsole::play(){
             }
         }
     }
+    cout << game_->getPlayer(game_->getCurrentPlayer()-1%game_->getNbP()).getName() << " a gagne en "
+         << toString(game_->getPlayer(game_->getCurrentPlayer()-1%game_->getNbP()).getObjective()) << endl;
 }
 void QuoridorConsole::movePion(){
     bool moveAccepted = false;

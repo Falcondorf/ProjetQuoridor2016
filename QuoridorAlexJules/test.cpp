@@ -2,7 +2,7 @@
 #include <algorithm>
 #include "QuoridorConsole.h"
 #include "keyboard.hpp"
-#include "test.h"
+#include "Test.h"
 #include "QuoridorExceptions.h"
 
 using namespace std;

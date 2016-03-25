@@ -33,7 +33,7 @@ Board::Board(unsigned len) : len_(len)
 }
 
 Board::~Board(){
-    unsigned size=getLen();
+    unsigned size=getLen()*2-1;
     for (unsigned i=0;i<size;i++){
         for (unsigned j=0;j<size;j++){
             delete plateau_[i][j];

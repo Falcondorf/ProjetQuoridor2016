@@ -1,8 +1,8 @@
-#include <iostream>
+﻿#include <iostream>
 #include <algorithm>
 #include "QuoridorConsole.h"
 #include "keyboard.hpp"
-#include "test.h"
+#include "Test.h"
 
 using namespace std;
 using namespace nvs;

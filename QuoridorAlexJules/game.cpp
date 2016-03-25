@@ -1,4 +1,4 @@
-#include "Game.h"
+﻿#include "Game.h"
 #include "QuoridorExceptions.h"
 #include <iostream>
 
@@ -311,17 +311,10 @@ void Game::next(){
     }
 }
 bool Game::isOver(){
-    /*if(possiblePositions(getPlayer(getCurrentPlayer())).empty()){
-        cout << "Match nul" << endl;
-        return true;
-    }else {*/
         for (unsigned i=1;i<= getNbP();i++ ){
             if(victoryCond(getPlayer(i))){
-                cout << getPlayer(i).getName() << " a gagne en "
-                     << toString(getPlayer(i).getObjective()) << endl;
                 return true;
             }
          }
-    //}
     return false;
 }
